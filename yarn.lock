@@ -2437,6 +2437,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shophub/ts-config@workspace:^, @shophub/ts-config@workspace:tools/config-ts":
+  version: 0.0.0-use.local
+  resolution: "@shophub/ts-config@workspace:tools/config-ts"
+  languageName: unknown
+  linkType: soft
+
 "@sinclair/typebox@npm:^0.25.16":
   version: 0.25.24
   resolution: "@sinclair/typebox@npm:0.25.24"
@@ -4152,6 +4158,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
+    "@shophub/ts-config": "workspace:^"
     "@types/node": 20.3.1
     "@types/react": 18.2.13
     "@types/react-dom": 18.2.6
@@ -4974,6 +4981,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "client@workspace:apps/client"
   dependencies:
+    "@shophub/ts-config": "workspace:^"
     "@types/node": 20.3.1
     "@types/react": 18.2.13
     "@types/react-dom": 18.2.6
@@ -11490,6 +11498,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "workshop@workspace:apps/workshop"
   dependencies:
+    "@shophub/ts-config": "workspace:^"
     "@storybook/addon-essentials": ^7.0.23
     "@storybook/addon-interactions": ^7.0.23
     "@storybook/addon-links": ^7.0.23

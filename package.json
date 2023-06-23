@@ -5,7 +5,8 @@
   "author": "minsoo-web <zlemzlem5656@naver.com>",
   "workspaces": [
     "apps/*",
-    "tools/*"
+    "tools/*",
+    "packages/*"
   ],
   "scripts": {
     "client": "yarn workspace client",

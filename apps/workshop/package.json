@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@shophub/ts-config": "workspace:^",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "^7.0.23",
     "@storybook/addon-links": "^7.0.23",

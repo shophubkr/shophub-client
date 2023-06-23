@@ -26,11 +26,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "workshop",\
         "reference": "workspace:apps/workshop"\
+      },\
+      {\
+        "name": "@shophub/ts-config",\
+        "reference": "workspace:tools/config-ts"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@shophub/ts-config", ["workspace:tools/config-ts"]],\
       ["admin", ["workspace:apps/admin"]],\
       ["client", ["workspace:apps/client"]],\
       ["shophub-client", ["workspace:."]],\
@@ -4855,6 +4860,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@shophub/ts-config", [\
+        ["workspace:tools/config-ts", {\
+          "packageLocation": "./tools/config-ts/",\
+          "packageDependencies": [\
+            ["@shophub/ts-config", "workspace:tools/config-ts"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@sinclair/typebox", [\
         ["npm:0.25.24", {\
           "packageLocation": "./.yarn/cache/@sinclair-typebox-npm-0.25.24-d04d0f45ef-10219c58f4.zip/node_modules/@sinclair/typebox/",\
@@ -7675,6 +7689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/admin/",\
           "packageDependencies": [\
             ["admin", "workspace:apps/admin"],\
+            ["@shophub/ts-config", "workspace:tools/config-ts"],\
             ["@types/node", "npm:20.3.1"],\
             ["@types/react", "npm:18.2.13"],\
             ["@types/react-dom", "npm:18.2.6"],\
@@ -8643,6 +8658,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/client/",\
           "packageDependencies": [\
             ["client", "workspace:apps/client"],\
+            ["@shophub/ts-config", "workspace:tools/config-ts"],\
             ["@types/node", "npm:20.3.1"],\
             ["@types/react", "npm:18.2.13"],\
             ["@types/react-dom", "npm:18.2.6"],\
@@ -16374,6 +16390,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./apps/workshop/",\
           "packageDependencies": [\
             ["workshop", "workspace:apps/workshop"],\
+            ["@shophub/ts-config", "workspace:tools/config-ts"],\
             ["@storybook/addon-essentials", "virtual:463ebc9d6e1447f18e79c5d592d338f14540e3aee2735cfa3ebf83489534c5034f9b719c4d9b9f9b86343ea7484e4e5937d7f6a423e9860c959023d32adf2fd4#npm:7.0.23"],\
             ["@storybook/addon-interactions", "virtual:463ebc9d6e1447f18e79c5d592d338f14540e3aee2735cfa3ebf83489534c5034f9b719c4d9b9f9b86343ea7484e4e5937d7f6a423e9860c959023d32adf2fd4#npm:7.0.23"],\
             ["@storybook/addon-links", "virtual:463ebc9d6e1447f18e79c5d592d338f14540e3aee2735cfa3ebf83489534c5034f9b719c4d9b9f9b86343ea7484e4e5937d7f6a423e9860c959023d32adf2fd4#npm:7.0.23"],\

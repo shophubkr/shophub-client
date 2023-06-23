@@ -17,6 +17,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@shophub/ts-config": "workspace:^",
     "typescript": "5.1.3"
   }
 }
