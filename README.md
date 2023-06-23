@@ -19,6 +19,7 @@
   - Github action
 
 - client
+
   - SSR: NextJS@13.4.7 (with swc)
   - Chakra UI
   - Typescript
@@ -26,6 +27,17 @@
     - react-query
     - recoil
   - Storybook
+
+- Management
+
+  - yarn (berry with P'n'P)
+  - mono repo with yarn
+  - husky with lint-staged
+
+- formatting and lint
+
+  - lint: eslint (airbnb base)
+  - formatting: prettier
 
 ## 👨‍⚖️ Conventions
 
