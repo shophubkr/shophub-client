@@ -9,10 +9,20 @@
   ],
   "scripts": {
     "client": "yarn workspace client",
-    "admin": "yarn workspace admin"
+    "admin": "yarn workspace admin",
+    "workshop": "yarn workspace workshop"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "packageManager": "yarn@3.6.0",
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.23",
+    "@storybook/blocks": "^7.0.23",
+    "@storybook/react": "^7.0.23",
+    "@storybook/react-vite": "^7.0.23",
+    "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "8.43.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "13.4.7",
@@ -26,6 +36,7 @@
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "latest",
-    "typescript": "5.1.3"
+    "typescript": "5.1.3",
+    "vite": "^4.3.9"
   }
 }
