@@ -6,5 +6,6 @@ const buildEslintCommand = (filenames) =>
   `yarn lint ${filenames.map((f) => path.relative(process.cwd(), f)).join(" ")}`;
 
 module.exports = {
-  "./@{apps,packages}/**/.{js,jsx,ts,tsx}": [buildPrettierCommand, buildEslintCommand],
+  "./apps/**/.{ts,tsx}": [buildPrettierCommand, buildEslintCommand],
+  "./packages/**/.{ts,tsx}": [buildPrettierCommand, buildEslintCommand],
 };
