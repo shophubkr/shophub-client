@@ -1,0 +1,23 @@
+import { Box } from '@chakra-ui/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { {{ inputName }} } from './{{ inputName }}';
+
+const MetaInfo: ComponentMeta<typeof {{ inputName }}> = {
+  title: 'temp/{{ inputName }}',
+  component: {{ inputName }},
+  decorators: [
+    (S) => (
+      <Box margin={20}>
+        <S />
+      </Box>
+    ),
+  ],
+};
+
+export default MetaInfo;
+
+const Template: ComponentStory<typeof {{ inputName }}> = (args) => <{{ inputName }} {...args} />;
+
+export const _{{ inputName }} = Template.bind({});
+
+_{{ inputName }}.args = {};

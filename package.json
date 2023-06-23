@@ -1,0 +1,31 @@
+{
+  "name": "shophub-client",
+  "version": "0.1.0",
+  "repository": "https://github.com/shophubkr/shophub-client.git",
+  "author": "minsoo-web <zlemzlem5656@naver.com>",
+  "workspaces": [
+    "apps/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "client": "yarn workspace client",
+    "admin": "yarn workspace admin"
+  },
+  "packageManager": "yarn@3.6.0",
+  "devDependencies": {
+    "eslint": "8.43.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "13.4.7",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json-format": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "latest",
+    "typescript": "5.1.3"
+  }
+}
