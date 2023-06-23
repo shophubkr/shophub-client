@@ -72,6 +72,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-unused-imports", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:2.0.0"],\
             ["husky", "npm:8.0.3"],\
             ["lint-staged", "npm:13.2.2"],\
+            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.8.8"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:18.2.0"],\
@@ -13961,6 +13962,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["pinst", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/pinst-npm-3.0.0-5d2b6c1dda-4ae48a6a60.zip/node_modules/pinst/",\
+          "packageDependencies": [\
+            ["pinst", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["pirates", [\
         ["npm:4.0.6", {\
           "packageLocation": "./.yarn/cache/pirates-npm-4.0.6-a8ec571a43-46a65fefaf.zip/node_modules/pirates/",\
@@ -15120,6 +15130,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-unused-imports", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:2.0.0"],\
             ["husky", "npm:8.0.3"],\
             ["lint-staged", "npm:13.2.2"],\
+            ["pinst", "npm:3.0.0"],\
             ["prettier", "npm:2.8.8"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:18.2.0"],\
