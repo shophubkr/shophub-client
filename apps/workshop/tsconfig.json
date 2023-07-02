@@ -1,0 +1,5 @@
+{
+  "extends": "@shophub/ts-config/react-library.json",
+  "include": ["src", "stories"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

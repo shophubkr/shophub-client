@@ -1,0 +1,4 @@
+{
+  "extends": "@shophub/ts-config/node16.json",
+  "include": ["vite.config.ts"]
+}
