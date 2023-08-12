@@ -1,0 +1,7 @@
+{
+  "extends": "@shophub/ts-config/react-library.json",
+  "include": ["src", "@types"],
+  "compilerOptions": {
+    "jsxImportSource": "@emotion/react"
+  }
+}

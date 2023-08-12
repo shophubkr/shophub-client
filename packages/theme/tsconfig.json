@@ -1,0 +1,4 @@
+{
+  "extends": "@shophub/ts-config/react-library.json",
+  "include": ["src"]
+}
