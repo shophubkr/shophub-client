@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import * as S from "./Input.style";
 
 export interface InputProps {
@@ -7,9 +7,10 @@ export interface InputProps {
   color?: string;
   shape?: string;
   type?: string;
+  value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function Input({ ...restProps }: InputProps) {
+export default forwardRef(function Input({ ...restProps }: InputProps, ref) {
   return <S.Input {...restProps} />;
-}
+});

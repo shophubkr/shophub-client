@@ -2,36 +2,86 @@
 
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import Button from "~/Components/Button/Button";
-import FormEle from "~/Components/FormElement/FormEle";
-import RadioEle from "~/Components/FormElement/RadioEle";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import Button from "~/components/Button/Button";
+import FormElement from "../../_components/Form/FormElement";
 
 export default function SignUpSecond() {
+  const { control, handleSubmit } = useForm();
+  const router = useRouter();
   const searchParams = new URLSearchParams(window.location.search);
   const userType = searchParams.get("userType");
+
+  useEffect(() => {
+    router.refresh();
+  }, [router]);
+
+  const onSubmitHandler = async (data: any) => {
+    const { email, password, passwordConfirm, nickName, tel, businessNum } = data;
+
+    console.log(data);
+  };
 
   return (
     <S.Wrapper>
       <h3>회원 가입</h3>
-      <form>
-        <FormEle name="email" />
-        <FormEle name="password" />
-        <FormEle name="nickName" />
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <Controller
+          name="email"
+          control={control}
+          rules={{ required: "이메일을 입력해주세요." }}
+          render={({ field, fieldState: { error } }) => {
+            return <FormElement field={field} errors={error?.message} />;
+          }}
+        />
+        <Controller
+          name="password"
+          control={control}
+          rules={{ required: "비밀번호를 입력해주세요." }}
+          render={({ field, fieldState: { error } }) => {
+            return <FormElement field={field} errors={error?.message} />;
+          }}
+        />
+        <Controller
+          name="passwordConfirm"
+          control={control}
+          rules={{ required: "비밀번호를 입력해주세요." }}
+          render={({ field, fieldState: { error } }) => {
+            return <FormElement field={field} errors={error?.message} />;
+          }}
+        />
+        <Controller
+          name="nickName"
+          control={control}
+          rules={{ required: "닉네임을 입력해주세요." }}
+          render={({ field, fieldState: { error } }) => {
+            return <FormElement field={field} errors={error?.message} />;
+          }}
+        />
+
         {userType === "seller" && (
           <>
-            <FormEle name="tel" />
-            <FormEle name="businessNum" />
+            <Controller
+              name="tel"
+              control={control}
+              rules={{ required: "연락처를 입력해주세요." }}
+              render={({ field, fieldState: { error } }) => {
+                return <FormElement field={field} errors={error?.message} />;
+              }}
+            />
+            <Controller
+              name="businessNum"
+              control={control}
+              rules={{ required: "사업자 번호를 입력해주세요." }}
+              render={({ field, fieldState: { error } }) => {
+                return <FormElement field={field} errors={error?.message} />;
+              }}
+            />
           </>
         )}
-        <RadioContainer flexDirection="column">
-          <RadioEle size="small" name="overAgeAgree">
-            [필수] 만 14세 이상이며 모두 동의합니다.
-          </RadioEle>
-          <RadioEle size="small" name="sendAdsAgree">
-            [선택] 광고성 정보 수신에 모두 동의합니다.
-          </RadioEle>
-        </RadioContainer>
-        <S.StyledButton size="large" color="default" shape="default" type="submit" onClick={() => {}}>
+        <S.StyledButton size="large" type="submit">
           가입하기
         </S.StyledButton>
       </form>

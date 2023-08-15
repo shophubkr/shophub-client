@@ -4,6 +4,7 @@ import { type InputProps } from "./Input";
 
 const scaleCSS: { [key: string]: SerializedStyles } = {
   default: css`
+    width: 100%;
     height: 40px;
   `,
 
