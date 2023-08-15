@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ark-ui/react": "^0.11.0",
+    "@chakra-ui/next-js": "^2.1.5",
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@types/node": "20.3.1",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
+    "framer-motion": "^10.15.1",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
