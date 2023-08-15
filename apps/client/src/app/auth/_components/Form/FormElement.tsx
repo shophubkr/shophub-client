@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import Button from "~/components/Button/Button";
 import Input from "~/components/Input/Input";
 
@@ -23,7 +24,24 @@ export const Label: Record<string, string> = {
 };
 
 export default function FormElement({ field, errors }: FormEleProps) {
-  const { name } = field;
+  const { name, value } = field;
+  const [isBusiness, setIsBusiness] = useState(false);
+
+  // 사업자 상태 조회
+  const onBusinessApi = async (value: string) => {
+    try {
+      const res = await axios.post(
+        `https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=jLYDm8UrTI6O0xwYjloDybofTULlg9YFEVIbA8pyRkS78TmOmeB%2B%2FlVlBWBqqoOtBAiEn%2FyukJGWMuMJrMdt0w%3D%3D`,
+        { b_no: [value] },
+      );
+
+      if (res?.data.status_code === "OK") {
+        setIsBusiness(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <S.Wrapper style={{ marginBottom: name === "password" ? "8px" : "40px" }}>
@@ -34,8 +52,8 @@ export default function FormElement({ field, errors }: FormEleProps) {
 
         {/* 사업자번호 양식이라면 조회 버튼 생성 */}
         {name === "businessNum" && (
-          <S.StyledBtn size="small" color="enabled">
-            조회
+          <S.StyledBtn size="small" color="enabled" onClick={() => onBusinessApi(value)}>
+            {isBusiness ? "완료" : "조회"}
           </S.StyledBtn>
         )}
       </S.EleContainer>
