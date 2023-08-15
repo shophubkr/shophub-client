@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import Input from "../Input/Input";
+import Input from "~/components/Input/Input";
 
 export interface RadioProps {
   name: string;

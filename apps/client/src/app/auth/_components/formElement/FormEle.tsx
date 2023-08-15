@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from "~/components/Button/Button";
+import Input from "~/components/Input/Input";
 
 export interface FormEleProps {
   name: string;
@@ -47,23 +47,12 @@ export default function FormEle(props: FormEleProps) {
         >
           <S.StyledInput
             name={name}
-            scale="default"
-            color="default"
-            shape="default"
             type={name.includes("password") ? "password" : "text"}
             onChange={onInputChange}
             value={isInput}
           />
           {name === "password" && (
-            <S.StyledInput
-              name="passwordConfirm"
-              scale="default"
-              color="default"
-              shape="default"
-              type="password"
-              onChange={onOtherInputChange}
-              value={otherIsInput}
-            />
+            <S.StyledInput name="passwordConfirm" type="password" onChange={onOtherInputChange} value={otherIsInput} />
           )}
           {(name === "email" || name === "businessNum") && (
             <S.StyledButton size="small" color="enabled" shape="default">
