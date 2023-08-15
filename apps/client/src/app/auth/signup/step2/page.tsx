@@ -6,10 +6,22 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Button from "~/components/Button/Button";
+import CheckElement from "../../_components/Form/CheckElement";
 import FormElement from "../../_components/Form/FormElement";
 
 export default function SignUpSecond() {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+      nickName: "",
+      tel: "",
+      businessNum: "",
+      ageOverAgree: "",
+      sendAdsAgree: "",
+    },
+  });
   const router = useRouter();
   const searchParams = new URLSearchParams(window.location.search);
   const userType = searchParams.get("userType");
@@ -19,8 +31,7 @@ export default function SignUpSecond() {
   }, [router]);
 
   const onSubmitHandler = async (data: any) => {
-    const { email, password, passwordConfirm, nickName, tel, businessNum } = data;
-
+    const { email, password, userType, passwordConfirm, nickName, tel, businessNum, ageOverAgree, sendAdsAgree } = data;
     console.log(data);
   };
 
@@ -39,9 +50,8 @@ export default function SignUpSecond() {
         <Controller
           name="password"
           control={control}
-          rules={{ required: "비밀번호를 입력해주세요." }}
-          render={({ field, fieldState: { error } }) => {
-            return <FormElement field={field} errors={error?.message} />;
+          render={({ field }) => {
+            return <FormElement field={field} />;
           }}
         />
         <Controller
@@ -81,6 +91,33 @@ export default function SignUpSecond() {
             />
           </>
         )}
+
+        <S.CheckContainer>
+          <Controller
+            name="ageOverAgree"
+            control={control}
+            rules={{ required: "수신 동의해주세요." }}
+            render={({ field, fieldState: { error } }) => {
+              return (
+                <CheckElement field={field} errors={error?.message}>
+                  [필수] 만 14세 이상이며 모두 동의합니다.
+                </CheckElement>
+              );
+            }}
+          />
+          <Controller
+            name="sendAdsAgree"
+            control={control}
+            rules={{ required: "수신 동의해주세요." }}
+            render={({ field, fieldState: { error } }) => {
+              return (
+                <CheckElement field={field} errors={error?.message}>
+                  [선택] 광고성 정보 수신에 모두 동의합니다.
+                </CheckElement>
+              );
+            }}
+          />
+        </S.CheckContainer>
         <S.StyledButton size="large" type="submit">
           가입하기
         </S.StyledButton>
@@ -104,8 +141,9 @@ const Wrapper = styled.section`
   }
 `;
 
-const RadioContainer = styled(Flex)`
-  row-gap: 8px;
+const CheckContainer = styled(Flex)`
+  flex-direction: column;
+  margin-top: 48px;
 `;
 
 const StyledButton = styled(Button)`
@@ -114,6 +152,6 @@ const StyledButton = styled(Button)`
 
 const S = {
   Wrapper,
-  RadioContainer,
+  CheckContainer,
   StyledButton,
 };
