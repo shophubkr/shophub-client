@@ -5,13 +5,17 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import { Controller, useForm } from "react-hook-form";
 import Button from "~/components/Button/Button";
+import { Campaign } from "../_components/Campaign";
 import CheckElement from "../_components/Form/CheckElement";
 import FormElement from "../_components/Form/FormElement";
+import { SnsAccount } from "../_components/SnsAccount";
 
 export default function Login() {
-  const { control, handleSubmit } = useForm({ defaultValues: { email: "", password: "" } });
+  const { setValue, control, handleSubmit } = useForm({ defaultValues: { email: "", password: "", autoLogin: "" } });
 
-  const onSubmitHandler = () => {};
+  const onSubmitHandler = (data: any) => {
+    const { email, password } = data;
+  };
 
   return (
     <S.Wrapper>
@@ -32,24 +36,21 @@ export default function Login() {
         <Controller
           name="password"
           control={control}
-          rules={{ required: "이메일을 입력해주세요." }}
+          rules={{ required: "비밀번호를 입력해주세요." }}
           render={({ field, fieldState: { error: errors } }) => {
             return <FormElement field={field} errors={errors?.message} />;
           }}
         />
-        <Button size="large">로그인</Button>
+        <Button type="submit" size="large">
+          로그인
+        </Button>
 
-        <Flex justifyContent="space-between">
+        <Flex justifyContent="space-between" mt="16px">
           <Controller
-            name="password"
+            name="autoLogin"
             control={control}
-            rules={{ required: "이메일을 입력해주세요." }}
-            render={({ field, fieldState: { error: errors } }) => {
-              return (
-                <CheckElement field={field} errors={errors?.message}>
-                  자동 로그인
-                </CheckElement>
-              );
+            render={({ field }) => {
+              return <CheckElement field={field}>아이디 저장</CheckElement>;
             }}
           />
           <Link href="/auth/forget-password">
@@ -58,21 +59,11 @@ export default function Login() {
         </Flex>
       </form>
 
-      <S.SnsContainer>
-        <h6>간편 로그인</h6>
-        <Flex columnGap="8px">
-          <Button size="large">네이버</Button>
-          <Button size="large">카카오</Button>
-          <Button size="large">구글</Button>
-        </Flex>
-      </S.SnsContainer>
+      {/* 간편 로그인 */}
+      <SnsAccount />
 
-      <S.CampaignContainer justifyContent="center">
-        <p>아직 회원이 아니신가요?</p>
-        <Link href="/auth/signup/step1">
-          <p>회원가입</p>
-        </Link>
-      </S.CampaignContainer>
+      {/* 캠페인 문구 */}
+      <Campaign />
     </S.Wrapper>
   );
 }
@@ -80,27 +71,25 @@ export default function Login() {
 const Wrapper = styled.section`
   width: 80%;
   max-width: 312px;
+
+  & > form {
+    margin-top: 80px;
+
+    & > div:first-of-type {
+      margin-bottom: 16px !important;
+    }
+
+    & > button {
+      margin-top: 32px !important;
+    }
+  }
 `;
 
 const TitleContainer = styled.div`
   text-align: center;
 `;
 
-const SnsContainer = styled.div`
-  & > h6 {
-    text-align: center;
-  }
-`;
-
-const CampaignContainer = styled(Flex)`
-  & > p {
-    margin-right: 4px;
-  }
-`;
-
 const S = {
   Wrapper,
   TitleContainer,
-  SnsContainer,
-  CampaignContainer,
 };

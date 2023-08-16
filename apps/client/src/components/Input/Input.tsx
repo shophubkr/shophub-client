@@ -3,6 +3,7 @@ import * as S from "./Input.style";
 
 export interface InputProps {
   name: string;
+  placeholder?: string;
   id?: string;
   scale?: string;
   color?: string;

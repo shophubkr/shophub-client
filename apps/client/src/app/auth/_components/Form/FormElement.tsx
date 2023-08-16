@@ -18,6 +18,7 @@ export interface FormEleProps {
 export const Label: Record<string, string> = {
   email: "이메일 계정",
   password: "비밀번호",
+  passwordConfirm: "비밀번호 확인",
   nickName: "닉네임",
   tel: "연락처",
   businessNum: "사업자 등록번호",
@@ -26,6 +27,7 @@ export const Label: Record<string, string> = {
 export default function FormElement({ field, errors }: FormEleProps) {
   const { name, value } = field;
   const [isBusiness, setIsBusiness] = useState(false);
+  const location = window.location.href;
 
   // 사업자 상태 조회
   const onBusinessApi = async (value: string) => {
@@ -45,10 +47,10 @@ export default function FormElement({ field, errors }: FormEleProps) {
 
   return (
     <S.Wrapper style={{ marginBottom: name === "password" ? "8px" : "40px" }}>
-      {name !== "passwordConfirm" && <p>{Label[name]} *</p>}
+      {name !== "passwordConfirm" && location.includes("signup") && <p>{Label[name]} *</p>}
 
       <S.EleContainer flexDirection={name === "password" ? "column" : "row"} rowGap={name === "password" ? "8px" : "0"}>
-        <Input type={name.includes("password") ? "password" : "text"} {...field} />
+        <Input type={name.includes("password") ? "password" : "text"} placeholder={Label[name]} {...field} />
 
         {/* 사업자번호 양식이라면 조회 버튼 생성 */}
         {name === "businessNum" && (
@@ -58,7 +60,7 @@ export default function FormElement({ field, errors }: FormEleProps) {
         )}
       </S.EleContainer>
 
-      {errors && name !== "password" && <S.ErrorMsg>{errors}</S.ErrorMsg>}
+      {location.includes("signup") && name !== "password" && <S.ErrorMsg>{errors}</S.ErrorMsg>}
     </S.Wrapper>
   );
 }
