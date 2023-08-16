@@ -7,7 +7,7 @@ interface CheckEleProps extends FormEleProps {
   children: string | JSX.Element;
 }
 
-export default function CheckElement({ field, errors, children }: CheckEleProps) {
+export default function CheckElement({ field, children }: CheckEleProps) {
   const { name } = field;
 
   return (

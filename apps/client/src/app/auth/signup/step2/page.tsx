@@ -92,32 +92,23 @@ export default function SignUpSecond() {
           </>
         )}
 
-        <S.CheckContainer>
+        <Flex mt="48px" flexDir="column">
           <Controller
             name="ageOverAgree"
             control={control}
             rules={{ required: "수신 동의해주세요." }}
-            render={({ field, fieldState: { error } }) => {
-              return (
-                <CheckElement field={field} errors={error?.message}>
-                  [필수] 만 14세 이상이며 모두 동의합니다.
-                </CheckElement>
-              );
+            render={({ field }) => {
+              return <CheckElement field={field}>[필수] 만 14세 이상이며 모두 동의합니다.</CheckElement>;
             }}
           />
           <Controller
             name="sendAdsAgree"
             control={control}
-            rules={{ required: "수신 동의해주세요." }}
-            render={({ field, fieldState: { error } }) => {
-              return (
-                <CheckElement field={field} errors={error?.message}>
-                  [선택] 광고성 정보 수신에 모두 동의합니다.
-                </CheckElement>
-              );
+            render={({ field }) => {
+              return <CheckElement field={field}>[선택] 광고성 정보 수신에 모두 동의합니다.</CheckElement>;
             }}
           />
-        </S.CheckContainer>
+        </Flex>
         <S.StyledButton size="large" type="submit">
           가입하기
         </S.StyledButton>
@@ -141,17 +132,11 @@ const Wrapper = styled.section`
   }
 `;
 
-const CheckContainer = styled(Flex)`
-  flex-direction: column;
-  margin-top: 48px;
-`;
-
 const StyledButton = styled(Button)`
   margin-top: 16px;
 `;
 
 const S = {
   Wrapper,
-  CheckContainer,
   StyledButton,
 };
