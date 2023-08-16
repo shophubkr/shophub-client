@@ -17,12 +17,12 @@ const ForgetPw = () => {
         </Center>
       </Heading>
       <form onSubmit={onSubmitToEmail}>
-        <Center flexDir="column" mt="16px" w="312px" gap="32px">
+        <Center flexDir="column" mt="16px" w="312px" gap="48px">
           <Center flexDir="column">
             <span>인증받으신 이메일 주소로</span>
             <span>비밀번호 재설정 링크를 보내드립니다</span>
           </Center>
-          <Input name="email" placeholder="아이디(이메일 계정)을 입력해주세요" w="full" />
+          <Input name="email" placeholder="아이디(이메일 계정)을 입력해주세요" />
           <Button w="full">재설정 링크</Button>
         </Center>
       </form>
