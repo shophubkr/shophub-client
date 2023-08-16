@@ -4,7 +4,7 @@ export interface ButtonProps {
   size?: string;
   color?: string;
   shape?: string;
-  type?: "submit";
+  type?: "submit" | "button";
   children: string | JSX.Element;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;

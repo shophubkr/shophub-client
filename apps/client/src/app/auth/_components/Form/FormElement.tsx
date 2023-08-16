@@ -35,7 +35,9 @@ export default function FormElement({ field, errors }: FormEleProps) {
         { b_no: [value] },
       );
 
-      if (res?.data.status_code === "OK") {
+      const { data } = res.data;
+
+      if (data[0].b_no !== "") {
         setIsBusiness(true);
       }
     } catch (error) {
@@ -52,7 +54,7 @@ export default function FormElement({ field, errors }: FormEleProps) {
 
         {/* 사업자번호 양식이라면 조회 버튼 생성 */}
         {name === "businessNum" && (
-          <S.StyledBtn size="small" color="enabled" onClick={() => onBusinessApi(value)}>
+          <S.StyledBtn type="button" size="small" color="enabled" onClick={() => onBusinessApi(value)}>
             {isBusiness ? "완료" : "조회"}
           </S.StyledBtn>
         )}
