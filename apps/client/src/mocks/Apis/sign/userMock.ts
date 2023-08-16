@@ -7,6 +7,7 @@ export const userMock = [
     nickName: "been",
     tel: "010-1111-1111",
     businessNum: "000-11-22222",
+    ageOverAgree: true,
   },
   {
     userType: "seller",
@@ -15,5 +16,6 @@ export const userMock = [
     nickName: "any",
     tel: "010-1111-1111",
     businessNum: "000-55-12522",
+    ageOverAgree: true,
   },
 ];

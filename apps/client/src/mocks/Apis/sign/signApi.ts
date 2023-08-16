@@ -10,6 +10,8 @@ export interface SignUpBody {
   userType: string;
   tel?: string;
   businessNum?: string;
+  ageOverAgree: boolean;
+  sendAdsAgree?: boolean;
 }
 
 export interface SignInBody {
@@ -18,7 +20,8 @@ export interface SignInBody {
 }
 
 export const postSignUp = rest.post<SignUpBody>("/api/signup", (req, res, ctx) => {
-  const { userType, email, password, passwordConfirm, nickName, tel, businessNum } = req.body;
+  const { userType, email, password, passwordConfirm, nickName, tel, businessNum, ageOverAgree, sendAdsAgree } =
+    req.body;
   const user = userMock.find((db) => db.email === email || db.nickName === nickName) || undefined;
 
   return res(ctx.status(signUpResponse.Status(user)), ctx.json(signUpResponse.Message(user)));
