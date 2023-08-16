@@ -5,6 +5,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import type { PropsWithChildren } from "react";
 
 const Providers = ({ children }: PropsWithChildren) => {
+  import("../mocks");
+
   return (
     <CacheProvider>
       <ChakraProvider>{children}</ChakraProvider>
