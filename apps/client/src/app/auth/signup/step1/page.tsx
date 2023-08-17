@@ -7,30 +7,26 @@ import React, { useState } from "react";
 import Button from "~/components/Button/Button";
 
 export default function SignUpFirst() {
-  const [choiceUser, setChoiceUser] = useState({ userType: "" });
+  const [choiceUser, setChoiceUser] = useState<string>("");
 
   const onUserType = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { innerText } = e.target as HTMLButtonElement;
 
     if (innerText.includes("매장 손님") || innerText.includes("바이어")) {
-      setChoiceUser({
-        userType: "buyer",
-      });
+      setChoiceUser("buyer");
     }
 
     if (innerText.includes("매장 주인") || innerText.includes("셀러")) {
-      setChoiceUser({
-        userType: "seller",
-      });
+      setChoiceUser("seller");
     }
   };
 
   return (
     <S.Wrapper>
       <h3>회원 유형</h3>
-      <UserTypeContainer columnGap="8px" mt="80px">
-        <S.StyledButton onClick={onUserType} color={choiceUser?.userType === "buyer" ? "default" : "none"}>
+      <S.UserTypeContainer columnGap="8px" mt="80px">
+        <S.StyledButton onClick={onUserType} color={choiceUser === "buyer" ? "default" : "none"}>
           <Box>
             <h4>바이어</h4>
             <Flex justify="center" alignItems="center" mt="8px">
@@ -39,7 +35,7 @@ export default function SignUpFirst() {
             </Flex>
           </Box>
         </S.StyledButton>
-        <S.StyledButton onClick={onUserType} color={choiceUser?.userType === "seller" ? "default" : "none"}>
+        <S.StyledButton onClick={onUserType} color={choiceUser === "seller" ? "default" : "none"}>
           <Box>
             <h4>셀러</h4>
             <Flex justify="center" alignItems="center" mt="8px">
@@ -48,9 +44,9 @@ export default function SignUpFirst() {
             </Flex>
           </Box>
         </S.StyledButton>
-      </UserTypeContainer>
-      <Link href={{ pathname: "/auth/signup/step2", query: { userType: choiceUser?.userType } }}>
-        <Button size="large" disabled={choiceUser?.userType === ""}>
+      </S.UserTypeContainer>
+      <Link href={{ pathname: "/auth/signup/step2", query: { userType: choiceUser } }}>
+        <Button size="large" disabled={choiceUser === ""}>
           다음으로 가기
         </Button>
       </Link>
@@ -61,10 +57,7 @@ export default function SignUpFirst() {
 const Wrapper = styled.section`
   width: 80%;
   max-width: 312px;
-
-  & > h3 {
-    text-align: center;
-  }
+  text-align: center;
 `;
 
 const UserTypeContainer = styled(Flex)`
