@@ -5,3 +5,9 @@ export interface ModalProps {
   onConfirm: VoidFunction;
   onClose: VoidFunction;
 }
+
+export type EssentialModalProps = Pick<ModalProps, "type" | "text" | "onConfirm">;
+
+export interface ModalContextProps {
+  onOpenModal: (args: EssentialModalProps) => void;
+}
