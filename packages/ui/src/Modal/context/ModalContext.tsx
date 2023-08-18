@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 import { createContext, useState } from "react";
-import { Modal } from "..";
+import { Modal } from "../Modal";
 import type { EssentialModalProps, ModalContextProps, ModalProps } from "../Modal.types";
 
 const initialModalProps: ModalProps = {
