@@ -14,7 +14,7 @@ export const Background = styled.div`
   opacity: 0.5;
 `;
 
-export const Wrapper = styled.div`
+export const ModalWrapper = styled.div`
   width: 234px;
   height: 234px;
   display: flex;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0225);
 `;
 
-export const Container = styled.div`
+export const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +47,7 @@ export const Text = styled.p`
   line-height: 21px;
 `;
 
-export const BtnWrap = styled.section`
+export const ButtonWrap = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-between;
