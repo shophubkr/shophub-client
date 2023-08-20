@@ -18,7 +18,6 @@ export default meta;
 
 type Story = StoryObj<typeof Modal>;
 
-// 모달 사용법을 위해 버튼을 통해 모달을 여는 예제를 포함했습니다.
 const ModalSample = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const modal = useModal();
