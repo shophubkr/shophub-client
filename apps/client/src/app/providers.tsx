@@ -8,6 +8,7 @@ import { useState, type PropsWithChildren } from "react";
 
 export const Providers = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(() => new QueryClient());
+  import("../mocks");
 
   return (
     <QueryClientProvider client={queryClient}>
