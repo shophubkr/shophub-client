@@ -1,11 +1,11 @@
+import type { PropsWithChildren } from "react";
 import * as S from "./Button.style";
 
-export interface ButtonProps {
+export interface ButtonProps extends PropsWithChildren {
   size?: string;
   color?: string;
   shape?: string;
   type?: "submit" | "button";
-  children: string | JSX.Element;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }
