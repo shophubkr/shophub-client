@@ -5,7 +5,7 @@ export const useModal = () => {
   const { onOpenModal } = useContext(ModalContext);
 
   if (onOpenModal === (() => {})) {
-    throw new Error("onOpenModal is not working.");
+    throw new Error("useModal should be used within ModalContext.Provider");
   }
 
   return { open: onOpenModal };
