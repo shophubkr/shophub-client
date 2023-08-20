@@ -3,12 +3,9 @@ import { colors } from "@shophub/theme/src/token";
 
 export const Background = styled.div`
   position: fixed;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -18,8 +15,6 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  position: relative;
-  z-index: 2;
   width: 234px;
   height: 234px;
   display: flex;
@@ -49,6 +44,7 @@ export const Text = styled.p`
   margin-bottom: 24px;
   white-space: normal;
   text-align: center;
+  line-height: 21px;
 `;
 
 export const BtnWrap = styled.section`
