@@ -28,6 +28,10 @@
     "@shophub/ts-config": "workspace:^",
     "@tanstack/react-query-devtools": "^4.32.1",
     "eslint": "8.43.0",
+    "msw": "^1.2.3",
     "typescript": "5.1.3"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
