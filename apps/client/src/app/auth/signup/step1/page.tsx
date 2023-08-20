@@ -1,24 +1,24 @@
 "use client";
 
 import { Box, Flex } from "@chakra-ui/react";
-import styled from "@emotion/styled";
 import Link from "next/link";
 import React, { useState } from "react";
-import Button from "~/components/Button/Button";
+import { Button } from "~/components";
+import * as S from "./page.style";
 
-export default function SignUpFirst() {
-  const [choiceUser, setChoiceUser] = useState<string>("");
+const SignUpFirst = () => {
+  const [userChoice, setUserChoice] = useState<"buyer" | "seller" | null>(null);
 
   const onUserType = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { innerText } = e.target as HTMLButtonElement;
 
     if (innerText.includes("매장 손님") || innerText.includes("바이어")) {
-      setChoiceUser("buyer");
+      setUserChoice("buyer");
     }
 
     if (innerText.includes("매장 주인") || innerText.includes("셀러")) {
-      setChoiceUser("seller");
+      setUserChoice("seller");
     }
   };
 
@@ -26,7 +26,7 @@ export default function SignUpFirst() {
     <S.Wrapper>
       <h3>회원 유형</h3>
       <S.UserTypeContainer columnGap="8px" mt="80px">
-        <S.StyledButton onClick={onUserType} color={choiceUser === "buyer" ? "default" : "none"}>
+        <S.StyledButton onClick={onUserType} color={userChoice === "buyer" ? "default" : "none"}>
           <Box>
             <h4>바이어</h4>
             <Flex justify="center" alignItems="center" mt="8px">
@@ -35,7 +35,7 @@ export default function SignUpFirst() {
             </Flex>
           </Box>
         </S.StyledButton>
-        <S.StyledButton onClick={onUserType} color={choiceUser === "seller" ? "default" : "none"}>
+        <S.StyledButton onClick={onUserType} color={userChoice === "seller" ? "default" : "none"}>
           <Box>
             <h4>셀러</h4>
             <Flex justify="center" alignItems="center" mt="8px">
@@ -45,35 +45,13 @@ export default function SignUpFirst() {
           </Box>
         </S.StyledButton>
       </S.UserTypeContainer>
-      <Link href={{ pathname: "/auth/signup/step2", query: { userType: choiceUser } }}>
-        <Button size="large" disabled={choiceUser === ""}>
+      <Link href={{ pathname: "/auth/signup/step2", query: { userType: userChoice } }}>
+        <Button size="large" disabled={userChoice === null}>
           다음으로 가기
         </Button>
       </Link>
     </S.Wrapper>
   );
-}
-
-const Wrapper = styled.section`
-  width: 80%;
-  max-width: 312px;
-  text-align: center;
-`;
-
-const UserTypeContainer = styled(Flex)`
-  width: 100%;
-  height: 149px;
-`;
-
-const StyledButton = styled(Button)`
-  width: 100%;
-  height: 149px;
-  margin-top: 0;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-`;
-
-const S = {
-  Wrapper,
-  UserTypeContainer,
-  StyledButton,
 };
+
+export default SignUpFirst;
