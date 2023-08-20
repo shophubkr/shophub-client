@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 import axios from "axios";
 import { useState } from "react";
-import Button from "~/components/Button/Button";
+import { Button } from "~/components/Button/Button";
 import type { FormEleProps } from "./FormElement";
 
-export function BusinessApiButton({ field }: FormEleProps) {
+export const BusinessApiButton = ({ field }: FormEleProps) => {
   const [isBusiness, setIsBusiness] = useState(false);
   const { value } = field;
 
@@ -28,7 +28,7 @@ export function BusinessApiButton({ field }: FormEleProps) {
       {isBusiness ? "완료" : "조회"}
     </StyledButton>
   );
-}
+};
 
 const StyledButton = styled(Button)`
   margin: 0;

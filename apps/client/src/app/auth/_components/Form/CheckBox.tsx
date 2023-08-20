@@ -1,9 +1,9 @@
 import { Flex, FormLabel } from "@chakra-ui/react";
 import type { PropsWithChildren } from "react";
-import Input from "~/components/Input/Input";
+import { Input } from "~/components/Input/Input";
 import type { FormEleProps } from "./FormElement";
 
-export function CheckBox({ field, children }: PropsWithChildren<FormEleProps>) {
+export const CheckBox = ({ field, children }: PropsWithChildren<FormEleProps>) => {
   const { name } = field;
 
   return (
@@ -14,4 +14,4 @@ export function CheckBox({ field, children }: PropsWithChildren<FormEleProps>) {
       </Flex>
     </FormLabel>
   );
-}
+};

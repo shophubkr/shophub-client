@@ -10,6 +10,6 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-export default function Button({ children, ...restProps }: ButtonProps) {
+export const Button = ({ children, ...restProps }: ButtonProps) => {
   return <S.Button {...restProps}>{children}</S.Button>;
-}
+};

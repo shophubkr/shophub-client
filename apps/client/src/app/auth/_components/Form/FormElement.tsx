@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import type { PropsWithChildren } from "react";
-import Button from "~/components/Button/Button";
-import Input from "~/components/Input/Input";
+import { Button } from "~/components/Button/Button";
+import { Input } from "~/components/Input/Input";
 
 export interface FormEleProps {
   field: {
@@ -14,7 +14,7 @@ export interface FormEleProps {
   errors?: string;
 }
 
-export function FormElement({ field, errors, children }: PropsWithChildren<FormEleProps>) {
+export const FormElement = ({ field, errors, children }: PropsWithChildren<FormEleProps>) => {
   const { name } = field;
 
   return (
@@ -24,7 +24,7 @@ export function FormElement({ field, errors, children }: PropsWithChildren<FormE
       {errors && name !== "password" && <S.ErrorMsg>{errors}</S.ErrorMsg>}
     </Flex>
   );
-}
+};
 
 const StyledBtn = styled(Button)`
   margin-top: 0;
