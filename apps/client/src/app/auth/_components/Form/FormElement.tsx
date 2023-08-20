@@ -1,34 +1,25 @@
-import { Flex } from "@chakra-ui/react";
+import type { CustomFormProps } from "@auth/_types/types";
+import { Flex, FormLabel } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import type { PropsWithChildren } from "react";
-import { Button } from "~/components/Button/Button";
-import { Input } from "~/components/Input/Input";
+import { useController } from "react-hook-form";
+import { Input } from "~/components";
 
-export interface FormEleProps {
-  field: {
-    name: string;
-    value: string;
-    onChange: VoidFunction;
-    onBlur: VoidFunction;
-  };
-  errors?: string;
-}
-
-export const FormElement = ({ field, errors, children }: PropsWithChildren<FormEleProps>) => {
-  const { name } = field;
+export const FormElement = ({ control, name, label }: CustomFormProps) => {
+  const {
+    field,
+    fieldState: { error: errors },
+  } = useController({ control, name, rules: { required: "필수값" } });
 
   return (
-    <Flex width="100%" position="relative" flexDir="column" rowGap="8px" mb={children === "비밀번호" ? "-32px" : ""}>
-      {children && <p>{children} *</p>}
+    <Flex width="100%" position="relative" flexDir="column" rowGap="8px">
+      <FormLabel htmlFor={name} fontSize="14px">
+        {label} *
+      </FormLabel>
       <Input type={name.includes("password") ? "password" : "text"} {...field} />
-      {errors && name !== "password" && <S.ErrorMsg>{errors}</S.ErrorMsg>}
+      {errors && <S.ErrorMsg>{errors.message}</S.ErrorMsg>}
     </Flex>
   );
 };
-
-const StyledBtn = styled(Button)`
-  margin-top: 0;
-`;
 
 const ErrorMsg = styled.div`
   position: absolute;
@@ -39,6 +30,5 @@ const ErrorMsg = styled.div`
 `;
 
 const S = {
-  StyledBtn,
   ErrorMsg,
 };

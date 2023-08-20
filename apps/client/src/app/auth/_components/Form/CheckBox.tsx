@@ -1,10 +1,10 @@
+import type { CustomFormProps } from "@auth/_types/types";
 import { Flex, FormLabel } from "@chakra-ui/react";
-import type { PropsWithChildren } from "react";
-import { Input } from "~/components/Input/Input";
-import type { FormEleProps } from "./FormElement";
+import { useController } from "react-hook-form";
+import { Input } from "~/components";
 
-export const CheckBox = ({ field, children }: PropsWithChildren<FormEleProps>) => {
-  const { name } = field;
+export const CheckBox = ({ control, name, children }: CustomFormProps) => {
+  const { field } = useController({ control, name, rules: { required: "필수값" } });
 
   return (
     <FormLabel htmlFor={name} mb="0">
