@@ -6,7 +6,7 @@ import { typeToIcon } from "./Modal.constants";
 import * as Styled from "./Modal.styles";
 import type { ModalProps } from "./Modal.types";
 
-export const Modal = ({ type = "positive", isOpen, text, onConfirm, onClose }: ModalProps) => {
+export const Modal = ({ type = "positive", isOpen, title, onConfirm, onClose }: ModalProps) => {
   const onConfirmAndClose = () => {
     onConfirm();
     onClose();
@@ -26,7 +26,7 @@ export const Modal = ({ type = "positive", isOpen, text, onConfirm, onClose }: M
                   >
                     {typeToIcon[type].icon}
                   </span>
-                  <Styled.Text>{text}</Styled.Text>
+                  <Styled.Text>{title}</Styled.Text>
                   {type === "warning" ? (
                     <Styled.ButtonWrap>
                       <Styled.Button onClick={onClose}>아니오</Styled.Button>
