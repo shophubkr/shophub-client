@@ -40,13 +40,12 @@ export const ButtonToModal: Story = {
 };
 
 export const Positive: Story = {
+  args: {
+    type: "positive",
+    text: "테스트 모달입니다.",
+    isOpen: true,
+    onConfirm: () => {},
+    onClose: () => {},
+  },
   render: (args) => <Modal {...args} />,
-};
-
-Positive.args = {
-  type: "positive",
-  text: "테스트 모달입니다.",
-  isOpen: true,
-  onConfirm: () => {},
-  onClose: () => {},
 };
