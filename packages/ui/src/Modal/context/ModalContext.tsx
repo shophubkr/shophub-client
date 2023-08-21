@@ -4,11 +4,13 @@ import { Modal } from "../Modal";
 import type { EssentialModalProps, ModalContextProps, ModalProps } from "../Modal.types";
 
 const initialModalProps: ModalProps = {
-  type: "positive",
-  text: "",
   isOpen: false,
+  props: {
+    type: "positive",
+    title: "",
+    onConfirm: () => {},
+  },
   onClose: () => {},
-  onConfirm: () => {},
 };
 
 export const ModalContext = createContext<ModalContextProps>({
@@ -18,8 +20,8 @@ export const ModalContext = createContext<ModalContextProps>({
 export const ModalProvider = ({ children }: PropsWithChildren) => {
   const [modalProps, setModalProps] = useState(initialModalProps);
 
-  const onOpenModal = (args: EssentialModalProps) => {
-    setModalProps((prev) => ({ ...prev, ...args, isOpen: true }));
+  const onOpenModal = (props: EssentialModalProps) => {
+    setModalProps((prev) => ({ ...prev, isOpen: true, props }));
   };
 
   const onClose = () => {

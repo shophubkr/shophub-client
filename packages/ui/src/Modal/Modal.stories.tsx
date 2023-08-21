@@ -6,12 +6,6 @@ import { useModal } from "./hooks/useModal";
 
 const meta: Meta<typeof Modal> = {
   component: Modal,
-  argTypes: {
-    type: {
-      control: "radio",
-      options: ["positive", "negative", "warning"],
-    },
-  },
 };
 
 export default meta;
@@ -23,7 +17,7 @@ const ModalSample = () => {
   const modal = useModal();
 
   const onOpenModal = () => {
-    modal.open({ type: "positive", text: "테스트 모달입니다.", onConfirm: () => alert("잘 실행되었네요!") });
+    modal.open({ type: "positive", title: "테스트 모달입니다.", onConfirm: () => alert("잘 실행되었네요!") });
   };
 
   return <button onClick={onOpenModal}>누르면 모달이 떠요</button>;
@@ -41,11 +35,13 @@ export const ButtonToModal: Story = {
 
 export const Positive: Story = {
   args: {
-    type: "positive",
-    text: "테스트 모달입니다.",
     isOpen: true,
-    onConfirm: () => {},
     onClose: () => {},
+    props: {
+      type: "positive",
+      title: "테스트 모달입니다.",
+      onConfirm: () => {},
+    },
   },
   render: (args) => <Modal {...args} />,
 };

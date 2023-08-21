@@ -6,7 +6,9 @@ import { typeToIcon } from "./Modal.constants";
 import * as Styled from "./Modal.styles";
 import type { ModalProps } from "./Modal.types";
 
-export const Modal = ({ type = "positive", isOpen, title, onConfirm, onClose }: ModalProps) => {
+export const Modal = ({ isOpen, props, onClose }: ModalProps) => {
+  const { title, type, onConfirm } = props;
+
   const onConfirmAndClose = () => {
     onConfirm();
     onClose();

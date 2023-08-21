@@ -1,12 +1,14 @@
 export interface ModalProps {
-  type: "positive" | "negative" | "warning";
   isOpen: boolean;
-  title: string;
-  onConfirm: VoidFunction;
+  props: {
+    type: "positive" | "negative" | "warning";
+    title: string;
+    onConfirm: VoidFunction;
+  };
   onClose: VoidFunction;
 }
 
-export type EssentialModalProps = Pick<ModalProps, "type" | "title" | "onConfirm">;
+export type EssentialModalProps = ModalProps["props"];
 
 export interface ModalContextProps {
   onOpenModal: (args: EssentialModalProps) => void;
