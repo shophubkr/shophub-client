@@ -24,14 +24,15 @@ export const ModalWrapper = styled.div`
   border-radius: 16px;
   background-color: ${colors.white};
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0225);
+  padding: 40px 33px 38px;
+  box-sizing: border-box;
 `;
 
-export const Body = styled.div`
+export const Body = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 40px 33px 38px;
+  justify-content: center;
 `;
 
 export const Icon = styled.div`
@@ -47,10 +48,10 @@ export const Text = styled.p`
   line-height: 21px;
 `;
 
-export const ButtonWrap = styled.section`
-  width: 100%;
+export const ButtonWrap = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 `;
 
 /** 퍼블리싱용입니다. */
