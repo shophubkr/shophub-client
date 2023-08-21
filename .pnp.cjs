@@ -64,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@storybook/react", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:7.0.23"],\
             ["@storybook/react-vite", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:7.0.23"],\
             ["@tanstack/eslint-plugin-query", "npm:4.32.5"],\
+            ["@tanstack/eslint-plugin-query", "npm:4.32.5"],\
             ["@typescript-eslint/eslint-plugin", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:5.60.0"],\
             ["@typescript-eslint/parser", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:5.60.0"],\
             ["@vitejs/plugin-react-swc", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:3.3.2"],\
@@ -14891,6 +14892,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["focus-trap", "npm:7.5.2"],\
             ["tabbable", "npm:6.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["follow-redirects", [\
+        ["npm:1.15.2", {\
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "npm:1.15.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4d7ce8ca3e1e44d82523fba2ad95e1be18c4e9f8dec6d551377587540da3ed75bd8bd3e812280309a3b90cfdb0560f076f3552a20839f7f15665207a4fbd588a#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-359bc4c55c/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "virtual:4d7ce8ca3e1e44d82523fba2ad95e1be18c4e9f8dec6d551377587540da3ed75bd8bd3e812280309a3b90cfdb0560f076f3552a20839f7f15665207a4fbd588a#npm:1.15.2"],\
+            ["@types/debug", null],\
+            ["debug", null]\
+          ],\
+          "packagePeers": [\
+            "@types/debug",\
+            "debug"\
           ],\
           "linkType": "HARD"\
         }]\
