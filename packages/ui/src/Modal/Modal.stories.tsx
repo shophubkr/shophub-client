@@ -45,3 +45,27 @@ export const Positive: Story = {
   },
   render: (args) => <Modal {...args} />,
 };
+
+export const Negative: Story = {
+  args: {
+    ...Positive.args,
+    props: {
+      type: "negative",
+      title: "테스트 모달입니다.",
+      onConfirm: () => {},
+    },
+  },
+  render: (args) => <Modal {...args} />,
+};
+
+export const Warning: Story = {
+  args: {
+    ...Positive.args,
+    props: {
+      type: "warning",
+      title: "테스트 모달입니다.",
+      onConfirm: () => {},
+    },
+  },
+  render: (args) => <Modal {...args} />,
+};
