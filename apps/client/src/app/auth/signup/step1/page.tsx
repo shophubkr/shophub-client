@@ -1,52 +1,52 @@
 "use client";
 
-import { Box, Flex } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import React, { useState } from "react";
-import { Button } from "~/components";
+import { useState } from "react";
 import * as S from "./page.style";
 
 const SignUpFirst = () => {
-  const [userChoice, setUserChoice] = useState<"buyer" | "seller" | null>(null);
+  const [userChoice, setUserChoice] = useState<"buyer" | "seller">();
 
-  const onUserType = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const { innerText } = e.target as HTMLButtonElement;
-
-    if (innerText.includes("매장 손님") || innerText.includes("바이어")) {
-      setUserChoice("buyer");
-    }
-
-    if (innerText.includes("매장 주인") || innerText.includes("셀러")) {
-      setUserChoice("seller");
-    }
+  const onClickUserType = (user: "buyer" | "seller") => {
+    setUserChoice(user);
   };
 
   return (
-    <S.Wrapper>
-      <h3>회원 유형</h3>
-      <S.UserTypeContainer columnGap="8px" mt="80px">
-        <S.StyledButton onClick={onUserType} color={userChoice === "buyer" ? "default" : "none"}>
-          <Box>
-            <h4>바이어</h4>
-            <Flex justify="center" alignItems="center" mt="8px">
-              <div className="material-icons">shopping_bag</div>
-              <p>매장 손님</p>
-            </Flex>
-          </Box>
+    <S.Wrapper w="80%" maxW="312px" margin="80px auto" flexDir="column">
+      <Heading as="h3" fontSize="24px">
+        회원 유형
+      </Heading>
+      <Flex w="100%" h="149px" columnGap="8px" mt="80px">
+        <S.StyledButton
+          onClick={() => onClickUserType("buyer")}
+          colorScheme={userChoice === "buyer" ? "facebook" : "gray"}
+          flexDir="column"
+        >
+          <Heading as="h4" fontSize="20px">
+            바이어
+          </Heading>
+          <Flex justify="center" alignItems="center" mt="8px" gap="4px">
+            <Text className="material-icons-outlined">shopping_bag</Text>
+            <Text fontSize="14px">매장 손님</Text>
+          </Flex>
         </S.StyledButton>
-        <S.StyledButton onClick={onUserType} color={userChoice === "seller" ? "default" : "none"}>
-          <Box>
-            <h4>셀러</h4>
-            <Flex justify="center" alignItems="center" mt="8px">
-              <div className="material-icons">sell</div>
-              <p>매장 주인</p>
-            </Flex>
-          </Box>
+        <S.StyledButton
+          onClick={() => onClickUserType("seller")}
+          colorScheme={userChoice === "seller" ? "facebook" : "gray"}
+          flexDir="column"
+        >
+          <Heading as="h4" fontSize="20px">
+            셀러
+          </Heading>
+          <Flex justify="center" alignItems="center" mt="8px" gap="4px">
+            <Text className="material-icons-outlined">sell</Text>
+            <Text fontSize="14px">매장 주인</Text>
+          </Flex>
         </S.StyledButton>
-      </S.UserTypeContainer>
-      <Link href={{ pathname: "/auth/signup/step2", query: { userType: userChoice } }}>
-        <Button size="large" disabled={userChoice === null}>
+      </Flex>
+      <Link href={{ pathname: "/auth/signup/step2", query: { userType: userChoice } }} style={{ width: "100%" }}>
+        <Button mt="48px" w="100%" h="48px" disabled={userChoice === null}>
           다음으로 가기
         </Button>
       </Link>

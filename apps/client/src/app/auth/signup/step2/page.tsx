@@ -2,13 +2,25 @@
 
 import { BusinessApiButton, CheckBox, FormElement } from "@auth/_components";
 import type { FormValues } from "@auth/_types/types";
-import { Flex } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as S from "./page.style";
 
 const SignUpSecond = () => {
-  const { control, handleSubmit } = useForm<FormValues>();
+  const { control, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+      nickName: "",
+      tel: "",
+      businessNum: "",
+      ageOverAgree: "",
+      sendAdsAgree: "",
+    },
+  });
+
   const { get } = useSearchParams();
   const userType = get("userType");
 
@@ -17,8 +29,10 @@ const SignUpSecond = () => {
   };
 
   return (
-    <S.Wrapper>
-      <h3>회원 가입</h3>
+    <S.Wrapper w="80%" maxW="312px" margin="80px auto" flexDir="column">
+      <Heading as="h3" fontSize="24px" textAlign="center">
+        회원 가입
+      </Heading>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <Flex flexDir="column" rowGap="40px">
           <FormElement control={control} name="email" label="이메일 계정" />
@@ -38,16 +52,16 @@ const SignUpSecond = () => {
         </Flex>
 
         <Flex mt="48px" flexDir="column" rowGap="8px">
-          <CheckBox control={control} name="ageOverAgree">
+          <CheckBox control={control} name="ageOverAgree" rules={{ required: "필수값" }}>
             [필수] 만 14세 이상이며 모두 동의합니다.
           </CheckBox>
           <CheckBox control={control} name="sendAdsAgree">
             [선택] 광고성 정보 수신에 모두 동의합니다.
           </CheckBox>
         </Flex>
-        <S.StyledButton size="large" type="submit">
+        <Button w="100%" h="48px" mt="48px" type="submit">
           가입하기
-        </S.StyledButton>
+        </Button>
       </form>
     </S.Wrapper>
   );

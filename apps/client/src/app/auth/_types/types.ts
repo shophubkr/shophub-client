@@ -16,5 +16,6 @@ export type FormValues = {
 export interface CustomFormProps extends PropsWithChildren {
   control: Control<FormValues>;
   name: keyof FormValues;
+  rules?: object;
   label?: string;
 }
