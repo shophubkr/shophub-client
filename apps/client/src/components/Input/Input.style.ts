@@ -6,6 +6,8 @@ const scaleCSS: { [key: string]: SerializedStyles } = {
   default: css`
     width: 100%;
     height: 40px;
+    font-size: 14px;
+    padding: 0 16px;
   `,
 
   small: css`

@@ -12,10 +12,10 @@ export const FormElement = ({ control, name, label }: CustomFormProps) => {
 
   return (
     <Flex width="100%" position="relative" flexDir="column" rowGap="8px">
-      <FormLabel htmlFor={name} fontSize="14px">
+      <FormLabel htmlFor={name} fontSize="14px" margin="0">
         {label} *
       </FormLabel>
-      <Input type={name.includes("password") ? "password" : "text"} {...field} />
+      <Input type={name.includes("password") ? "password" : "text"} placeholder={`${label} 입력`} {...field} />
       {errors && <S.ErrorMsg>{errors.message}</S.ErrorMsg>}
     </Flex>
   );
