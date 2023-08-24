@@ -1,9 +1,8 @@
 import type { CustomFormProps } from "@auth/_types/types";
-import styled from "@emotion/styled";
+import { Button } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { useController } from "react-hook-form";
-import { Button } from "~/components/Button/Button";
 
 export const BusinessApiButton = ({ control, name }: CustomFormProps) => {
   const { field } = useController({ control, name });
@@ -26,12 +25,8 @@ export const BusinessApiButton = ({ control, name }: CustomFormProps) => {
     }
   };
   return (
-    <StyledButton type="button" size="small" onClick={() => onBusinessApi(value)}>
+    <Button w="64px" type="button" onClick={() => onBusinessApi(value)}>
       {사업자번호가있는가 ? "완료" : "조회"}
-    </StyledButton>
+    </Button>
   );
 };
-
-const StyledButton = styled(Button)`
-  margin: 0;
-`;
