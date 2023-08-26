@@ -6,7 +6,7 @@ import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-export default function Login() {
+const Login = () => {
   const { control, handleSubmit } = useForm<FormValues>({ defaultValues: { email: "", password: "", autoLogin: "" } });
 
   const onSubmitHandler = (data: FormValues) => {
@@ -67,4 +67,6 @@ export default function Login() {
       </Flex>
     </Center>
   );
-}
+};
+
+export default Login;
