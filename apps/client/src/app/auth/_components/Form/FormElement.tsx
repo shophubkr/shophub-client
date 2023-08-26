@@ -1,99 +1,33 @@
-import { Flex } from "@chakra-ui/react";
+import type { CustomFormProps } from "@auth/_types/types";
+import { Flex, FormLabel, Input } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import axios from "axios";
-import React, { useState } from "react";
-import Button from "~/components/Button/Button";
-import Input from "~/components/Input/Input";
+import { useController } from "react-hook-form";
 
-export interface FormEleProps {
-  field: {
-    name: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBlur: () => void;
-  };
-  errors?: string;
-}
-
-export const Label: Record<string, string> = {
-  email: "이메일 계정",
-  password: "비밀번호",
-  passwordConfirm: "비밀번호 확인",
-  nickName: "닉네임",
-  tel: "연락처",
-  businessNum: "사업자 등록번호",
-};
-
-export default function FormElement({ field, errors }: FormEleProps) {
-  const { name, value } = field;
-  const [isBusiness, setIsBusiness] = useState(false);
-  const location = window.location.href;
-
-  // 사업자 상태 조회
-  const onBusinessApi = async (value: string) => {
-    try {
-      const res = await axios.post(
-        `https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=jLYDm8UrTI6O0xwYjloDybofTULlg9YFEVIbA8pyRkS78TmOmeB%2B%2FlVlBWBqqoOtBAiEn%2FyukJGWMuMJrMdt0w%3D%3D`,
-        { b_no: [value] },
-      );
-
-      if (res?.data.status_code === "OK") {
-        setIsBusiness(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+export const FormElement = ({ control, name, label, rules }: CustomFormProps) => {
+  const {
+    field,
+    fieldState: { error: errors },
+  } = useController({ control, name, rules });
 
   return (
-    <S.Wrapper style={{ marginBottom: name === "password" ? "8px" : "40px" }}>
-      {name !== "passwordConfirm" && location.includes("signup") && <p>{Label[name]} *</p>}
-
-      <S.EleContainer flexDirection={name === "password" ? "column" : "row"} rowGap={name === "password" ? "8px" : "0"}>
-        <Input type={name.includes("password") ? "password" : "text"} placeholder={Label[name]} {...field} />
-
-        {/* 사업자번호 양식이라면 조회 버튼 생성 */}
-        {name === "businessNum" && (
-          <S.StyledBtn size="small" color="enabled" onClick={() => onBusinessApi(value)}>
-            {isBusiness ? "완료" : "조회"}
-          </S.StyledBtn>
-        )}
-      </S.EleContainer>
-
-      {location.includes("signup") && name !== "password" && <S.ErrorMsg>{errors}</S.ErrorMsg>}
-    </S.Wrapper>
+    <Flex width="100%" position="relative" flexDir="column" rowGap="8px">
+      <FormLabel htmlFor={name} fontSize="14px" margin="0">
+        {label} {rules && "*"}
+      </FormLabel>
+      <Input type={name.includes("password") ? "password" : "text"} placeholder={`${label} 입력`} {...field} />
+      {errors && <S.ErrorMsg>{errors.message}</S.ErrorMsg>}
+    </Flex>
   );
-}
+};
 
-const Wrapper = styled.div`
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
-  & > p {
-    margin-bottom: 8px;
-  }
-`;
-
-const EleContainer = styled(Flex)`
-  align-items: center;
-  column-gap: 8px;
-`;
-
-const StyledBtn = styled(Button)`
-  margin-top: 0;
-`;
-
-const ErrorMsg = styled.span`
+const ErrorMsg = styled.div`
   position: absolute;
+  top: 100%;
   margin-top: 8px;
   font-size: 12px;
-  color: red;
+  color: #ff6565;
 `;
 
 const S = {
-  Wrapper,
-  EleContainer,
-  StyledBtn,
   ErrorMsg,
 };
