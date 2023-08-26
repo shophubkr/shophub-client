@@ -1,95 +1,70 @@
 "use client";
 
-import { Flex } from "@chakra-ui/react";
-import styled from "@emotion/styled";
+import { CheckBox, FormElement } from "@auth/_components";
+import type { FormValues } from "@auth/_types/types";
+import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { Controller, useForm } from "react-hook-form";
-import Button from "~/components/Button/Button";
-import { Campaign } from "../_components/Campaign";
-import CheckElement from "../_components/Form/CheckElement";
-import FormElement from "../_components/Form/FormElement";
-import { SnsAccount } from "../_components/SnsAccount";
+import { useForm } from "react-hook-form";
 
 export default function Login() {
-  const { setValue, control, handleSubmit } = useForm({ defaultValues: { email: "", password: "", autoLogin: "" } });
+  const { control, handleSubmit } = useForm<FormValues>({ defaultValues: { email: "", password: "", autoLogin: "" } });
 
-  const onSubmitHandler = (data: any) => {
-    const { email, password } = data;
+  const onSubmitHandler = (data: FormValues) => {
+    const { email, password, autoLogin } = data;
   };
 
   return (
-    <S.Wrapper>
-      <TitleContainer>
-        <p>입어보고 사자</p>
-        <h3>SHOPHUB</h3>
-      </TitleContainer>
+    <Center flexDirection="column" w="80%" maxW="312px" margin="80px auto" rowGap="80px">
+      <Box textAlign="center">
+        <Text>입어보고 사자</Text>
+        <Heading as="h3" fontSize="24px">
+          SHOPHUB
+        </Heading>
+      </Box>
 
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <Controller
-          name="email"
-          control={control}
-          rules={{ required: "이메일을 입력해주세요." }}
-          render={({ field, fieldState: { error: errors } }) => {
-            return <FormElement field={field} errors={errors?.message} />;
-          }}
-        />
-        <Controller
-          name="password"
-          control={control}
-          rules={{ required: "비밀번호를 입력해주세요." }}
-          render={({ field, fieldState: { error: errors } }) => {
-            return <FormElement field={field} errors={errors?.message} />;
-          }}
-        />
-        <Button type="submit" size="large">
-          로그인
-        </Button>
+      <Flex flexDir="column" w="100%" rowGap="80px">
+        <form onSubmit={handleSubmit(onSubmitHandler)}>
+          <Flex flexDir="column" rowGap="24px">
+            <FormElement control={control} name="email" label="이메일 계정" />
+            <FormElement control={control} name="password" label="비밀번호" />
+          </Flex>
+          <Button type="submit" w="100%" h="48px" mt="48px" fontSize="16px">
+            로그인
+          </Button>
+          <Flex justifyContent="space-between" mt="16px">
+            <CheckBox control={control} name="autoLogin">
+              자동 로그인
+            </CheckBox>
+            <Link href="/auth/forget-password">
+              <Text>비밀번호 찾기</Text>
+            </Link>
+          </Flex>
+        </form>
 
-        <Flex justifyContent="space-between" mt="16px">
-          <Controller
-            name="autoLogin"
-            control={control}
-            render={({ field }) => {
-              return <CheckElement field={field}>아이디 저장</CheckElement>;
-            }}
-          />
-          <Link href="/auth/forget-password">
-            <p>비밀번호 찾기</p>
-          </Link>
+        <Flex flexDir="column" rowGap="48px">
+          <Box textAlign="center">
+            <Heading as="h6" fontSize="16px">
+              간편 로그인
+            </Heading>
+            <Flex h="48px" justifyContent="space-between" columnGap="9px" mt="24px">
+              <Button w="100%" h="100%">
+                <a href="https://naver.com">네이버</a>
+              </Button>
+              <Button w="100%" h="100%">
+                <a href="https://kakao.com">카카오</a>
+              </Button>
+              <Button w="100%" h="100%">
+                <a href="https://google.com">구글</a>
+              </Button>
+            </Flex>
+          </Box>
+
+          <Center columnGap="8px">
+            <Text>아직 회원이 아니신가요?</Text>
+            <Link href="/auth/signup/step1">회원가입</Link>
+          </Center>
         </Flex>
-      </form>
-
-      {/* 간편 로그인 */}
-      <SnsAccount />
-
-      {/* 캠페인 문구 */}
-      <Campaign />
-    </S.Wrapper>
+      </Flex>
+    </Center>
   );
 }
-
-const Wrapper = styled.section`
-  width: 80%;
-  max-width: 312px;
-
-  & > form {
-    margin-top: 80px;
-
-    & > div:first-of-type {
-      margin-bottom: 16px !important;
-    }
-
-    & > button {
-      margin-top: 32px !important;
-    }
-  }
-`;
-
-const TitleContainer = styled.div`
-  text-align: center;
-`;
-
-const S = {
-  Wrapper,
-  TitleContainer,
-};
