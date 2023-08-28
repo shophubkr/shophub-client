@@ -8,4 +8,8 @@ export const signUpApi = {
       { b_no: [value] },
     );
   },
+
+  signUpResponse: (postData: object) => {
+    return axios.post("/api/signup", { postData });
+  },
 };

@@ -1,14 +1,13 @@
 import type { CustomFormProps } from "@auth/_types/types";
-import { Flex, FormLabel } from "@chakra-ui/react";
+import { Flex, FormLabel, Input } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useController } from "react-hook-form";
-import { Input } from "~/components";
 
-export const FormElement = ({ control, name, label }: CustomFormProps) => {
+export const FormElement = ({ control, name, label, rules }: CustomFormProps) => {
   const {
     field,
     fieldState: { error: errors },
-  } = useController({ control, name, rules: { required: "필수값" } });
+  } = useController({ control, name, rules });
 
   return (
     <Flex width="100%" position="relative" flexDir="column" rowGap="8px">
