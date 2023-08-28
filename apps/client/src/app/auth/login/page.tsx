@@ -5,12 +5,23 @@ import type { FormValues } from "@auth/_types/types";
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { LoginApi } from "../_state/server/api";
 
 const Login = () => {
   const { control, handleSubmit } = useForm<FormValues>({ defaultValues: { email: "", password: "", autoLogin: "" } });
 
-  const onSubmitHandler = (data: FormValues) => {
+  const onSubmitHandler = async (data: FormValues) => {
     const { email, password, autoLogin } = data;
+
+    try {
+      const res = await LoginApi.signInResponse({ email, password });
+      const user = res?.data;
+
+      // mocking test completed
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -20,3 +20,7 @@ export interface CustomFormProps extends PropsWithChildren {
   rules?: object;
   label?: string;
 }
+
+export interface APIResponse<T> {
+  data: T;
+}
