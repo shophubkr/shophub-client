@@ -12665,7 +12665,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:9845906954fdbefbb879db24fa8772d77a945dca59f459806df47a5b67245d4bc6502880b373cca7201062c81bea9f13f699f52de2004c037e79dbdbd5d97fb3#npm:13.4.7"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9845906954fdbefbb879db24fa8772d77a945dca59f459806df47a5b67245d4bc6502880b373cca7201062c81bea9f13f699f52de2004c037e79dbdbd5d97fb3#npm:18.2.0"],\
-            ["recoil", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:0.7.7"],\
             ["typescript", "patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"]\
           ],\
           "linkType": "SOFT"\
@@ -15651,21 +15650,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["headers-polyfill", [\
+        ["npm:3.1.2", {\
+          "packageLocation": "./.yarn/cache/headers-polyfill-npm-3.1.2-da04988de4-510ca9637e.zip/node_modules/headers-polyfill/",\
+          "packageDependencies": [\
+            ["headers-polyfill", "npm:3.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["hoist-non-react-statics", [\
         ["npm:3.3.2", {\
           "packageLocation": "./.yarn/cache/hoist-non-react-statics-npm-3.3.2-e7b709e6c1-b153827042.zip/node_modules/hoist-non-react-statics/",\
           "packageDependencies": [\
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react-is", "npm:16.13.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["headers-polyfill", [\
-        ["npm:3.1.2", {\
-          "packageLocation": "./.yarn/cache/headers-polyfill-npm-3.1.2-da04988de4-510ca9637e.zip/node_modules/headers-polyfill/",\
-          "packageDependencies": [\
-            ["headers-polyfill", "npm:3.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19007,6 +19006,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-clientside-effect", "virtual:9f7b771ee2c51e9d73abada85e1308017ffa256fba9ff26a34dcbd525443a1262274f83ef4e2e1474a746a618bd295a516895a69fb2431689e60acae13baaa95#npm:1.2.6"],\
             ["use-callback-ref", "virtual:9f7b771ee2c51e9d73abada85e1308017ffa256fba9ff26a34dcbd525443a1262274f83ef4e2e1474a746a618bd295a516895a69fb2431689e60acae13baaa95#npm:1.3.0"],\
             ["use-sidecar", "virtual:9f7b771ee2c51e9d73abada85e1308017ffa256fba9ff26a34dcbd525443a1262274f83ef4e2e1474a746a618bd295a516895a69fb2431689e60acae13baaa95#npm:1.1.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-hook-form", [\
+        ["npm:7.45.4", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.45.4-74d7882b08-1d84c78dad.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.45.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:7.45.4", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-afed3c74ee/0/cache/react-hook-form-npm-7.45.4-74d7882b08-1d84c78dad.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:7.45.4"],\
+            ["@types/react", "npm:18.2.13"],\
+            ["react", "npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react",\
