@@ -42,7 +42,6 @@ export const Positive: Story = {
       onConfirm: () => {},
     },
   },
-  render: (args) => <Modal {...args} />,
 };
 
 export const Negative: Story = {
@@ -54,7 +53,6 @@ export const Negative: Story = {
       onConfirm: () => {},
     },
   },
-  render: (args) => <Modal {...args} />,
 };
 
 export const Warning: Story = {
@@ -66,5 +64,4 @@ export const Warning: Story = {
       onConfirm: () => {},
     },
   },
-  render: (args) => <Modal {...args} />,
 };
