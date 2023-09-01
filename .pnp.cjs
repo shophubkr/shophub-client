@@ -59,6 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@ark-ui/react", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:0.11.0"],\
+            ["@ark-ui/react", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:0.11.0"],\
             ["@next/eslint-plugin-next", "npm:13.4.7"],\
             ["@storybook/addon-essentials", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:7.0.23"],\
             ["@storybook/blocks", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:7.0.23"],\
@@ -155,6 +156,65 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@zag-js/types", "npm:0.16.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f3fb545c3046cc17bd906156cc04c28e17aaf7999527f90f34ff55bd54875883aa26ccf3b72678272c75744eeb6e070ac5d7e4f30806209704cd0d3672f94e7a#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@ark-ui/react", [\
+        ["npm:0.11.0", {\
+          "packageLocation": "./.yarn/cache/@ark-ui-react-npm-0.11.0-1b79c8a5ea-d23163fd3e.zip/node_modules/@ark-ui/react/",\
+          "packageDependencies": [\
+            ["@ark-ui/react", "npm:0.11.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:0.11.0", {\
+          "packageLocation": "./.yarn/__virtual__/@ark-ui-react-virtual-13c2a57b7c/0/cache/@ark-ui-react-npm-0.11.0-1b79c8a5ea-d23163fd3e.zip/node_modules/@ark-ui/react/",\
+          "packageDependencies": [\
+            ["@ark-ui/react", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:0.11.0"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["@zag-js/accordion", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/avatar", "npm:0.15.0"],\
+            ["@zag-js/carousel", "npm:0.15.0"],\
+            ["@zag-js/checkbox", "npm:0.15.0"],\
+            ["@zag-js/color-picker", "npm:0.15.0"],\
+            ["@zag-js/color-utils", "npm:0.15.0"],\
+            ["@zag-js/combobox", "npm:0.15.0"],\
+            ["@zag-js/date-picker", "npm:0.15.0"],\
+            ["@zag-js/date-utils", "virtual:13c2a57b7cbae63338bba008fdfa8c2440e2b731a222f20f0c83955c63eb30e9d8bfd79921f30adf95c444994b9081928b63171fab508d602d32b46e42bb420e#npm:0.15.0"],\
+            ["@zag-js/dialog", "npm:0.15.0"],\
+            ["@zag-js/editable", "npm:0.15.0"],\
+            ["@zag-js/hover-card", "npm:0.15.0"],\
+            ["@zag-js/menu", "npm:0.15.0"],\
+            ["@zag-js/number-input", "npm:0.15.0"],\
+            ["@zag-js/pagination", "npm:0.15.0"],\
+            ["@zag-js/pin-input", "npm:0.15.0"],\
+            ["@zag-js/popover", "npm:0.15.0"],\
+            ["@zag-js/presence", "npm:0.15.0"],\
+            ["@zag-js/pressable", "npm:0.15.0"],\
+            ["@zag-js/radio-group", "npm:0.15.0"],\
+            ["@zag-js/range-slider", "npm:0.15.0"],\
+            ["@zag-js/rating-group", "npm:0.15.0"],\
+            ["@zag-js/react", "virtual:13c2a57b7cbae63338bba008fdfa8c2440e2b731a222f20f0c83955c63eb30e9d8bfd79921f30adf95c444994b9081928b63171fab508d602d32b46e42bb420e#npm:0.15.0"],\
+            ["@zag-js/select", "npm:0.15.0"],\
+            ["@zag-js/slider", "npm:0.15.0"],\
+            ["@zag-js/splitter", "npm:0.15.0"],\
+            ["@zag-js/switch", "npm:0.15.0"],\
+            ["@zag-js/tabs", "npm:0.15.0"],\
+            ["@zag-js/tags-input", "npm:0.15.0"],\
+            ["@zag-js/toast", "npm:0.15.0"],\
+            ["@zag-js/tooltip", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:bc0339b0d88a63c1ceff5e0a78ed3e0a306f503bf71260b8d7294ee9e75afce538b5d42a27dbc730ba8d539363703213d28c769b6c63ad96112eb3b6e0e50e4e#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react-dom",\
@@ -11150,6 +11210,254 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@zag-js/accordion", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-accordion-npm-0.15.0-e962da3be1-d469d492a3.zip/node_modules/@zag-js/accordion/",\
+          "packageDependencies": [\
+            ["@zag-js/accordion", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/anatomy", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-anatomy-npm-0.15.0-38a129baf8-006435d25f.zip/node_modules/@zag-js/anatomy/",\
+          "packageDependencies": [\
+            ["@zag-js/anatomy", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/aria-hidden", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-aria-hidden-npm-0.15.0-dbbfcfea04-af3c25b1a3.zip/node_modules/@zag-js/aria-hidden/",\
+          "packageDependencies": [\
+            ["@zag-js/aria-hidden", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/auto-resize", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-auto-resize-npm-0.15.0-d6bbaa8886-09f4ef3d11.zip/node_modules/@zag-js/auto-resize/",\
+          "packageDependencies": [\
+            ["@zag-js/auto-resize", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/avatar", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-avatar-npm-0.15.0-eed7f415fc-983a9e2f4a.zip/node_modules/@zag-js/avatar/",\
+          "packageDependencies": [\
+            ["@zag-js/avatar", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/mutation-observer", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/carousel", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-carousel-npm-0.15.0-ac6ce22ca1-262dd32dd8.zip/node_modules/@zag-js/carousel/",\
+          "packageDependencies": [\
+            ["@zag-js/carousel", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/checkbox", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-checkbox-npm-0.15.0-c28415b300-43371cba72.zip/node_modules/@zag-js/checkbox/",\
+          "packageDependencies": [\
+            ["@zag-js/checkbox", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/form-utils", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"],\
+            ["@zag-js/visually-hidden", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/color-picker", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-color-picker-npm-0.15.0-a710024a99-722ab28773.zip/node_modules/@zag-js/color-picker/",\
+          "packageDependencies": [\
+            ["@zag-js/color-picker", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/color-utils", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/form-utils", "npm:0.15.0"],\
+            ["@zag-js/numeric-range", "npm:0.15.0"],\
+            ["@zag-js/text-selection", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"],\
+            ["@zag-js/visually-hidden", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/color-utils", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-color-utils-npm-0.15.0-94f2560451-43f7c91d1e.zip/node_modules/@zag-js/color-utils/",\
+          "packageDependencies": [\
+            ["@zag-js/color-utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/combobox", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-combobox-npm-0.15.0-1abeef7206-f46e862732.zip/node_modules/@zag-js/combobox/",\
+          "packageDependencies": [\
+            ["@zag-js/combobox", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/aria-hidden", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/interact-outside", "npm:0.15.0"],\
+            ["@zag-js/live-region", "npm:0.15.0"],\
+            ["@zag-js/mutation-observer", "npm:0.15.0"],\
+            ["@zag-js/popper", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/core", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-core-npm-0.15.0-b3a8fc91fa-8e124e4fa6.zip/node_modules/@zag-js/core/",\
+          "packageDependencies": [\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/store", "npm:0.15.0"],\
+            ["klona", "npm:2.0.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/date-picker", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-date-picker-npm-0.15.0-63650b90bf-4d99b8f8e0.zip/node_modules/@zag-js/date-picker/",\
+          "packageDependencies": [\
+            ["@zag-js/date-picker", "npm:0.15.0"],\
+            ["@internationalized/date", "npm:3.4.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/date-utils", "virtual:63650b90bf5154cf3a625a3b3f96a16fbdb4562b090c7e267677d3856439a764cff0e90eda9ee6167a855cd6dbf60bb9be69341ea0307d78ddaebe0d50fc5399#npm:0.15.0"],\
+            ["@zag-js/dismissable", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/form-utils", "npm:0.15.0"],\
+            ["@zag-js/live-region", "npm:0.15.0"],\
+            ["@zag-js/popper", "npm:0.15.0"],\
+            ["@zag-js/text-selection", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/date-utils", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-date-utils-npm-0.15.0-6869c8f041-512ca52fe5.zip/node_modules/@zag-js/date-utils/",\
+          "packageDependencies": [\
+            ["@zag-js/date-utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:13c2a57b7cbae63338bba008fdfa8c2440e2b731a222f20f0c83955c63eb30e9d8bfd79921f30adf95c444994b9081928b63171fab508d602d32b46e42bb420e#npm:0.15.0", {\
+          "packageLocation": "./.yarn/__virtual__/@zag-js-date-utils-virtual-adc93ef53d/0/cache/@zag-js-date-utils-npm-0.15.0-6869c8f041-512ca52fe5.zip/node_modules/@zag-js/date-utils/",\
+          "packageDependencies": [\
+            ["@zag-js/date-utils", "virtual:13c2a57b7cbae63338bba008fdfa8c2440e2b731a222f20f0c83955c63eb30e9d8bfd79921f30adf95c444994b9081928b63171fab508d602d32b46e42bb420e#npm:0.15.0"],\
+            ["@internationalized/date", null],\
+            ["@types/internationalized__date", null]\
+          ],\
+          "packagePeers": [\
+            "@internationalized/date",\
+            "@types/internationalized__date"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:63650b90bf5154cf3a625a3b3f96a16fbdb4562b090c7e267677d3856439a764cff0e90eda9ee6167a855cd6dbf60bb9be69341ea0307d78ddaebe0d50fc5399#npm:0.15.0", {\
+          "packageLocation": "./.yarn/__virtual__/@zag-js-date-utils-virtual-56c7657ae5/0/cache/@zag-js-date-utils-npm-0.15.0-6869c8f041-512ca52fe5.zip/node_modules/@zag-js/date-utils/",\
+          "packageDependencies": [\
+            ["@zag-js/date-utils", "virtual:63650b90bf5154cf3a625a3b3f96a16fbdb4562b090c7e267677d3856439a764cff0e90eda9ee6167a855cd6dbf60bb9be69341ea0307d78ddaebe0d50fc5399#npm:0.15.0"],\
+            ["@internationalized/date", "npm:3.4.0"],\
+            ["@types/internationalized__date", null]\
+          ],\
+          "packagePeers": [\
+            "@internationalized/date",\
+            "@types/internationalized__date"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/dialog", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-dialog-npm-0.15.0-5a2686be7d-6b157e3ecf.zip/node_modules/@zag-js/dialog/",\
+          "packageDependencies": [\
+            ["@zag-js/dialog", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/aria-hidden", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dismissable", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/remove-scroll", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"],\
+            ["focus-trap", "npm:7.5.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/dismissable", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-dismissable-npm-0.15.0-829dae1042-b13a1e37c4.zip/node_modules/@zag-js/dismissable/",\
+          "packageDependencies": [\
+            ["@zag-js/dismissable", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/interact-outside", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/dom-event", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-dom-event-npm-0.15.0-b59ec3e8bf-508f11aa81.zip/node_modules/@zag-js/dom-event/",\
+          "packageDependencies": [\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/text-selection", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@zag-js/dom-query", [\
         ["npm:0.10.5", {\
           "packageLocation": "./.yarn/cache/@zag-js-dom-query-npm-0.10.5-4ceaaa3683-401cf236f3.zip/node_modules/@zag-js/dom-query/",\
@@ -11223,6 +11531,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@zag-js/element-rect", "npm:0.15.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-dom-query-npm-0.15.0-8b3880183e-3c43cd5abc.zip/node_modules/@zag-js/dom-query/",\
+          "packageDependencies": [\
+            ["@zag-js/dom-query", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/editable", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-editable-npm-0.15.0-94f9b205d0-09cd963a8d.zip/node_modules/@zag-js/editable/",\
+          "packageDependencies": [\
+            ["@zag-js/editable", "npm:0.15.0"],\
+            ["@zag-js/anatomy", "npm:0.15.0"],\
+            ["@zag-js/core", "npm:0.15.0"],\
+            ["@zag-js/dom-event", "npm:0.15.0"],\
+            ["@zag-js/dom-query", "npm:0.15.0"],\
+            ["@zag-js/form-utils", "npm:0.15.0"],\
+            ["@zag-js/interact-outside", "npm:0.15.0"],\
+            ["@zag-js/types", "npm:0.15.0"],\
+            ["@zag-js/utils", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@zag-js/element-rect", [\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-element-rect-npm-0.15.0-2bd2471614-d6178222e9.zip/node_modules/@zag-js/element-rect/",\
+          "packageDependencies": [\
+            ["@zag-js/element-rect", "npm:0.15.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@zag-js/element-size", [\
@@ -11237,6 +11578,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@zag-js-element-size-npm-0.16.0-4194c53e00-96286e213c.zip/node_modules/@zag-js/element-size/",\
           "packageDependencies": [\
             ["@zag-js/element-size", "npm:0.16.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.15.0", {\
+          "packageLocation": "./.yarn/cache/@zag-js-element-size-npm-0.15.0-d1c7acaaff-b1fa34a989.zip/node_modules/@zag-js/element-size/",\
+          "packageDependencies": [\
+            ["@zag-js/element-size", "npm:0.15.0"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -15702,6 +16050,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/debug",\
             "debug"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["focus-trap", [\
+        ["npm:7.5.2", {\
+          "packageLocation": "./.yarn/cache/focus-trap-npm-7.5.2-1bfe4333ec-1eee29d18c.zip/node_modules/focus-trap/",\
+          "packageDependencies": [\
+            ["focus-trap", "npm:7.5.2"],\
+            ["tabbable", "npm:6.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
