@@ -13,7 +13,6 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 const ModalSample = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const modal = useModal();
 
   const onOpenModal = () => {
