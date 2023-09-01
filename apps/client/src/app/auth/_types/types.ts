@@ -19,8 +19,14 @@ export interface CustomFormProps extends PropsWithChildren {
   name: keyof FormValues;
   rules?: object;
   label?: string;
+  isBusinessNumber?: boolean;
+  onBusinessNumberUpdate?: (newValue: boolean) => void;
+}
+
+export interface BusinessNumber {
+  tax_type: string;
 }
 
 export interface APIResponse<T> {
-  data: T;
+  data: T[];
 }
