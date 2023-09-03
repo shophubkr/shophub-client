@@ -8,10 +8,16 @@ import { useForm } from "react-hook-form";
 import { LoginApi } from "../_state/server/api";
 
 const Login = () => {
-  const { control, handleSubmit } = useForm<FormValues>({ defaultValues: { email: "", password: "", autoLogin: "" } });
+  const { control, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+      isAutoLogin: false,
+    },
+  });
 
   const onSubmitHandler = async (data: FormValues) => {
-    const { email, password, autoLogin } = data;
+    const { email, password, isAutoLogin } = data;
 
     try {
       const res = await LoginApi.signInResponse({ email, password });
@@ -43,7 +49,7 @@ const Login = () => {
             로그인
           </Button>
           <Flex justifyContent="space-between" mt="16px">
-            <CheckBox control={control} name="autoLogin">
+            <CheckBox control={control} name="isAutoLogin">
               자동 로그인
             </CheckBox>
             <Link href="/auth/forget-password">
