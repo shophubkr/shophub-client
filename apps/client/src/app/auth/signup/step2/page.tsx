@@ -2,7 +2,7 @@
 
 import { BusinessApiButton, CheckBox, FormElement } from "@auth/_components";
 import { signUpApi } from "@auth/_state/server/api";
-import type { FormValues } from "@auth/_types/types";
+import type { SingUpFormValues } from "@auth/_types";
 import { Button, Center, Flex, Heading } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 
 const SignUpSecond = () => {
   const [사업자번호가있는가, set사업자번호여부] = useState(false);
-  const { control, handleSubmit } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<SingUpFormValues>({
     defaultValues: {
       email: "",
       password: "",
@@ -18,15 +18,15 @@ const SignUpSecond = () => {
       nickName: "",
       tel: "",
       businessNum: "",
-      ageOverAgree: "",
-      sendAdsAgree: "",
+      isAgeOverAgree: false,
+      isSendAdsAgree: false,
     },
   });
 
   const { get } = useSearchParams();
   const userType = get("userType");
 
-  const onSubmitHandler = async (data: FormValues) => {
+  const onSubmitHandler = async (data: SingUpFormValues) => {
     const postData = { ...data, userType };
 
     try {
@@ -45,20 +45,53 @@ const SignUpSecond = () => {
       </Heading>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <Flex flexDir="column" rowGap="40px">
-          <FormElement control={control} name="email" label="이메일 계정" rules={{ required: "필수값" }} />
-          <FormElement control={control} name="password" label="비밀번호" rules={{ required: "필수값" }} />
-          <FormElement control={control} name="passwordConfirm" label="비밀번호 확인" rules={{ required: "필수값" }} />
-          <FormElement control={control} name="nickName" label="닉네임" rules={{ required: "필수값" }} />
+          <FormElement
+            control={control}
+            name="email"
+            label="이메일 계정"
+            rules={{ required: "필수값" }}
+            placeholder="이메일 계정"
+          />
+          <FormElement
+            control={control}
+            name="password"
+            label="비밀번호"
+            type="password"
+            rules={{ required: "필수값" }}
+            placeholder="비밀번호"
+          />
+          <FormElement
+            control={control}
+            name="passwordConfirm"
+            label="비밀번호 확인"
+            type="password"
+            rules={{ required: "필수값" }}
+            placeholder="비밀번호 확인"
+          />
+          <FormElement
+            control={control}
+            name="nickName"
+            label="닉네임"
+            rules={{ required: "필수값" }}
+            placeholder="닉네임"
+          />
 
           {userType === "seller" && (
             <>
-              <FormElement control={control} name="tel" label="연락처" rules={{ required: "필수값" }} />
+              <FormElement
+                control={control}
+                name="tel"
+                label="연락처"
+                rules={{ required: "필수값" }}
+                placeholder="연락처"
+              />
               <Flex justifyContent="space-between" alignItems="flex-end" columnGap="8px">
                 <FormElement
                   control={control}
                   name="businessNum"
                   label="사업자 등록번호"
                   rules={{
+                    required: "필수값",
                     validate: () => {
                       if (!사업자번호가있는가) {
                         return "필수값";
@@ -66,6 +99,7 @@ const SignUpSecond = () => {
                       return true;
                     },
                   }}
+                  placeholder="사업자 번호"
                 />
                 <BusinessApiButton
                   control={control}
