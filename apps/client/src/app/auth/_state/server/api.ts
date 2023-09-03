@@ -1,5 +1,5 @@
+import type { APIResponse, BusinessNumber, FormValues } from "@auth/_types/types";
 import axios from "axios";
-import type { APIResponse, BusinessNumber,FormValues } from "../../_types/types";
 
 export const signUpApi = {
   businessConfirm: (value: string) => {
