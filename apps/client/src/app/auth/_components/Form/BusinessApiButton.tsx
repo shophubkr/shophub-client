@@ -1,9 +1,9 @@
-import type { CustomFormProps } from "@auth/_types/types";
+import { signUpApi } from "@auth/_state/server/api";
 import { Button } from "@chakra-ui/react";
 import { useController } from "react-hook-form";
-import { signUpApi } from "../../_state/server/api";
+import type { FormProps } from "./FormProps.type";
 
-export const BusinessApiButton = ({ control, name, isBusinessNumber, onBusinessNumberUpdate }: CustomFormProps) => {
+export const BusinessApiButton = ({ control, name, isBusinessNumber, onBusinessNumberUpdate }: FormProps) => {
   const { field } = useController({ control, name });
   const { value } = field;
 
