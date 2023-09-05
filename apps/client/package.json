@@ -27,6 +27,8 @@
   },
   "devDependencies": {
     "@shophub/ts-config": "workspace:^",
+    "@shophub/ui": "workspace:^",
+    "@storybook/react": "^7.4.0",
     "@tanstack/react-query-devtools": "^4.32.1",
     "eslint": "8.43.0",
     "msw": "^1.2.3",
