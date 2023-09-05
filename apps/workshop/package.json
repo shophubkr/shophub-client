@@ -12,6 +12,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@chakra-ui/react": "^2.8.0",
+    "@chakra-ui/storybook-addon": "^5.0.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@shophub/ts-config": "workspace:^",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "^7.0.23",
@@ -24,6 +28,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "framer-motion": "^10.16.3",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.23",
     "typescript": "^5.0.2",

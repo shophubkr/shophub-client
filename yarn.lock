@@ -2937,6 +2937,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/storybook-addon@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@chakra-ui/storybook-addon@npm:5.0.1"
+  peerDependencies:
+    "@chakra-ui/react": ">=2.0.0"
+    "@storybook/components": ">=7.0.12"
+    "@storybook/manager-api": ">=7.0.12"
+    "@storybook/preview-api": ">=7.0.12"
+    "@storybook/types": ">=7.0.24"
+    react: ">=16.8.x"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 5b392d8b56c9aa4e87cb8b3a7ede54938878daf190bb2babf012c5c19448951d0a1647d81dbb63e8604365f12ac1f035b95c7e2694baa1281846a8f1fba8e089
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/styled-system@npm:2.9.1":
   version: 2.9.1
   resolution: "@chakra-ui/styled-system@npm:2.9.1"
@@ -10524,6 +10543,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^10.16.3":
+  version: 10.16.3
+  resolution: "framer-motion@npm:10.16.3"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.2
+    tslib: ^2.4.0
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  dependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 2bed46e7f3cfa1f118f21cac5b5afeece5b7e4718b603fe8dd35dde63887218b449b61afc2ca27ffd2b1c810d16a5d8fc3f877a8d7ee7da601a1ba742dcbd343
+  languageName: node
+  linkType: hard
+
 "framesync@npm:6.1.2":
   version: 6.1.2
   resolution: "framesync@npm:6.1.2"
@@ -16058,6 +16098,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "workshop@workspace:apps/workshop"
   dependencies:
+    "@chakra-ui/react": ^2.8.0
+    "@chakra-ui/storybook-addon": ^5.0.1
+    "@emotion/react": ^11.11.1
+    "@emotion/styled": ^11.11.0
     "@shophub/ts-config": "workspace:^"
     "@storybook/addon-essentials": ^7.0.23
     "@storybook/addon-interactions": ^7.0.23
@@ -16070,6 +16114,7 @@ __metadata:
     "@types/react": ^18.0.37
     "@types/react-dom": ^18.0.11
     "@vitejs/plugin-react-swc": ^3.0.0
+    framer-motion: ^10.16.3
     prop-types: ^15.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
