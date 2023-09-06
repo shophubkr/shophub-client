@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   "stories": ["../../../packages/ui/**/*.stories.tsx", "../../client/src/**/*.stories.tsx"],
@@ -8,12 +9,20 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@chakra-ui/storybook-addon",
   ],
+  "core": {
+    "builder": "@storybook/builder-vite",
+  },
   "framework": {
     "name": "@storybook/react-vite",
     "options": {},
   },
   "docs": {
     "autodocs": "tag",
+  },
+  "viteFinal": (config) => {
+    return mergeConfig(config, {
+      define: { "process.env": {} },
+    });
   },
 };
 
