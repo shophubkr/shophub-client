@@ -3,9 +3,9 @@
 import { Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { HorizontalLine, StoreItem } from "~/app/_components";
+import { CouponSummary, HorizontalLine, StoreItem } from "~/app/_components";
 import type { MyPageBuyerProps } from "~/mocks/Apis";
-import { CouponSummary, SummarySection, UserProfile } from "../_components";
+import { SummarySection, UserProfile } from "../_components";
 
 const BuyerMainPage = () => {
   // 퍼블리싱 용입니다.
