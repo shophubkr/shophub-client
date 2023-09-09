@@ -23,11 +23,18 @@ export const signUpSchema = yup
       .string()
       .matches(formValidationRegex.tel, signUpValidationMsg.tel.pattern)
       .required(signUpValidationMsg.tel.required),
+    isBusinessNumState: yup.boolean(),
     businessNum: yup
       .string()
-      .required(signUpValidationMsg.businessNum.required)
-      .matches(formValidationRegex.businessNum, signUpValidationMsg.businessNum.pattern),
-    isAgeOverAgree: yup.boolean().required(),
+      // 사업자 번호 입력 필드(businessNum)와 사업자 상태 진위 확인 필드(isBusinessNumState)를
+      // when을 통해 필드값을 매핑하여 입력 필드의 유효성을 추가로 핸들링하고 싶은데 실패 했습니다.
+      .when("isBusinessNumState", {
+        is: false,
+        then: (schema) => schema.required("사업자 번호를 확인해주세요."),
+      }),
+    // .required(signUpValidationMsg.businessNum.required)
+    // .matches(formValidationRegex.businessNum, signUpValidationMsg.businessNum.pattern)
+    isAgeOverAgree: yup.boolean().oneOf([true], "필수값"),
     isSendAdsAgree: yup.boolean(),
   })
   .required();

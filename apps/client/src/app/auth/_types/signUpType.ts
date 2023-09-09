@@ -6,6 +6,7 @@ export type SingUpFormValues = {
   nickName?: string;
   tel?: string;
   businessNum?: string;
+  isBusinessNumState?: boolean;
   isAgeOverAgree?: boolean;
   isSendAdsAgree?: boolean;
 };

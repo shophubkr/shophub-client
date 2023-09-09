@@ -1,18 +1,17 @@
 "use client";
 
-import { BusinessApiButton, CheckBox, FormElement } from "@auth/_components";
+import { BusinessApiButton, CheckBox } from "@auth/_components";
 import { signUpSchema } from "@auth/_constants";
 import { signUpApi } from "@auth/_state/server/api";
 import type { SingUpFormValues } from "@auth/_types";
 import { Button, Center, Flex, Heading } from "@chakra-ui/react";
+import { FormElement } from "@components/Form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const SignUpSecond = () => {
-  const [사업자번호가있는가, set사업자번호여부] = useState(false);
-  const { control, handleSubmit } = useForm<SingUpFormValues>({
+  const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({
     resolver: yupResolver(signUpSchema),
     defaultValues: {
       email: "",
@@ -21,6 +20,7 @@ const SignUpSecond = () => {
       nickName: "",
       tel: "",
       businessNum: "",
+      isBusinessNumState: false,
       isAgeOverAgree: false,
       isSendAdsAgree: false,
     },
@@ -30,6 +30,7 @@ const SignUpSecond = () => {
   const userType = get("userType");
 
   const onSubmitHandler = async (data: SingUpFormValues) => {
+    console.log(data);
     const postData = { ...data, userType };
 
     try {
@@ -42,7 +43,7 @@ const SignUpSecond = () => {
   };
 
   return (
-    <Center w="80%" maxW="312px" margin="80px auto" flexDir="column" rowGap="80px">
+    <Center flexDir="column" rowGap="80px">
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
@@ -63,25 +64,12 @@ const SignUpSecond = () => {
             <>
               <FormElement control={control} name="tel" label="연락처" placeholder="연락처" />
               <Flex justifyContent="space-between" alignItems="flex-end" columnGap="8px">
-                <FormElement
-                  control={control}
-                  name="businessNum"
-                  label="사업자 등록번호"
-                  rules={{
-                    validate: () => {
-                      if (!사업자번호가있는가) {
-                        return "필수값";
-                      }
-                      return true;
-                    },
-                  }}
-                  placeholder="사업자 번호"
-                />
+                <FormElement control={control} name="businessNum" label="사업자 등록번호" placeholder="사업자 번호" />
                 <BusinessApiButton
                   control={control}
-                  name="businessNum"
-                  isBusinessNumber={사업자번호가있는가}
-                  onBusinessNumberUpdate={set사업자번호여부}
+                  name="isBusinessNumState"
+                  getValues={getValues}
+                  setValue={setValue}
                 />
               </Flex>
             </>
