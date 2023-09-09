@@ -13,7 +13,7 @@ const SignUpFirst = () => {
   };
 
   return (
-    <S.Wrapper w="80%" maxW="312px" margin="80px auto" flexDir="column">
+    <S.Wrapper w="100%" flexDir="column">
       <Heading as="h3" fontSize="24px">
         회원 유형
       </Heading>

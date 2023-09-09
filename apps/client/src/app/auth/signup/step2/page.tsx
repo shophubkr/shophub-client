@@ -43,7 +43,7 @@ const SignUpSecond = () => {
   };
 
   return (
-    <Center flexDir="column" rowGap="80px">
+    <Center w="100%" flexDir="column" rowGap="80px">
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
