@@ -1,6 +1,6 @@
 import { Checkbox } from "@chakra-ui/react";
+import type { FormProps } from "@components/Form";
 import { useController } from "react-hook-form";
-import type { FormProps } from "./FormProps.type";
 
 export const CheckBox = ({ control, name, rules, children }: FormProps) => {
   const { field } = useController({ control, name, rules });
