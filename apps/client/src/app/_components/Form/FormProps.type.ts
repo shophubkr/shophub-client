@@ -1,5 +1,6 @@
+import type { SingUpFormValues } from "@auth/_types";
 import type { PropsWithChildren } from "react";
-import type { Control } from "react-hook-form";
+import type { Control, UseFormSetValue } from "react-hook-form";
 
 export interface FormProps extends PropsWithChildren {
   control: Control;
@@ -7,6 +8,8 @@ export interface FormProps extends PropsWithChildren {
   label?: string;
   placeholder?: string;
   type?: string;
+  getValues?: (newValue: string) => void;
+  setValue?: UseFormSetValue<SingUpFormValues>;
   rules?: {
     required?: string;
     validate?: () => boolean | string;

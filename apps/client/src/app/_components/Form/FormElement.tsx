@@ -1,7 +1,7 @@
 import { Flex, FormLabel, Input } from "@chakra-ui/react";
+import type { FormProps } from "@components/Form/FormProps.type";
 import styled from "@emotion/styled";
 import { useController } from "react-hook-form";
-import type { FormProps } from "./FormProps.type";
 
 export const FormElement = ({ control, name, label, type, rules, placeholder }: FormProps) => {
   const {
