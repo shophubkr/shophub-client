@@ -1,4 +1,4 @@
-import type { CouponBodyProps, RestDayProps, ValidityProps } from "../components/CouponComponent.types";
+import type { CouponBodyProps, RestDayProps, ValidityProps } from "../components/CouponComponents.types";
 
 export interface CouponProps {
   couponType: "buyer" | "seller";

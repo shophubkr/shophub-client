@@ -1,4 +1,4 @@
-import type { RestDayProps, ValidityProps } from "../components/CouponComponent.types";
+import type { RestDayProps, ValidityProps } from "../components/CouponComponents.types";
 
 export interface ClaimCouponProps {
   restDay: RestDayProps["restDay"];

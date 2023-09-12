@@ -1,6 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { Validity } from "../components";
-import { RestDay } from "../components/RestDay";
+import { RestDay } from "../components/RestDays";
 import type { ClaimCouponProps } from "./ClaimCoupon.types";
 
 export const ClaimCoupon = ({ restDay, title, validity }: ClaimCouponProps) => {

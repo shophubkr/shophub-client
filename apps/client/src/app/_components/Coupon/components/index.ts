@@ -1,2 +1,2 @@
 export * from "./CouponBody";
-export * from "./Validity";
+export * from "./ValidityDate";

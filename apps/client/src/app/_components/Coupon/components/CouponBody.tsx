@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex, Text } from "@chakra-ui/react";
-import type { CouponBodyProps } from "./CouponComponent.types";
+import type { CouponBodyProps } from "./CouponComponents.types";
 
 export const CouponBody = ({ title, isExpired }: CouponBodyProps) => {
   return (

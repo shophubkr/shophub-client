@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex, Text } from "@chakra-ui/react";
-import type { RestDayProps } from "./CouponComponent.types";
+import type { RestDayProps } from "./CouponComponents.types";
 
 export const RestDay = ({ restDay, align }: RestDayProps) => {
   const restDayText = restDay > 0 ? `쿠폰 만료 ${restDay}일 남았어요` : "쿠폰이 종료되었어요";
