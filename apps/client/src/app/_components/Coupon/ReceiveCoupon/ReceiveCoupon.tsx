@@ -1,10 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { Validity } from "../components";
 import { RestDay } from "../components/RestDays";
-import type { ClaimCouponProps } from "./ClaimCoupon.types";
+import type { ReceiveCouponProps } from "./ReceiveCoupon.types";
 
-export const ClaimCoupon = ({ restDay, title, validity }: ClaimCouponProps) => {
-  const onClickClaimCoupon = () => {
+export const ReceiveCoupon = ({ restDay, title, validity }: ReceiveCouponProps) => {
+  const onClickReceiveCoupon = () => {
     /** 쿠폰 받기 요청 로직 */
   };
 
@@ -21,7 +21,7 @@ export const ClaimCoupon = ({ restDay, title, validity }: ClaimCouponProps) => {
         borderRadius="8px"
         m="8px 0"
         cursor="pointer"
-        onClick={onClickClaimCoupon}
+        onClick={onClickReceiveCoupon}
       >
         <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
           discount

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ClaimCoupon } from "./ClaimCoupon";
+import { ReceiveCoupon } from "./ReceiveCoupon";
 
-const meta: Meta<typeof ClaimCoupon> = {
-  title: "client/components/Coupon/ClaimCoupon",
-  component: ClaimCoupon,
+const meta: Meta<typeof ReceiveCoupon> = {
+  title: "client/components/Coupon/ReceiveCoupon",
+  component: ReceiveCoupon,
   decorators: [
     (Story) => (
       <div style={{ width: "358px" }}>
@@ -16,7 +16,7 @@ const meta: Meta<typeof ClaimCoupon> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ClaimCoupon>;
+type Story = StoryObj<typeof ReceiveCoupon>;
 
 export const Default: Story = {
   args: {
