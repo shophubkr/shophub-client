@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     data && (
-      <Container w="100%" h="100vh">
+      <Container w="100%" h="100vh" padding="0">
         <Center w="90%" minW="358px" m="0 auto">
           <KakaoMap />
           <Flex w="100%" flexDir="column">
