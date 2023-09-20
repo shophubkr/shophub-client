@@ -1,0 +1,1 @@
+export { getProductApi } from "./productApi";
