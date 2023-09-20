@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MainStoreCard } from "~/app/_components/Card/MainStoreCard";
 import type { ProductType } from "~/mocks/Apis/product/productApi";
 import * as S from "./StoreList.style";
 
@@ -13,12 +14,14 @@ export const StoreList = ({ data }: { data: ProductType[] }) => {
       width="100%"
       height={!isToggle ? "88px" : "80vh"}
       bgColor="white"
+      overflow={isToggle ? "scroll" : "hidden"}
     >
       <S.StyledToggle
         flexDir="column"
         alignItems="center"
         justifyContent="space-between"
         position="absolute"
+        zIndex="9999"
         top="0"
         h="40px"
         padding="13px 0"
@@ -28,8 +31,7 @@ export const StoreList = ({ data }: { data: ProductType[] }) => {
         <div className="hamburger line-02" />
         <div className="hamburger line-03" />
       </S.StyledToggle>
-      {/* 매장 리스트 on/off */}
-      {isToggle && <p>StoreItem이 Card UI로 들어올 예정</p>}
+      <MainStoreCard data={data} />
     </S.StyledCenter>
   );
 };
