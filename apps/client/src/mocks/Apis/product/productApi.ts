@@ -2,9 +2,9 @@ import { rest } from "msw";
 import { productMockData } from "./productMock";
 
 export type ProductType = {
-  store_idx: number;
-  store_name: string;
-  catch_praise: string;
+  storeIdx: number;
+  storeName: string;
+  catchPraise: string;
   thumbnail: string;
   longitude: number;
   latitude: number;
