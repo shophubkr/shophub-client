@@ -26,6 +26,7 @@ export const SearchBar = () => {
       columnGap="8px"
       alignItems="center"
       background="white"
+      zIndex="1"
     >
       <Box className="material-icons-outlined" fontSize="24px">
         search
