@@ -1,32 +1,38 @@
-import { Center } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import { forwardRef, useImperativeHandle, useRef } from "react";
-import * as S from "./SideNavBar.style";
+import { useEffect } from "react";
 
-export interface SideNavBarHandle {
-  setTranslateX: (value: number) => void;
+interface SideNavProps {
+  isOpenSideBar: boolean;
+  setIsOpenSideBar: (value: boolean) => void;
 }
 
-export const SideNavBar = forwardRef<SideNavBarHandle>((props, ref) => {
+export const SideNavBar = ({ isOpenSideBar, setIsOpenSideBar }: SideNavProps) => {
   const router = useRouter();
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const currentUrl = window.location.href;
 
-  useImperativeHandle(ref, () => ({
-    setTranslateX: (value) => {
-      if (sliderRef.current) {
-        sliderRef.current.style.transform = `translateX(${value}%)`;
-      }
-    },
-  }));
+  useEffect(() => {
+    setIsOpenSideBar(false);
+  }, [currentUrl, setIsOpenSideBar]);
 
   return (
-    <S.SideNavBarWrapper ref={sliderRef}>
-      <Center h="100%" flexDir="column" justifyContent="center" rowGap="112px">
-        <S.StyledText as="h4">프로필 관리</S.StyledText>
-        <S.StyledText as="h4">마이 페이지</S.StyledText>
-        <S.StyledText as="h4">팔로잉 매장</S.StyledText>
-        <S.StyledText as="h4">쿠폰함</S.StyledText>
+    <Box
+      position="absolute"
+      w="100%"
+      h="100vh"
+      top="0"
+      left="0"
+      bgColor="white"
+      zIndex="-1"
+      transform={`translateX(${isOpenSideBar ? "0%" : "-100%"})`}
+      transition="1s cubic-bezier(0.165, 0.84, 0.44, 1)"
+    >
+      <Center h="100%" flexDir="column" justifyContent="center" rowGap="112px" fontSize="20px" fontWeight="bold">
+        <Text as="h4">프로필 관리</Text>
+        <Text as="h4">마이 페이지</Text>
+        <Text as="h4">팔로잉 매장</Text>
+        <Text as="h4">쿠폰함</Text>
       </Center>
-    </S.SideNavBarWrapper>
+    </Box>
   );
-});
+};
