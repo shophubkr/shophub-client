@@ -1,10 +1,10 @@
 import { Center } from "@chakra-ui/react";
 import { useState } from "react";
 import { MainStoreCard } from "~/app/_components/Card/MainStoreCard";
-import type { ProductType } from "~/mocks/Apis/product/productApi";
+import type { ApiProductType } from "../../_types/apiData.type";
 import * as S from "./StoreList.style";
 
-export const StoreList = ({ data }: { data: ProductType[] }) => {
+export const StoreList = ({ data }: ApiProductType) => {
   const [isToggle, setIsToggle] = useState(false);
 
   return (

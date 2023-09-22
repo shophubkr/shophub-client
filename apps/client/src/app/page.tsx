@@ -29,7 +29,7 @@ export default function Home() {
     data && (
       <Container w="100%" h="100vh" padding="0">
         <Center w="90%" minW="358px" m="0 auto">
-          <KakaoMap />
+          <KakaoMap data={data} />
           <Flex w="100%" flexDir="column">
             <TopBar>LOGO</TopBar>
             <SearchBar />
