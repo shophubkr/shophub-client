@@ -1,6 +1,6 @@
 import { Center } from "@chakra-ui/react";
 import type { ProductType } from "~/mocks/Apis/product/productApi";
-import { Card } from "./Components/Card";
+import { Card } from "./_components/Card";
 
 export const MainStoreCard = ({ data }: { data: ProductType[] }) => {
   return (
