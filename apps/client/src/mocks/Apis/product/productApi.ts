@@ -6,8 +6,10 @@ export type ProductType = {
   storeName: string;
   catchPraise: string;
   thumbnail: string;
-  longitude: number;
-  latitude: number;
+  latLng: {
+    lat: number;
+    lng: number;
+  };
   isCoupon: boolean;
   isRecommend: boolean;
   distance: number;
