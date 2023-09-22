@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import * as S from "./ConvertingStoreButton.style";
 
-export const ConvertingStoreButton = () => {
+export const ConvertingStoreButton = ({ setData }: { setData: (value: []) => void }) => {
   const onStoreType = (type: "nearby" | "recommend") => {
     // data 재호출 로직
   };

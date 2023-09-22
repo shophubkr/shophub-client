@@ -36,7 +36,7 @@ export default function Home() {
           </Flex>
         </Center>
         <StoreList data={data} />
-        <ConvertingStoreButton />
+        <ConvertingStoreButton setData={setData} />
       </Container>
     )
   );
