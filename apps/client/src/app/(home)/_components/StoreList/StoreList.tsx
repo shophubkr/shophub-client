@@ -1,3 +1,4 @@
+import { Center } from "@chakra-ui/react";
 import { useState } from "react";
 import { MainStoreCard } from "~/app/_components/Card/MainStoreCard";
 import type { ProductType } from "~/mocks/Apis/product/productApi";
@@ -7,7 +8,7 @@ export const StoreList = ({ data }: { data: ProductType[] }) => {
   const [isToggle, setIsToggle] = useState(false);
 
   return (
-    <S.StyledCenter
+    <Center
       position="absolute"
       left="0"
       bottom="0"
@@ -15,6 +16,7 @@ export const StoreList = ({ data }: { data: ProductType[] }) => {
       height={!isToggle ? "88px" : "80vh"}
       bgColor="white"
       overflow={isToggle ? "scroll" : "hidden"}
+      transition="0.75s cubic-bezier(0.165, 0.84, 0.44, 1)"
     >
       <S.StyledToggle
         flexDir="column"
@@ -32,6 +34,6 @@ export const StoreList = ({ data }: { data: ProductType[] }) => {
         <div className="hamburger line-03" />
       </S.StyledToggle>
       <MainStoreCard data={data} />
-    </S.StyledCenter>
+    </Center>
   );
 };
