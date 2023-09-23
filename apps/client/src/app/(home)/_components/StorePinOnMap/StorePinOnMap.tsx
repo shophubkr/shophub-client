@@ -3,7 +3,7 @@ import type { ProductType } from "~/mocks/Apis/product/productApi";
 import * as S from "./StorePinOnMap.style";
 
 export const StorePinOnMap = ({ data }: { data: ProductType }) => {
-  const { storeName, isCoupon, isRecommend } = data;
+  const { storeName, isCouponAvailable, isRecommend } = data;
   return (
     <S.StyledCenter
       padding="4px 8px"
@@ -13,7 +13,7 @@ export const StorePinOnMap = ({ data }: { data: ProductType }) => {
       border={isRecommend ? "1px solid " : "none"}
       borderRadius="4px"
     >
-      <Box className="material-icons-outlined">{isCoupon ? "discount" : "label_off"}</Box>
+      <Box className="material-icons-outlined">{isCouponAvailable ? "discount" : "label_off"}</Box>
       <Text fontSize="14px">{storeName}</Text>
     </S.StyledCenter>
   );
