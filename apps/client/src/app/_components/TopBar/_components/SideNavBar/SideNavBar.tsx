@@ -1,4 +1,5 @@
 import { Box, Center, Text } from "@chakra-ui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -6,6 +7,25 @@ interface SideNavProps {
   isOpenSideBar: boolean;
   setIsOpenSideBar: (value: boolean) => void;
 }
+
+const SideBarNavigationList = [
+  {
+    title: "프로필 관리",
+    url: "",
+  },
+  {
+    title: "마이 페이지",
+    url: "",
+  },
+  {
+    title: "팔로잉 매장",
+    url: "",
+  },
+  {
+    title: "쿠폰함",
+    url: "",
+  },
+];
 
 export const SideNavBar = ({ isOpenSideBar, setIsOpenSideBar }: SideNavProps) => {
   const router = useRouter();
@@ -23,15 +43,18 @@ export const SideNavBar = ({ isOpenSideBar, setIsOpenSideBar }: SideNavProps) =>
       top="0"
       left="0"
       bgColor="white"
-      zIndex="-1"
+      zIndex="9998"
       transform={`translateX(${isOpenSideBar ? "0%" : "-100%"})`}
       transition="1s cubic-bezier(0.165, 0.84, 0.44, 1)"
     >
       <Center h="100%" flexDir="column" justifyContent="center" rowGap="112px" fontSize="20px" fontWeight="bold">
-        <Text as="h4">프로필 관리</Text>
-        <Text as="h4">마이 페이지</Text>
-        <Text as="h4">팔로잉 매장</Text>
-        <Text as="h4">쿠폰함</Text>
+        {SideBarNavigationList.map((it) => {
+          return (
+            <Link href={it.url} key={it.title}>
+              <Text as="h4">{it.title}</Text>
+            </Link>
+          );
+        })}
       </Center>
     </Box>
   );

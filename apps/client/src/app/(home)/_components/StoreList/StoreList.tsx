@@ -27,7 +27,7 @@ export const StoreList = ({ data }: ApiProductType) => {
         alignItems="center"
         justifyContent="space-between"
         position="sticky"
-        zIndex="9999"
+        zIndex="9997"
         top="0"
         h="40px"
         padding="13px 0"

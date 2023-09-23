@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 import { useState, type PropsWithChildren } from "react";
 import { SideNavBar } from "./_components/SideNavBar/SideNavBar";
 
@@ -6,22 +6,21 @@ export const TopBar = ({ children }: PropsWithChildren) => {
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
 
   return (
-    <Flex alignItems="center" justifyContent="space-between" padding="16px 0" zIndex="9999">
+    <Flex padding="16px 0">
       <SideNavBar isOpenSideBar={isOpenSideBar} setIsOpenSideBar={setIsOpenSideBar} />
-      <Box
-        className="material-icons-outlined"
-        cursor="pointer"
-        fontSize="24px"
-        onClick={() => {
-          setIsOpenSideBar((prev) => !prev);
-        }}
-      >
-        menu
-      </Box>
-      {children}
-      <Box className="material-icons-outlined" fontSize="24px">
-        account_circle
-      </Box>
+      <Center w="100%" zIndex="9999" alignItems="center" justifyContent="space-between">
+        <Box
+          className="material-icons-outlined"
+          cursor="pointer"
+          onClick={() => {
+            setIsOpenSideBar((prev) => !prev);
+          }}
+        >
+          menu
+        </Box>
+        {children}
+        <Box className="material-icons-outlined">account_circle</Box>
+      </Center>
     </Flex>
   );
 };
