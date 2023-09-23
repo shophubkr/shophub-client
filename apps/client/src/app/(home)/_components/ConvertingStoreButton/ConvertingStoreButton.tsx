@@ -1,9 +1,17 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import axios from "axios";
 import * as S from "./ConvertingStoreButton.style";
 
 export const ConvertingStoreButton = ({ setData }: { setData: (value: []) => void }) => {
   const onStoreType = (type: "nearby" | "recommend") => {
-    // data 재호출 로직
+    // 퍼블리싱용
+    const getData = async () => {
+      const res = await axios.get("/api/products", { params: { storeType: type } });
+
+      const { result } = res.data;
+      setData(result);
+    };
+    getData();
   };
 
   return (
