@@ -1,2 +1,2 @@
-export * from "./product/index";
-export * from "./sign/index";
+export * from "./product";
+export * from "./sign";
