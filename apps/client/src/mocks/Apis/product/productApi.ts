@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { productMockData } from "./productMock";
 
-export type ProductType = {
+export interface ProductType {
   storeIdx: number;
   storeName: string;
   description: string;
@@ -14,14 +14,14 @@ export type ProductType = {
   isRecommend: boolean;
   distance: number;
   price: number;
-};
+}
 
 export const getProductApi = rest.get<ProductType[]>("/api/products", (req, res, ctx) => {
   const searchParams = new URLSearchParams(req.url.searchParams);
 
-  const _pageNum = searchParams.get("pageNum");
+  const _pageNum = searchParams.get("pageNum") as string;
 
-  const pageNum = _pageNum ? parseInt(_pageNum, 10) : 1;
+  const pageNum = parseInt(_pageNum, 10) || 1;
   const storeType = searchParams.get("storeType");
 
   const startIndex = (pageNum - 1) * 8;
