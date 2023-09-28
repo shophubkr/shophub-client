@@ -2,8 +2,8 @@ import { Box, Text } from "@chakra-ui/react";
 import type { ProductType } from "~/mocks/Apis/product/productApi";
 import * as S from "./StorePinOnMap.style";
 
-export const StorePinOnMap = ({ data }: { data: ProductType }) => {
-  const { storeName, isCouponAvailable, isRecommend } = data;
+export const StorePinOnMap = ({ store }: { store: ProductType }) => {
+  const { storeName, isCouponAvailable, isRecommend } = store;
   return (
     <S.StyledCenter
       padding="4px 8px"

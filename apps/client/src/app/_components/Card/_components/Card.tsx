@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { ProductType } from "~/mocks/Apis/product/productApi";
 import * as S from "./Card.style";
 
-export const Card = ({ data }: { data: ProductType }) => {
-  const { storeIdx, storeName, isCouponAvailable, thumbnailUrl, description, distance } = data;
+export const Card = ({ store }: { store: ProductType }) => {
+  const { storeIdx, storeName, isCouponAvailable, thumbnailUrl, description, distance } = store;
 
   return (
     <Link href={{ pathname: `/product/${storeIdx}` }} style={{ width: "100%" }}>

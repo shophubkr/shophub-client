@@ -2,14 +2,14 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import axios from "axios";
 import * as S from "./ConvertingStoreButton.style";
 
-export const ConvertingStoreButton = ({ setData }: { setData: (value: []) => void }) => {
+export const ConvertingStoreButton = ({ setStoreData }: { setStoreData: (value: []) => void }) => {
   const onStoreType = (type: "nearby" | "recommend") => {
     // 퍼블리싱용
     const getData = async () => {
       const res = await axios.get("/api/products", { params: { storeType: type } });
 
       const { result } = res.data;
-      setData(result);
+      setStoreData(result);
     };
     getData();
   };
