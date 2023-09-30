@@ -5,13 +5,13 @@ import { useEffect } from "react";
 import { SideBarNavigationList } from "./SideNavBar.constants";
 import type { SideNavProps } from "./SideNavBar.type";
 
-export const SideNavBar = ({ isOpenSideBar, setIsOpenSideBar }: SideNavProps) => {
+export const SideNavBar = ({ isOpenSideBar, onCloseSideBar }: SideNavProps) => {
   const router = useRouter();
-  const currentUrl = window.location.href;
+  const currentUrl = window.location.pathname;
 
   useEffect(() => {
-    setIsOpenSideBar(false);
-  }, [currentUrl, setIsOpenSideBar]);
+    onCloseSideBar();
+  }, [currentUrl, onCloseSideBar]);
 
   return (
     <Box
@@ -26,13 +26,11 @@ export const SideNavBar = ({ isOpenSideBar, setIsOpenSideBar }: SideNavProps) =>
       transition="1s cubic-bezier(0.165, 0.84, 0.44, 1)"
     >
       <Center h="100%" flexDir="column" justifyContent="center" rowGap="112px" fontSize="20px" fontWeight="bold">
-        {SideBarNavigationList.map((navigation) => {
-          return (
-            <Link href={navigation.url} key={navigation.title}>
-              <Text as="h4">{navigation.title}</Text>
-            </Link>
-          );
-        })}
+        {SideBarNavigationList.map((navigation) => (
+          <Link href={navigation.url} key={navigation.title}>
+            <Text as="h4">{navigation.title}</Text>
+          </Link>
+        ))}
       </Center>
     </Box>
   );

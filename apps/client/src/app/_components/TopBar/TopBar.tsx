@@ -7,7 +7,7 @@ export const TopBar = ({ children }: PropsWithChildren) => {
 
   return (
     <Flex padding="16px 0">
-      <SideNavBar isOpenSideBar={isOpenSideBar} setIsOpenSideBar={setIsOpenSideBar} />
+      <SideNavBar isOpenSideBar={isOpenSideBar} onCloseSideBar={() => !isOpenSideBar && setIsOpenSideBar(false)} />
       <Center w="100%" zIndex="9999" alignItems="center" justifyContent="space-between">
         <Box
           className="material-icons-outlined"
