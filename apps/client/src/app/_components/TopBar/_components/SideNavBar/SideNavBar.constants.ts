@@ -15,4 +15,4 @@ export const SideBarNavigationList = [
     title: "쿠폰함",
     url: "",
   },
-];
+] as const;
