@@ -9,9 +9,14 @@ export const Card = ({ store }: { store: ProductType }) => {
   return (
     <Link href={{ pathname: `/product/${storeIdx}` }} style={{ width: "100%" }}>
       <Flex width="100%" padding="24px 16px" columnGap="16px">
-        <Box w="72px" h="72px" flexShrink="0" bgColor="gray" borderRadius="4px">
-          img
-        </Box>
+        <Box
+          w="72px"
+          h="72px"
+          flexShrink="0"
+          background={`url(${thumbnailUrl}) no-repeat center center`}
+          bgSize="cover"
+          borderRadius="4px"
+        />
         <Container padding=" 0" columnGap="12px">
           <Flex w="100%" justifyContent="space-between" alignItems="flex-start">
             <Flex flexDir="column" rowGap="4px">

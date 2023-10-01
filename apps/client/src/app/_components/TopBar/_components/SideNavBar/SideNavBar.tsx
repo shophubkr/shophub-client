@@ -1,12 +1,11 @@
 import { Box, Center, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { SideBarNavigationList } from "./SideNavBar.constants";
 import type { SideNavProps } from "./SideNavBar.type";
 
 export const SideNavBar = ({ isOpenSideBar, onCloseSideBar }: SideNavProps) => {
-  const router = useRouter();
+  // const router = useRouter();
   const currentUrl = window.location.pathname;
 
   useEffect(() => {
