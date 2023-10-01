@@ -3,17 +3,17 @@ import { productMockData } from "./productMock";
 
 export interface ProductType {
   storeIdx: number;
-  storeName: string;
-  description: string;
-  thumbnailUrl: string;
-  latLng: {
-    lat: number;
-    lng: number;
+  storeName?: string;
+  description?: string;
+  thumbnailUrl?: string;
+  latLng?: {
+    lat?: number;
+    lng?: number;
   };
-  isCouponAvailable: boolean;
-  isRecommend: boolean;
-  distance: number;
-  price: number;
+  isCouponAvailable?: boolean;
+  isRecommend?: boolean;
+  distance?: number;
+  price?: number;
 }
 
 export const getProductApi = rest.get<ProductType[]>("/api/products", (req, res, ctx) => {
