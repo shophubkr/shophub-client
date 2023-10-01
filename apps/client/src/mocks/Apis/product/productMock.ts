@@ -6,7 +6,7 @@ const productDummy = [
     storeIdx: Math.floor(Math.random() * 100000),
     storeName: "그래비티",
     description: "전문 스트릿 브랜드샵",
-    thumbnailUrl: "이미지",
+    thumbnailUrl: "http://www.newstap.co.kr/news/photo/202105/134617_221857_5720.jpg",
     latLng: {
       lat: 37.5000776,
       lng: 127.0385419,
@@ -20,7 +20,7 @@ const productDummy = [
     storeIdx: Math.floor(Math.random() * 100000),
     storeName: "레이어드",
     description: "웨딩 전문 드레스샵",
-    thumbnailUrl: "이미지",
+    thumbnailUrl: " https://mblogthumb-phinf.pstatic.net/20160907_47/adkms21_1473231615683XUFlp_JPEG/5.jpg?type=w800",
     latLng: {
       lat: 37.5020699,
       lng: 127.0347033,
@@ -34,7 +34,7 @@ const productDummy = [
     storeIdx: Math.floor(Math.random() * 100000),
     storeName: "맨인",
     description: "남성 정장 테일러샵",
-    thumbnailUrl: "이미지",
+    thumbnailUrl: " https://m.betanews.net/imagedb/thumb/2017/0210/f1ef0018.jpg",
     latLng: {
       lat: 37.4994755,
       lng: 127.0352252,
@@ -48,7 +48,7 @@ const productDummy = [
     storeIdx: Math.floor(Math.random() * 100000),
     storeName: "하프앤블럭",
     description: "오버핏 언더독 패션",
-    thumbnailUrl: "이미지",
+    thumbnailUrl: "https://m.zeross.co.kr/web/product/big/202110/86d7f1cde828a8596741a9d5d61029e9.jpg",
     latLng: {
       lat: 37.499927,
       lng: 127.036789,
@@ -61,8 +61,8 @@ const productDummy = [
   {
     storeIdx: Math.floor(Math.random() * 100000),
     storeName: "고르나도",
-    description: "네이비 씰 아미 카고샵",
-    thumbnailUrl: "이미지",
+    description: "밀리터리 아미 카고샵",
+    thumbnailUrl: "https://img.vogue.co.kr/vogue/2020/05/style_5ecc755d9404f-600x900.jpg",
     latLng: {
       lat: 37.498186,
       lng: 127.0362074,
