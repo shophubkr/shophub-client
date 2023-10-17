@@ -11,12 +11,16 @@ export type FormValues = {
   businessNum?: string;
   ageOverAgree?: string;
   sendAdsAgree?: string;
+  isAutoLogin?: boolean;
 };
 
 export interface CustomFormProps extends PropsWithChildren {
   control: Control<FormValues>;
   name: keyof FormValues;
-  rules?: object;
+  rules?: {
+    required?: string;
+    validate?: () => string | boolean;
+  };
   label?: string;
   isBusinessNumber?: boolean;
   onBusinessNumberUpdate?: (newValue: boolean) => void;
