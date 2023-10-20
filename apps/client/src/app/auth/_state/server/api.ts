@@ -13,3 +13,9 @@ export const signUpApi = {
     return axios.post("/api/signup", { postData });
   },
 };
+
+export const LoginApi = {
+  signInResponse: ({ email, password }: FormValues) => {
+    return axios.post<APIResponse<FormValues>>("/api/login", { email, password });
+  },
+};
