@@ -9,8 +9,5 @@ export const CheckBox = ({ control, name, rules, children }: FormProps) => {
     <Checkbox id={name} {...field}>
       {children}
     </Checkbox>
-    <Checkbox id={name} {...field}>
-      {children}
-    </Checkbox>
   );
 };
