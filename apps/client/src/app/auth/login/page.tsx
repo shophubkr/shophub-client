@@ -1,14 +1,15 @@
 "use client";
 
-import { CheckBox, FormElement } from "@auth/_components";
-import type { FormValues } from "@auth/_types/types";
+import { CheckBox } from "@auth/_components";
+import { LoginApi } from "@auth/_state/server";
+import type { SignInFormValues } from "@auth/_types";
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { FormElement } from "@components/Form";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { LoginApi } from "../_state/server/api";
 
 const Login = () => {
-  const { control, handleSubmit } = useForm<FormValues>({
+  const { control, handleSubmit } = useForm<SignInFormValues>({
     defaultValues: {
       email: "",
       password: "",
@@ -16,7 +17,7 @@ const Login = () => {
     },
   });
 
-  const onSubmitHandler = async (data: FormValues) => {
+  const onSubmitHandler = async (data: SignInFormValues) => {
     const { email, password, isAutoLogin } = data;
 
     try {
@@ -42,8 +43,8 @@ const Login = () => {
       <Flex flexDir="column" w="100%" rowGap="80px">
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <Flex flexDir="column" rowGap="24px">
-            <FormElement control={control} name="email" label="이메일 계정" />
-            <FormElement control={control} name="password" label="비밀번호" />
+            <FormElement control={control} name="email" label="이메일 계정" placeholder="이메일 계정" />
+            <FormElement control={control} name="password" label="비밀번호" type="password" placeholder="비밀번호" />
           </Flex>
           <Button type="submit" w="100%" h="48px" mt="48px" fontSize="16px">
             로그인
