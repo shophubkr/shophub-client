@@ -1,4 +1,4 @@
-import type { SignUpApiResponse, SignUpBusinessNumber,SignInFormValues } from "@auth/_types";
+import type { SignInFormValues, SignUpApiResponse, SignUpBusinessNumber } from "@auth/_types";
 import axios from "axios";
 
 export const signUpApi = {
