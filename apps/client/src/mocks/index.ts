@@ -1,7 +1,7 @@
 import { worker } from "./browser";
 
-if (process.env.NODE_ENV === "development") {
-  worker.start();
-}
-
-export {};
+export const initMocks = async () => {
+  if (process.env.NODE_ENV === "development") {
+    worker.start();
+  }
+};
