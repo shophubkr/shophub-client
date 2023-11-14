@@ -8814,6 +8814,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@hookform/resolvers", [\
+        ["npm:3.3.1", {\
+          "packageLocation": "./.yarn/cache/@hookform-resolvers-npm-3.3.1-3dd5dc5661-1ddc250a8d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "npm:3.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:3.3.1", {\
+          "packageLocation": "./.yarn/__virtual__/@hookform-resolvers-virtual-c516fef207/0/cache/@hookform-resolvers-npm-3.3.1-3dd5dc5661-1ddc250a8d.zip/node_modules/@hookform/resolvers/",\
+          "packageDependencies": [\
+            ["@hookform/resolvers", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:3.3.1"],\
+            ["@types/react-hook-form", null],\
+            ["react-hook-form", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:7.45.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-hook-form",\
+            "react-hook-form"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@humanwhocodes/config-array", [\
         ["npm:0.11.10", {\
           "packageLocation": "./.yarn/cache/@humanwhocodes-config-array-npm-0.11.10-7b63df9e7f-1b1302e240.zip/node_modules/@humanwhocodes/config-array/",\
@@ -15389,6 +15411,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chakra-ui/react", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:2.8.0"],\
             ["@emotion/react", "virtual:b2d0d22c09f2a64ae2c725993614494915c4dbbf95f34f4126386e1219908a8eee814daddaa015341b764e3ddcedb0e1bd74e1ed5ca339af050876275f3d017d#npm:11.11.1"],\
             ["@emotion/styled", "virtual:b2d0d22c09f2a64ae2c725993614494915c4dbbf95f34f4126386e1219908a8eee814daddaa015341b764e3ddcedb0e1bd74e1ed5ca339af050876275f3d017d#npm:11.11.0"],\
+            ["@hookform/resolvers", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:3.3.1"],\
             ["@shophub/ts-config", "workspace:tools/config-ts"],\
             ["@shophub/ui", "workspace:packages/ui"],\
             ["@storybook/react", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:7.4.5"],\
@@ -15407,7 +15430,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-hook-form", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:7.45.4"],\
             ["react-kakao-maps-sdk", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:1.1.19"],\
             ["recoil", "virtual:a90340927533309496736c06e16f93af4607445ef274a79bec384f328851d1ec0a2812cd5e8e5b7ee7a61f7f3518522bf588f16a2df5adf5e299aa3fcd6dccd7#npm:0.7.7"],\
-            ["typescript", "patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"]\
+            ["typescript", "patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"],\
+            ["yup", "npm:1.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -21529,6 +21553,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["property-expr", [\
+        ["npm:2.0.5", {\
+          "packageLocation": "./.yarn/cache/property-expr-npm-2.0.5-6f6bda4c65-4ebe82ce45.zip/node_modules/property-expr/",\
+          "packageDependencies": [\
+            ["property-expr", "npm:2.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["proxy-addr", [\
         ["npm:2.0.7", {\
           "packageLocation": "./.yarn/cache/proxy-addr-npm-2.0.7-dae6552872-29c6990ce9.zip/node_modules/proxy-addr/",\
@@ -23576,6 +23609,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["tiny-case", [\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/tiny-case-npm-1.0.3-8c9747c74e-3f7a30c39d.zip/node_modules/tiny-case/",\
+          "packageDependencies": [\
+            ["tiny-case", "npm:1.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["tiny-invariant", [\
         ["npm:1.3.1", {\
           "packageLocation": "./.yarn/cache/tiny-invariant-npm-1.3.1-a8ca214e49-872dbd1ff2.zip/node_modules/tiny-invariant/",\
@@ -23646,6 +23688,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/toidentifier-npm-1.0.1-f759712599-952c29e2a8.zip/node_modules/toidentifier/",\
           "packageDependencies": [\
             ["toidentifier", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["toposort", [\
+        ["npm:2.0.2", {\
+          "packageLocation": "./.yarn/cache/toposort-npm-2.0.2-d472329c7d-d64c74b570.zip/node_modules/toposort/",\
+          "packageDependencies": [\
+            ["toposort", "npm:2.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -24724,6 +24775,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yocto-queue-npm-0.1.0-c6c9a7db29-f77b3d8d00.zip/node_modules/yocto-queue/",\
           "packageDependencies": [\
             ["yocto-queue", "npm:0.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["yup", [\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/yup-npm-1.2.0-1fa3b3178d-f0cdceb144.zip/node_modules/yup/",\
+          "packageDependencies": [\
+            ["yup", "npm:1.2.0"],\
+            ["property-expr", "npm:2.0.5"],\
+            ["tiny-case", "npm:1.0.3"],\
+            ["toposort", "npm:2.0.2"],\
+            ["type-fest", "npm:2.19.0"]\
           ],\
           "linkType": "HARD"\
         }]\
