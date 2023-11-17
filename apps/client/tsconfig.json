@@ -7,7 +7,9 @@
       }
     ],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@auth/*": ["./src/app/auth/*"],
+      "@components/*": ["./src/app/_components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
