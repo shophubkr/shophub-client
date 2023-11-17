@@ -6892,19 +6892,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "cookie@npm:0.4.2"
+  checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
+  languageName: node
+  linkType: hard
+
 "copy-to-clipboard@npm:3.3.3":
   version: 3.3.3
   resolution: "copy-to-clipboard@npm:3.3.3"
   dependencies:
     toggle-selection: ^1.0.6
   checksum: e0a325e39b7615108e6c1c8ac110ae7b829cdc4ee3278b1df6a0e4228c490442cc86444cd643e2da344fbc424b3aab8909e2fec82f8bc75e7e5b190b7c24eecf
-  languageName: node
-  linkType: hard
-
-"cookie@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "cookie@npm:0.4.2"
-  checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
   languageName: node
   linkType: hard
 
@@ -9037,19 +9037,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"headers-polyfill@npm:^3.1.0, headers-polyfill@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "headers-polyfill@npm:3.1.2"
+  checksum: 510ca9637ef652404dbd432e680418f8d418ba18094ef2f64c3d8de955ebf6e68d553c7f0aeaa5fc937d130b139c1e2d7c2066cd4cf0f740a4627924eaaee9db
+  languageName: node
+  linkType: hard
+
 "hoist-non-react-statics@npm:^3.3.1":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
     react-is: ^16.7.0
   checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
-  languageName: node
-  linkType: hard
-
-"headers-polyfill@npm:^3.1.0, headers-polyfill@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "headers-polyfill@npm:3.1.2"
-  checksum: 510ca9637ef652404dbd432e680418f8d418ba18094ef2f64c3d8de955ebf6e68d553c7f0aeaa5fc937d130b139c1e2d7c2066cd4cf0f740a4627924eaaee9db
   languageName: node
   linkType: hard
 

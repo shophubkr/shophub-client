@@ -14592,21 +14592,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["headers-polyfill", [\
+        ["npm:3.1.2", {\
+          "packageLocation": "./.yarn/cache/headers-polyfill-npm-3.1.2-da04988de4-510ca9637e.zip/node_modules/headers-polyfill/",\
+          "packageDependencies": [\
+            ["headers-polyfill", "npm:3.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["hoist-non-react-statics", [\
         ["npm:3.3.2", {\
           "packageLocation": "./.yarn/cache/hoist-non-react-statics-npm-3.3.2-e7b709e6c1-b153827042.zip/node_modules/hoist-non-react-statics/",\
           "packageDependencies": [\
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react-is", "npm:16.13.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["headers-polyfill", [\
-        ["npm:3.1.2", {\
-          "packageLocation": "./.yarn/cache/headers-polyfill-npm-3.1.2-da04988de4-510ca9637e.zip/node_modules/headers-polyfill/",\
-          "packageDependencies": [\
-            ["headers-polyfill", "npm:3.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\

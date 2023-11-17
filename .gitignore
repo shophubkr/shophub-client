@@ -15,6 +15,12 @@ node_modules
 **/.next/
 /out/
 
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # If you're using Zero-Installs:
 .yarn/*
 !.yarn/cache
