@@ -1,3 +1,3 @@
-import * as SignApi from "./Apis/sign/signApi";
+import * as Apis from "./Apis";
 
-export const handler = [...Object.values(SignApi)];
+export const handler = [...Object.values(Apis)];
