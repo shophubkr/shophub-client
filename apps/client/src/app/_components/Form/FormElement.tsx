@@ -3,12 +3,11 @@ import type { FormProps } from "@components/Form/FormProps.type";
 import styled from "@emotion/styled";
 import { useController } from "react-hook-form";
 
-export const FormElement = ({ control, name, label, type, rules, placeholder }: FormProps) => {
+export const FormElement = ({ control, name, label, type, rules, placeholder, ...rest }: FormProps) => {
   const {
     field,
     fieldState: { error: errors },
   } = useController({ control, name, rules });
-
   const isRequired = rules?.required;
 
   const charCode = placeholder?.charCodeAt(placeholder.length - 1) as number;
@@ -21,7 +20,12 @@ export const FormElement = ({ control, name, label, type, rules, placeholder }: 
           {label} {isRequired && "*"}
         </FormLabel>
       )}
-      <Input type={type} placeholder={`${placeholder}${constantChar === 0 ? "를" : "을"} 입력해주세요`} {...field} />
+      <Input
+        type={type}
+        placeholder={`${placeholder}${constantChar === 0 ? "를" : "을"} 입력해주세요`}
+        {...field}
+        {...rest}
+      />
       {errors && <S.ErrorMsg>{errors.message}</S.ErrorMsg>}
     </Flex>
   );

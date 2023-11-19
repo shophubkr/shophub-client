@@ -14,6 +14,7 @@ export interface FormProps extends PropsWithChildren {
     required?: string;
     validate?: () => boolean | string;
   };
+  defaultValue?: string;
   isBusinessNumber?: boolean;
   onBusinessNumberUpdate?: (newValue: boolean) => void;
 }
