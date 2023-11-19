@@ -17,8 +17,10 @@ export const SignUpForm = ({ control, role }: RoleProp) => {
         type="password"
         placeholder="비밀번호 확인"
       />
-      <FormElement control={control} name="nickName" label="닉네임" placeholder="닉네임" />
-      {role === "seller" && <FormElement control={control} name="phoneNumber" label="연락처" placeholder="연락처" />}
+      <FormElement control={control} name="nickname" label="닉네임" placeholder="닉네임" />
+      {role === "seller" && (
+        <FormElement control={control} name="phoneNumber" label="연락처" placeholder="연락처" defaultValue="" />
+      )}
     </Flex>
   );
 };

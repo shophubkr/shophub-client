@@ -1,10 +1,10 @@
 "use client";
 
-import { signUpSchema } from "@auth/_constants";
-import { signUpApi } from "@auth/_state/server/api";
+import { signUpBuyerSchema, signUpSellerSchema } from "@auth/_constants";
 import type { SingUpFormValues } from "@auth/_types";
 import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { AgreeCheckBox, SignUpForm } from "./_components";
@@ -12,25 +12,30 @@ import { AgreeCheckBox, SignUpForm } from "./_components";
 const SignUpSecond = () => {
   const role = useSearchParams().get("userType");
   const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({
-    resolver: yupResolver(signUpSchema),
+    resolver: yupResolver(role === "buyer" ? signUpBuyerSchema : signUpSellerSchema),
     defaultValues: {
       email: "",
       password: "",
       passwordConfirm: "",
       nickname: "",
-      phoneNumber: "",
       isAgeOverAgree: false,
       isSendAdsAgree: false,
     },
   });
 
   const onSubmitHandler = async (data: SingUpFormValues) => {
-    const postData = { ...data, role };
+    // api test code
+    const { email, password, nickname, phoneNumber } = data;
+
+    const formData = { email, password, nickname, phoneNumber, role };
+    const baseUrl = "http://13.209.100.56";
 
     try {
-      // mocking test completed
-      const res = await signUpApi.signUpResponse(postData as object);
-      console.log(res);
+      const res = await axios.post(`${baseUrl}/api/v1/auth/join`, JSON.stringify(formData), {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      // res.data.result.id && next step : modalStateAtom -> modal mount -> routing : login page
     } catch (error) {
       console.log(error);
     }
