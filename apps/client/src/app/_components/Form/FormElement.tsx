@@ -1,44 +1,21 @@
-import { Flex, FormLabel, Input } from "@chakra-ui/react";
+import { Flex, FormLabel, Input, Text } from "@chakra-ui/react";
 import type { FormProps } from "@components/Form/FormProps.type";
-import styled from "@emotion/styled";
 import { useController } from "react-hook-form";
+import { StyledErrorMsg } from "./FormElement.style";
 
-export const FormElement = ({ control, name, label, type, rules, placeholder, ...rest }: FormProps) => {
+export const FormElement = ({ control, name, label, type, ...rest }: FormProps) => {
   const {
     field,
     fieldState: { error: errors },
-  } = useController({ control, name, rules });
-  const isRequired = rules?.required;
-
-  const charCode = placeholder?.charCodeAt(placeholder.length - 1) as number;
-  const constantChar = (charCode - 44032) % 28;
+  } = useController({ control, name });
 
   return (
-    <Flex width="100%" position="relative" flexDir="column" rowGap="8px">
-      {label && (
-        <FormLabel htmlFor={name} fontSize="14px" margin="0">
-          {label} {isRequired && "*"}
-        </FormLabel>
-      )}
-      <Input
-        type={type}
-        placeholder={`${placeholder}${constantChar === 0 ? "를" : "을"} 입력해주세요`}
-        {...field}
-        {...rest}
-      />
-      {errors && <S.ErrorMsg>{errors.message}</S.ErrorMsg>}
+    <Flex width="100%" position="relative" flexDir="column">
+      <FormLabel display="flex" flexDir="column" rowGap="8px" htmlFor={name} fontSize="14px" margin="0">
+        {label && <Text>{label}</Text>}
+        <Input id={name} type={type} {...field} {...rest} />
+      </FormLabel>
+      {errors && <StyledErrorMsg>{errors.message}</StyledErrorMsg>}
     </Flex>
   );
-};
-
-const ErrorMsg = styled.div`
-  position: absolute;
-  top: 100%;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #ff6565;
-`;
-
-const S = {
-  ErrorMsg,
 };

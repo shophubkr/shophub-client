@@ -1,2 +1,2 @@
-export { FormElement } from "@components/Form/FormElement";
-export type { FormProps } from "@components/Form/FormProps.type";
+export * from "@components/Form/FormElement";
+export type * from "@components/Form/FormProps.type";
