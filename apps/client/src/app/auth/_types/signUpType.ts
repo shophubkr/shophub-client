@@ -1,4 +1,4 @@
-export type SingUpFormValues = {
+export interface SingUpFormValues {
   email?: string;
   password?: string;
   passwordConfirm?: string;
@@ -7,4 +7,4 @@ export type SingUpFormValues = {
   phoneNumber?: string;
   isAgeOverAgree?: boolean;
   isSendAdsAgree?: boolean;
-};
+}
