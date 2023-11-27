@@ -1,18 +1,18 @@
 "use client";
 
 import { signUpBuyerSchema, signUpSellerSchema } from "@auth/_constants";
+import { usePostUserSignUp } from "@auth/_state/server";
 import type { SingUpFormValues } from "@auth/_types";
 import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { AgreeCheckBox, SignUpForm } from "./_components";
 
 const SignUpSecond = () => {
   const role = useSearchParams().get("userType");
-  const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({
-    resolver: yupResolver(role === "buyer" ? signUpBuyerSchema : signUpSellerSchema),
+  const { control, handleSubmit } = useForm<SingUpFormValues>({
+    resolver: yupResolver(role === "USER_BUYER" ? signUpBuyerSchema : signUpSellerSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -20,22 +20,20 @@ const SignUpSecond = () => {
       nickname: "",
       isAgeOverAgree: false,
       isSendAdsAgree: false,
+      ...(role === "USER_SELLER" && { phoneNumber: "" }),
     },
   });
 
+  const { isLoading, mutateAsync } = usePostUserSignUp();
+
   const onSubmitHandler = async (data: SingUpFormValues) => {
-    // api test code
     const { email, password, nickname, phoneNumber } = data;
 
-    const formData = { email, password, nickname, phoneNumber, role };
-    const baseUrl = "http://13.209.100.56";
+    const buyerFormData = { email, password, nickname, role };
+    const sellerFormData = { ...buyerFormData, phoneNumber };
 
     try {
-      const res = await axios.post(`${baseUrl}/api/v1/auth/join`, JSON.stringify(formData), {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-
-      // res.data.result.id && next step : modalStateAtom -> modal mount -> routing : login page
+      await mutateAsync(role === "USER_BUYER" ? buyerFormData : sellerFormData);
     } catch (error) {
       console.log(error);
     }
