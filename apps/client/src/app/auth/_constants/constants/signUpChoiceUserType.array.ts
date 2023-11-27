@@ -1,11 +1,13 @@
-export const userTypeList = [
+export const userTypeArray = [
   {
-    userType: "buyer",
+    id: 1,
+    userType: "USER_BUYER",
     materialIcons: "shopping_bag",
     description: "매장 손님",
   },
   {
-    userType: "seller",
+    id: 2,
+    userType: "USER_SELLER",
     materialIcons: "sell",
     description: "매장 주인",
   },
