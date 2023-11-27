@@ -10,6 +10,8 @@ node_modules
 !.vscode/extensions.json
 !.vscode/templates
 
+# env
+.env.local
 
 # next.js
 **/.next/
