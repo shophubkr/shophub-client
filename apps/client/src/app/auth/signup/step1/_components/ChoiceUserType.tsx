@@ -1,33 +1,36 @@
-import { userTypeList } from "@auth/_constants/signUpStep1UserType.Array";
-import { Flex, Heading, Text } from "@chakra-ui/react";
-import * as S from "../page.style";
+import { userTypeArray } from "@auth/_constants";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 
 interface PropsType {
-  userChoice: "buyer" | "seller" | undefined;
-  setUserChoice: (user: "buyer" | "seller") => void;
+  userChoice: "USER_BUYER" | "USER_SELLER" | undefined;
+  setUserChoice: (user: "USER_BUYER" | "USER_SELLER") => void;
 }
 
 export const ChoiceUserType = ({ userChoice, setUserChoice }: PropsType) => {
-  const onClickUserType = (user: "buyer" | "seller") => {
+  const onClickUserType = (user: "USER_BUYER" | "USER_SELLER") => {
     setUserChoice(user);
   };
 
   return (
     <>
-      {userTypeList.map((user) => (
-        <S.StyledButton
-          onClick={() => onClickUserType(user.userType === "buyer" ? "buyer" : "seller")}
-          colorScheme={userChoice === user.userType ? "facebook" : "gray"}
+      {userTypeArray.map((user) => (
+        <Button
+          key={user.id}
+          onClick={() => onClickUserType(user.userType === "USER_BUYER" ? "USER_BUYER" : "USER_SELLER")}
+          w="100%"
+          h="149px"
           flexDir="column"
+          colorScheme={userChoice === user.userType ? "facebook" : "gray"}
+          boxShadow="0 0 4px rgba(0, 0, 0, 0.15)"
         >
           <Heading as="h4" fontSize="20px">
-            {user.userType.toUpperCase()}
+            {user.userType === "USER_BUYER" ? "BUYER" : "SELLER"}
           </Heading>
           <Flex justify="center" alignItems="center" mt="8px" gap="4px">
             <Text className="material-icons-outlined">{user.materialIcons}</Text>
             <Text fontSize="14px">{user.description}</Text>
           </Flex>
-        </S.StyledButton>
+        </Button>
       ))}
     </>
   );

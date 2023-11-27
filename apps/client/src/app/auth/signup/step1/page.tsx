@@ -4,13 +4,13 @@ import { Button, Flex, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { ChoiceUserType } from "./_components/ChoiceUserType";
-import * as S from "./page.style";
+import * as Styled from "./page.style";
 
 const SignUpFirst = () => {
-  const [userChoice, setUserChoice] = useState<"buyer" | "seller">();
+  const [userChoice, setUserChoice] = useState<"USER_BUYER" | "USER_SELLER">();
 
   return (
-    <S.Wrapper w="100%" flexDir="column">
+    <Styled.Wrapper w="100%" flexDir="column">
       <Heading as="h3" fontSize="24px">
         회원 유형
       </Heading>
@@ -25,7 +25,7 @@ const SignUpFirst = () => {
           다음으로 가기
         </Button>
       </Link>
-    </S.Wrapper>
+    </Styled.Wrapper>
   );
 };
 
