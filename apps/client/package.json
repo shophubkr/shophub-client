@@ -28,6 +28,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@shophub/theme": "workspace:^",
     "@shophub/ts-config": "workspace:^",
     "@shophub/ui": "workspace:^",
     "@storybook/react": "^7.4.0",
