@@ -1,5 +1,6 @@
 import { userTypeArray } from "@auth/_constants";
-import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Heading, Text } from "@chakra-ui/react";
+import * as Styled from "./ChoiceUserType.style";
 
 interface PropsType {
   userChoice: "USER_BUYER" | "USER_SELLER" | undefined;
@@ -26,10 +27,10 @@ export const ChoiceUserType = ({ userChoice, setUserChoice }: PropsType) => {
           <Heading as="h4" fontSize="20px">
             {user.userType === "USER_BUYER" ? "BUYER" : "SELLER"}
           </Heading>
-          <Flex justify="center" alignItems="center" mt="8px" gap="4px">
+          <Styled.IconBox justify="center" alignItems="center" mt="8px" gap="4px">
             <Text className="material-icons-outlined">{user.materialIcons}</Text>
             <Text fontSize="14px">{user.description}</Text>
-          </Flex>
+          </Styled.IconBox>
         </Button>
       ))}
     </>

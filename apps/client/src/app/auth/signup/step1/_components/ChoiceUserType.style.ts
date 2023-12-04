@@ -1,7 +1,7 @@
-import { Center } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
-export const Wrapper = styled(Center)`
+export const IconBox = styled(Flex)`
   .material-icons-outlined {
     font-size: 16px;
   }
