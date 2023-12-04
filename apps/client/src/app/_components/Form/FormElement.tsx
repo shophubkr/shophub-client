@@ -1,7 +1,7 @@
 import { Flex, FormLabel, Input, Text } from "@chakra-ui/react";
 import type { FormProps } from "@components/Form/FormProps.type";
 import { useController } from "react-hook-form";
-import { StyledErrorMsg } from "./FormElement.style";
+import * as Styled from "./FormElement.style";
 
 export const FormElement = ({ control, name, label, type, ...rest }: FormProps) => {
   const {
@@ -15,7 +15,7 @@ export const FormElement = ({ control, name, label, type, ...rest }: FormProps) 
         {label && <Text>{label}</Text>}
         <Input id={name} type={type} {...field} {...rest} />
       </FormLabel>
-      {errors && <StyledErrorMsg>{errors.message}</StyledErrorMsg>}
+      {errors && <Styled.ErrorMsg>{errors.message}</Styled.ErrorMsg>}
     </Flex>
   );
 };

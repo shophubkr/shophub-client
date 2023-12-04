@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const StyledErrorMsg = styled.div`
+export const ErrorMsg = styled.div`
   position: absolute;
   top: 100%;
   margin-top: 8px;
