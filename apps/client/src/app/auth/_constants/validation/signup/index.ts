@@ -1,1 +1,1 @@
-export { signUpBuyerSchema, signUpSellerSchema } from "~/app/auth/_constants/validation/signup/validationSchemas";
+export { signUpBuyerSchema, signUpSellerSchema } from "./validationSchemas";

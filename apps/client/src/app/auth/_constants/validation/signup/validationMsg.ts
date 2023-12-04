@@ -22,4 +22,4 @@ export const signUpErrMsg = {
     required: "연락처를 입력해주세요.",
     pattern: "연락처 형식에 맞는 번호를 입력해주세요.",
   },
-};
+} as const;

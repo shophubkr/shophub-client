@@ -1,4 +1,4 @@
-import { CheckBox } from "@auth/_components/index";
+import { CheckBox } from "@auth/_components";
 import { Flex } from "@chakra-ui/react";
 import type { FormProps } from "@components/index";
 

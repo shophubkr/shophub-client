@@ -1,1 +1,1 @@
-export { CheckBox } from "@auth/_components/Form/CheckBox";
+export { CheckBox } from "./CheckBox";

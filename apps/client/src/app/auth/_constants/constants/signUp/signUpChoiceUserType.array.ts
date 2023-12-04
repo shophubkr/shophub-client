@@ -11,4 +11,4 @@ export const userTypeArray = [
     materialIcons: "sell",
     description: "매장 주인",
   },
-];
+] as const;
