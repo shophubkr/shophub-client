@@ -8,9 +8,14 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState, type PropsWithChildren } from "react";
 import { RecoilRoot } from "recoil";
 
+import initMocks from "../mocks";
+
+if (process.env.NEXT_PUBLIC_API_MOCKING === "enable") {
+  initMocks();
+}
+
 export const Providers = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(() => new QueryClient());
-  // import("../mocks");
 
   return (
     <QueryClientProvider client={queryClient}>
