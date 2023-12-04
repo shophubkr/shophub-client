@@ -1,1 +1,1 @@
-export * from "./postUserSignUp";
+export * from "./hooks";
