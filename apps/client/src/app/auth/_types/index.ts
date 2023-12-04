@@ -1,1 +1,1 @@
-export type { SingUpFormValues } from "@auth/_types/signUpType";
+export type { SingUpFormValues } from "./signUpType";
