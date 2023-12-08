@@ -1,4 +1,4 @@
-export const fonts = {
+export const FONTS = {
   h1: "normal 700 40px/40px 'Spoqa Han Sans Neo', 'sans-serif'",
   h2: "normal 700 32px/32px 'Spoqa Han Sans Neo', 'sans-serif'",
   h3: "normal 700 24px/24px 'Spoqa Han Sans Neo', 'sans-serif'",
@@ -13,7 +13,6 @@ export const fonts = {
   p14m: "normal 500 14px/14px 'Spoqa Han Sans Neo', 'sans-serif'",
   p14r: "normal 400 14px/14px 'Spoqa Han Sans Neo', 'sans-serif'",
   p14l: "normal 300 14px/14px 'Spoqa Han Sans Neo', 'sans-serif'",
-
   p12m: "normal 500 12px/12px 'Spoqa Han Sans Neo', 'sans-serif'",
   p12r: "normal 400 12px/12px 'Spoqa Han Sans Neo', 'sans-serif'",
   p12l: "normal 300 12px/12px 'Spoqa Han Sans Neo', 'sans-serif'",
