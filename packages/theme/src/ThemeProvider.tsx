@@ -2,10 +2,10 @@
 
 import { createContext, type PropsWithChildren } from "react";
 import { theme } from "./theme";
-import type { ShophubThemeType } from ".";
+import type { ShophubThemeProps } from "./theme.types";
 
-export const ShophubTheme = createContext<ShophubThemeType>(theme);
+export const ShophubTheme = createContext<ShophubThemeProps>(theme);
 
-export const ThemeProvider = ({ children }: PropsWithChildren<ShophubThemeType>) => {
+export const ThemeProvider = ({ children }: PropsWithChildren<ShophubThemeProps>) => {
   return <ShophubTheme.Provider value={theme}>{children}</ShophubTheme.Provider>;
 };
