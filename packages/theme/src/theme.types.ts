@@ -1,5 +1,7 @@
-import type { colors } from "./token/colors";
+import type { COLORS } from "./token/colors";
+import type { FONTS } from "./token/fonts";
 
 export interface ShophubTheme {
-  colors: typeof colors;
+  COLORS: typeof COLORS;
+  FONTS: typeof FONTS;
 }
