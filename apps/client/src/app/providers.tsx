@@ -2,9 +2,11 @@
 
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ModalProvider } from "@shophub/ui";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState, type PropsWithChildren } from "react";
+import { RecoilRoot } from "recoil";
 
 import initMocks from "../mocks";
 
@@ -17,9 +19,13 @@ export const Providers = ({ children }: PropsWithChildren) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <CacheProvider>
-        <ChakraProvider>{children}</ChakraProvider>
-      </CacheProvider>
+      <RecoilRoot>
+        <ModalProvider>
+          <CacheProvider>
+            <ChakraProvider>{children}</ChakraProvider>
+          </CacheProvider>
+        </ModalProvider>
+      </RecoilRoot>
       <ReactQueryDevtools />
     </QueryClientProvider>
   );

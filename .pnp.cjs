@@ -4725,6 +4725,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@chakra-ui/css-reset", "virtual:0aeec2e2b0975b724ef5d269d21b973cf7b5051772c8262283d80293df2a9c06b08ca545d900d0c850457a06dcff4ad577b32aabf17b55238edd457e9c84f7e0#npm:2.2.0"],\
             ["@emotion/react", "virtual:b2d0d22c09f2a64ae2c725993614494915c4dbbf95f34f4126386e1219908a8eee814daddaa015341b764e3ddcedb0e1bd74e1ed5ca339af050876275f3d017d#npm:11.11.1"],\
+            ["@emotion/react", "virtual:b2d0d22c09f2a64ae2c725993614494915c4dbbf95f34f4126386e1219908a8eee814daddaa015341b764e3ddcedb0e1bd74e1ed5ca339af050876275f3d017d#npm:11.11.1"],\
             ["@types/emotion__react", null],\
             ["@types/react", "npm:18.2.13"],\
             ["react", "npm:18.2.0"]\
