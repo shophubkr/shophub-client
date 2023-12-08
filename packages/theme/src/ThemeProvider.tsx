@@ -1,15 +1,11 @@
 "use client";
 
-import { type Theme } from "@emotion/react";
 import { createContext, type PropsWithChildren } from "react";
-import { THEME } from "./theme";
+import { theme } from "./theme";
+import type { ShophubThemeType } from ".";
 
-type CSRProps = {
-  theme?: Partial<Theme> | ((outerTheme: Theme) => Theme);
-};
+export const ShophubTheme = createContext<ShophubThemeType>(theme);
 
-export const ShophubTheme = createContext<Theme>(THEME);
-
-export const ThemeProvider = ({ children, theme: customTheme }: PropsWithChildren<CSRProps>) => {
-  return <ShophubTheme.Provider value={customTheme || THEME}>{children}</ShophubTheme.Provider>;
+export const ThemeProvider = ({ children }: PropsWithChildren<ShophubThemeType>) => {
+  return <ShophubTheme.Provider value={theme}>{children}</ShophubTheme.Provider>;
 };
