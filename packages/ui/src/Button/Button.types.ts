@@ -1,4 +1,4 @@
-import type { ElementType, HTMLAttributes } from 'react';
+import type { ElementType, HTMLAttributes } from "react";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   as?: ElementType;
