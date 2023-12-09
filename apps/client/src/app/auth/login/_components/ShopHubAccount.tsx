@@ -1,7 +1,7 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
-import type { FormProps } from "@components/index";
-import { FormElement } from "@components/index";
 import Link from "next/link";
+import type { FormProps } from "~/components";
+import { FormElement } from "~/components";
 
 export const ShopHubAccountLogin = ({ control }: FormProps) => {
   return (

@@ -3,7 +3,7 @@
 import { Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CouponSummary, HorizontalLine, StoreItem } from "~/app/_components";
+import { CouponSummary, HorizontalLine, StoreItem } from "~/components";
 import type { MyPageBuyerProps } from "~/mocks/Apis";
 import { SummarySection, UserProfile } from "../_components";
 

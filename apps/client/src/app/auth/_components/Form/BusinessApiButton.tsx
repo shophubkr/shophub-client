@@ -1,7 +1,7 @@
 import { signUpApi } from "@auth/_state/server/api";
 import { Button } from "@chakra-ui/react";
-import type { FormProps } from "@components/Form";
 import { useController } from "react-hook-form";
+import type { FormProps } from "~/components";
 
 export const BusinessApiButton = ({ control, name, getValues, setValue }: FormProps) => {
   const { field } = useController({ control, name });
