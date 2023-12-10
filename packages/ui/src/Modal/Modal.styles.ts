@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors } from "@shophub/theme/src/token";
+import { COLORS } from "@shophub/theme/src/token";
 
 export const Background = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const Background = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${colors.black};
+  background-color: ${COLORS.black};
   opacity: 0.5;
 `;
 
@@ -22,7 +22,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  background-color: ${colors.white};
+  background-color: ${COLORS.white};
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.0225);
   padding: 40px 33px 38px;
   box-sizing: border-box;

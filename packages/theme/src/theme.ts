@@ -1,6 +1,6 @@
 import { COLORS, FONTS } from "./token";
 
-export const THEME = {
+export const theme = {
   COLORS,
   FONTS,
 } as const;

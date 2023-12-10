@@ -1,16 +1,16 @@
-import { colors } from "@shophub/theme/src/token";
+import { COLORS } from "@shophub/theme/src/token";
 
 export const typeToIcon = {
   positive: {
-    color: colors.status.success,
+    color: COLORS.status.success,
     icon: "check_circle",
   },
   negative: {
-    color: colors.status.error,
+    color: COLORS.status.error,
     icon: "error",
   },
   warning: {
-    color: colors.primary.p500,
+    color: COLORS.primary[500],
     icon: "help",
   },
 } as const;
