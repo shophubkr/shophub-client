@@ -2,19 +2,19 @@
 
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
 import type { isRequireAuthType } from "./axios.types";
 
 const env = process.env.NEXT_PUBLIC_BACKEND_URL;
-const accessToken = sessionStorage.getItem("getAccessTokenKey");
 
 export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
   const instanceConfig = {
     baseURL: env,
     headers: {
       "Content-Type": "application/json",
-      ...((isRequireAuth && { "Authorization": `Bearer ${accessToken}` }) ?? {}),
+      ...((isRequireAuth && { "Authorization": `Bearer ${ACCESS_TOKEN_KEY}` }) ?? {}),
     },
-    withCredentials: false,
+    withCredentials: true,
     timeout: 5000,
   };
 
@@ -37,11 +37,10 @@ export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
       async (error: AxiosError) => {
         const _err = error;
         const originalReqConfig = error?.config;
-        const refreshToken = sessionStorage.getItem("getRefreshTokenKey");
 
-        if (_err.status === 401 && refreshToken) {
+        if (_err.status === 401 && REFRESH_TOKEN_KEY) {
           try {
-            const res = await createAxiosInstance.post(`${env}/api/v1/auth/reissue`, { refreshToken });
+            const res = await createAxiosInstance.post(`${env}/api/v1/auth/reissue`, { REFRESH_TOKEN_KEY });
             const reIssuedAccessToken: string = await res?.data?.result?.accessToken;
 
             if (reIssuedAccessToken) {
