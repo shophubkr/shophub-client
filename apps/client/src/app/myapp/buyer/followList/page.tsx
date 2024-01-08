@@ -24,10 +24,10 @@ const FollowListPage = () => {
         />
         <HorizontalLine h="1px" />
         {stores.map((store, index) => (
-          <>
+          <Flex flexDir="column" rowGap="24px" pt="24px">
             <StoreItem storeInformation={store} />
-            {index + 1 !== followCount && <HorizontalLine h="1px" m="26px 0 24px" />}
-          </>
+            {index + 1 !== followCount && <HorizontalLine h="1px" />}
+          </Flex>
         ))}
       </Flex>
     </div>
