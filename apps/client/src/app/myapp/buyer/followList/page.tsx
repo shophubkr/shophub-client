@@ -15,22 +15,20 @@ const FollowListPage = () => {
   const followCount = 0; // total
 
   return (
-    <div>
-      <Flex flexDir="column" rowGap="16px">
-        <FollowListHeader
-          total={10}
-          couponState={{ isCouponFilterEnabled, onChangeCouponFilter }}
-          distanceState={{ isDistanceFilterEnabled, onChangeDistanceFilter }}
-        />
-        <HorizontalLine h="1px" />
-        {stores.map((store, index) => (
-          <Flex flexDir="column" rowGap="24px" pt="24px">
-            <StoreItem storeInformation={store} />
-            {index + 1 !== followCount && <HorizontalLine h="1px" />}
-          </Flex>
-        ))}
-      </Flex>
-    </div>
+    <Flex flexDir="column" rowGap="16px">
+      <FollowListHeader
+        total={10}
+        couponState={{ isCouponFilterEnabled, onChangeCouponFilter }}
+        distanceState={{ isDistanceFilterEnabled, onChangeDistanceFilter }}
+      />
+      <HorizontalLine h="1px" />
+      {stores.map((store, index) => (
+        <Flex flexDir="column" rowGap="24px" pt="24px">
+          <StoreItem storeInformation={store} />
+          {index + 1 !== followCount && <HorizontalLine h="1px" />}
+        </Flex>
+      ))}
+    </Flex>
   );
 };
 

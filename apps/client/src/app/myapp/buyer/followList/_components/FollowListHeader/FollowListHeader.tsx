@@ -9,13 +9,13 @@ export const FollowListHeader = ({ total, couponState, distanceState }: FollowLi
     <Flex flexDir="column" rowGap="24px">
       <ListTotal title="팔로우 매장" total={total} />
       <Flex justifyContent="space-between">
-        <Flex gap="3px">
+        <Flex gap="5px" alignItems="center">
           <Switch
             id="isCouponFilterEnabled"
             checked={couponState.isCouponFilterEnabled}
             onClick={couponState.onChangeCouponFilter}
           />
-          <span>쿠폰 여부</span>
+          <Text>쿠폰 여부</Text>
         </Flex>
         <Text
           fontWeight={distanceState.isDistanceFilterEnabled ? 600 : 400}
