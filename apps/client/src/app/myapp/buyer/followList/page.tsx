@@ -2,9 +2,9 @@
 
 import { Flex } from "@chakra-ui/react";
 import type { StoreProps } from "~/components";
-import { HorizontalLine, StoreItem } from "~/components";
-import { FollowListHeader } from "./_components";
+import { HorizontalLine, ListTotal, StoreItem } from "~/components";
 import { useBooleanState } from "~/hooks";
+import { Filters } from "./_components";
 
 const FollowListPage = () => {
   const { value: isCouponFilterEnabled, onChange: onChangeCouponFilter } = useBooleanState();
@@ -16,8 +16,8 @@ const FollowListPage = () => {
 
   return (
     <Flex flexDir="column" rowGap="16px">
-      <FollowListHeader
-        total={10}
+      <ListTotal title="팔로우 매장" total={followCount} />
+      <Filters
         couponState={{ isCouponFilterEnabled, onChangeCouponFilter }}
         distanceState={{ isDistanceFilterEnabled, onChangeDistanceFilter }}
       />

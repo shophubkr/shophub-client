@@ -1,5 +1,4 @@
-export interface FollowListHeaderProps {
-  total: number;
+export interface FiltersProps {
   couponState: {
     isCouponFilterEnabled: boolean;
     onChangeCouponFilter: VoidFunction;
