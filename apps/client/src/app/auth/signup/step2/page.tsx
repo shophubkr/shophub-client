@@ -1,15 +1,14 @@
 "use client";
 
-import { CheckBox } from "@auth/_components";
 import { BusinessApiButton } from "@auth/_components/Form";
 import { signUpSchema } from "@auth/_constants";
 import { signUpApi } from "@auth/_state/server/api";
 import type { SingUpFormValues } from "@auth/_types";
 import { Button, Center, Flex, Heading } from "@chakra-ui/react";
-import { FormElement } from "@components/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { CheckBox, FormElement } from "~/components";
 
 const SignUpSecond = () => {
   const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({

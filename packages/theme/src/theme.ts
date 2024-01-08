@@ -1,5 +1,6 @@
-import { colors } from './token';
+import { COLORS, FONTS } from "./token";
 
 export const theme = {
-  colors,
-};
+  COLORS,
+  FONTS,
+} as const;
