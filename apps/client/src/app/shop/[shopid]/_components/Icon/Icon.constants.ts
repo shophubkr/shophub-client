@@ -1,0 +1,15 @@
+export const LABEL_TO_ICON = {
+  share: "share",
+  follow: "person",
+  findWay: "location_on",
+  viewMap: "map",
+  address: "location_on",
+  hour: "schedule",
+  telNum: "call",
+  tags: "tag",
+  copy: "content_copy",
+  calendar: "calendar_month",
+  close: "close",
+  download: "download_for_offline",
+  expandMore: "expand_more",
+} as const;
