@@ -1,1 +1,1 @@
-export { userTypeArray } from "./signUpChoiceUserType.array";
+export { CHOICE_USER_TYPE_GROUP } from "./signUpChoiceUserType.array";

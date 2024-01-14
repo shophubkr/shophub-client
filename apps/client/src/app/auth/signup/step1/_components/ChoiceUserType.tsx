@@ -1,23 +1,19 @@
-import { userTypeArray } from "@auth/_constants";
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { CHOICE_USER_TYPE_GROUP } from "@auth/_constants";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import * as Styled from "./ChoiceUserType.style";
+import type { ChoiceUserTypeProps, UserType } from "./ChoiceUserType.types";
 
-interface PropsType {
-  userChoice: "USER_BUYER" | "USER_SELLER" | undefined;
-  setUserChoice: (user: "USER_BUYER" | "USER_SELLER") => void;
-}
-
-export const ChoiceUserType = ({ userChoice, setUserChoice }: PropsType) => {
-  const onClickUserType = (user: "USER_BUYER" | "USER_SELLER") => {
+export const ChoiceUserType = ({ userChoice, setUserChoice }: ChoiceUserTypeProps) => {
+  const onClickUserType = (user: UserType) => {
     setUserChoice(user);
   };
 
   return (
-    <>
-      {userTypeArray.map((user) => (
+    <Flex w="100%" h="149px" columnGap="8px" mt="80px">
+      {CHOICE_USER_TYPE_GROUP.map((user) => (
         <Button
-          key={user.id}
-          onClick={() => onClickUserType(user.userType === "USER_BUYER" ? "USER_BUYER" : "USER_SELLER")}
+          key={user.userType}
+          onClick={() => onClickUserType(user.userType)}
           w="100%"
           h="149px"
           flexDir="column"
@@ -33,6 +29,6 @@ export const ChoiceUserType = ({ userChoice, setUserChoice }: PropsType) => {
           </Styled.IconBox>
         </Button>
       ))}
-    </>
+    </Flex>
   );
 };

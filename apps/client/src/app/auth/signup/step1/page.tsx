@@ -1,21 +1,20 @@
 "use client";
 
-import { Button, Center, Flex, Heading } from "@chakra-ui/react";
+import { Button, Center, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 import { useState } from "react";
 import { ChoiceUserType } from "./_components/ChoiceUserType";
+import type { UserType } from "./_components/ChoiceUserType.types";
 
 const SignUpFirst = () => {
-  const [userChoice, setUserChoice] = useState<"USER_BUYER" | "USER_SELLER">();
+  const [userChoice, setUserChoice] = useState<UserType>();
 
   return (
     <Center w="100%" flexDir="column">
       <Heading as="h3" fontSize="24px">
         회원 유형
       </Heading>
-      <Flex w="100%" h="149px" columnGap="8px" mt="80px">
-        <ChoiceUserType userChoice={userChoice} setUserChoice={setUserChoice} />
-      </Flex>
+      <ChoiceUserType userChoice={userChoice as UserType} setUserChoice={setUserChoice} />
       <Link
         href={{ pathname: userChoice && "/auth/signup/step2", query: { userType: userChoice } }}
         style={{ width: "100%" }}
