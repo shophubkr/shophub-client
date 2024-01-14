@@ -3,17 +3,16 @@
 import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
-import { Modal } from "@shophub/ui/src/Modal/Modal";
 
 import type { EssentialModalProps } from "@shophub/ui/src/Modal/Modal.types";
 
 import * as Styled from "./CouponListModal.styles";
 
-import { Icon } from "../Icon";
 import { useCouponListModalState } from "../../_states/client/couponModal.state";
 
 export const CouponListModal = () => {
   const theme = useShophubTheme();
+
   const [isCouponListModal, setIsCouponListModal] = useCouponListModalState();
 
   const [isIssuanceModal, setIsIssuanceModal] = useState<boolean>(false);
@@ -27,14 +26,14 @@ export const CouponListModal = () => {
 
   return (
     <>
-      <Modal isOpen={isIssuanceModal} onClose={handleCloseIssuanceModal} props={issuanceModalProps} />
+      {/* <Modal isOpen={isIssuanceModal} onClose={handleCloseIssuanceModal} props={issuanceModalProps} /> */}
 
       <Styled.Modal open={isCouponListModal} onClose={() => setIsCouponListModal(false)}>
         <Styled.Header theme={theme}>
           <span style={{ width: "24px" }} />
           쿠폰
           <button onClick={() => setIsCouponListModal(false)}>
-            <Icon label="close" fontSize="24px" color={theme.COLORS.black} />
+            {/* <Icon label="close" fontSize="24px" color={theme.COLORS.black} /> */}
           </button>
         </Styled.Header>
 

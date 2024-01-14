@@ -1,41 +1,30 @@
 "use client";
 
-import { Flex } from "@chakra-ui/react";
-import { useShophubTheme } from "@shophub/theme";
+import { Button, Divider, Flex } from "@chakra-ui/react";
 
-import * as Styled from "./page.styles";
-
-import { ProductImage } from "./_components/ProductImage";
-import { Button } from "./_components/Button";
-import { ShopBriefInfo } from "./_components/ShopBriefInfo";
-import { ShopDetailInfo } from "./_components/ShopDetailInfo";
-import { CouponSection } from "./_components/CouponSection";
-import { ShopProductSection } from "./_components/ShopProductSection";
+import { CouponSection, ShopBriefInfo, ShopOperationInfo, ShopProductSection } from "./_components";
 
 const ShopDetailPage = () => {
-  const theme = useShophubTheme();
-
   return (
     <main>
-      <ProductImage src="https://picsum.photos/200" alt="" size="lg" priority />
-
-      <Flex mt="40px">
-        <ShopBriefInfo />
-        <Flex alignItems="flex-end" gap="4px">
-          <Button size="tiny" label="share" />
-          <Button size="tiny" label="follow" />
-        </Flex>
+      <ShopBriefInfo />
+      <Flex columnGap="14px" m="24px 0">
+        <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
+          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
+            location_on
+          </span>
+          길찾기
+        </Button>
+        <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
+          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
+            map
+          </span>
+          지도보기
+        </Button>
       </Flex>
-
-      <Flex gap="14px" m="24px 0">
-        <Button size="large" label="findWay" />
-        <Button size="large" label="viewMap" />
-      </Flex>
-
-      <Styled.Divider theme={theme} />
-      <ShopDetailInfo />
-      <Styled.Divider theme={theme} />
-
+      <Divider orientation="horizontal" h="1px" />
+      <ShopOperationInfo />
+      <Divider orientation="horizontal" h="1px" />
       <CouponSection />
       <ShopProductSection />
     </main>

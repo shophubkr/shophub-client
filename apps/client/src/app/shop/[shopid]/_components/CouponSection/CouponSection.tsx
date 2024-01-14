@@ -1,48 +1,41 @@
+import Link from "next/link";
 import { Button, Flex } from "@chakra-ui/react";
-import { useShophubTheme } from "@shophub/theme";
-
-import { Icon } from "../Icon";
-import { useCouponListModalState } from "../../_states/client/couponModal.state";
-import { CouponListModal } from "../CouponListModal";
 
 export const CouponSection = () => {
-  const theme = useShophubTheme();
-  const [isCouponListModal, setIsCouponListModal] = useCouponListModalState();
-
-  const handleOpenCouponListModal = () => setIsCouponListModal(true);
-
   return (
     <>
-      <div>
-        <Flex
-          bg="black"
-          borderRadius="4px"
-          alignItems="center"
-          m="24px 0 16px 0"
-          p="4px 8px"
-          gap="4px"
-          color={theme.COLORS.white}
-          style={{ font: theme.FONTS.p14r }}
-        >
-          <Icon label="calendar" fontSize="14px" color={theme.COLORS.white} />
-          쿠폰 만료 3일 남았어요
-        </Flex>
+      <Flex
+        bgColor="black"
+        color="white"
+        borderRadius="4px"
+        alignItems="center"
+        m="24px 0 16px 0"
+        p="4px 8px"
+        columnGap="4px"
+        fontSize="14px"
+        fontWeight="400"
+      >
+        <span className="material-icons-outlined" style={{ fontSize: "14px" }}>
+          calendar_month
+        </span>
+        쿠폰 만료 3일 남았어요
+      </Flex>
+      <Link href="/shop/shopid/coupon">
         <Button
           display="flex"
-          w="100%"
+          w="full"
           alignItems="center"
           justifyContent="space-between"
           p="8px 16px"
-          bg={theme.COLORS.grey[200]}
-          color={theme.COLORS.black}
-          style={{ font: theme.FONTS.medium }}
-          onClick={handleOpenCouponListModal}
+          fontSize="16px"
+          fontWeight="500"
         >
           최대 10,000원 초대박 할인
-          <Icon label="expandMore" fontSize="16px" color={theme.COLORS.black} />
+          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
+            expand_more
+          </span>
         </Button>
-      </div>
-      {isCouponListModal && <CouponListModal />}
+      </Link>
     </>
   );
 };
