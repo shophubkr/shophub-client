@@ -1,4 +1,4 @@
-export const signUpValidationMsg = {
+export const SIGN_UP_ERROR_MESSAGES = {
   email: {
     required: "이메일을 입력해주세요.",
     pattern: "올바른 이메일 형식으로 입력해주세요.",
@@ -13,16 +13,13 @@ export const signUpValidationMsg = {
     required: "비밀번호를 한번 더 입력해주세요.",
     noSame: "비밀번호가 일치하지 않아요.",
   },
-  nickName: {
+  nickname: {
     required: "닉네임을 입력해주세요.",
+    min: "최소 2자 이상 입력해주세요.",
     pattern: "닉네임은 영문자, 한글, 숫자만 가능해요.",
   },
-  tel: {
+  phoneNumber: {
     required: "연락처를 입력해주세요.",
     pattern: "연락처 형식에 맞는 번호를 입력해주세요.",
   },
-  businessNum: {
-    required: "사업자 번호 입력시, (-)을 뺴고, 입력해주세요.",
-    pattern: "사업자 번호 10자리를 입력해주세요.",
-  },
-};
+} as const;
