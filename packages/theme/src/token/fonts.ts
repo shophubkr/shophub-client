@@ -17,6 +17,6 @@ export const FONTS = {
   p12r: "normal 400 12px/12px 'Spoqa Han Sans Neo', 'sans-serif'",
   p12l: "normal 300 12px/12px 'Spoqa Han Sans Neo', 'sans-serif'",
 
-  small: "normal 500 16px/16px 'Spoqa Han Sans Neo', 'sans-serif'",
-  medium: "normal 500 14px/14px 'Spoqa Han Sans Neo', 'sans-serif'",
+  small: "normal 500 14px/14px 'Spoqa Han Sans Neo', 'sans-serif'",
+  medium: "normal 500 16px/16px 'Spoqa Han Sans Neo', 'sans-serif'",
 } as const;

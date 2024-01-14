@@ -14,6 +14,8 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.1",
+    "@shophub/theme": "workspace:^",
+    "@shophub/ui": "workspace:^",
     "@tanstack/react-query": "^4.32.1",
     "@types/node": "20.3.1",
     "@types/react": "18.2.13",
@@ -29,7 +31,6 @@
   },
   "devDependencies": {
     "@shophub/ts-config": "workspace:^",
-    "@shophub/ui": "workspace:^",
     "@storybook/react": "^7.4.0",
     "@tanstack/react-query-devtools": "^4.32.1",
     "eslint": "8.43.0",

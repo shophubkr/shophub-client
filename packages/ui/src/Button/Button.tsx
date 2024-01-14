@@ -11,8 +11,8 @@ export const Button = ({ children, as = "button", ...htmlButtonAttributes }: Pro
   const Element = as;
 
   const buttonStyles = css({
-    backgroundColor: theme.colors.primary.p400,
-    color: theme.colors.primary.p600,
+    backgroundColor: theme.COLORS.primary[400],
+    color: theme.COLORS.primary[600],
   });
 
   return (
