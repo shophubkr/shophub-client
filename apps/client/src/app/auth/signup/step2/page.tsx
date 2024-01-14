@@ -1,18 +1,20 @@
 "use client";
 
-import { signUpBuyerSchema, signUpSellerSchema } from "@auth/_constants";
-import { usePostUserSignUp } from "@auth/_state/server";
-import type { SingUpFormValues } from "@auth/_types";
+import { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "@auth/_constants";
+import type { SignUpFormValues } from "@auth/_types/signUpFormValues.types";
 import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { useSignUpSubmitHandler } from "../../_state/server";
+import type { UserType } from "../step1/_components/ChoiceUserType.types";
 import { AgreeCheckBox, SignUpForm } from "./_components";
 
 const SignUpSecond = () => {
   const role = useSearchParams().get("userType");
-  const { control, handleSubmit } = useForm<SingUpFormValues>({
-    resolver: yupResolver(role === "USER_BUYER" ? signUpBuyerSchema : signUpSellerSchema),
+
+  const { control, handleSubmit } = useForm<SignUpFormValues>({
+    resolver: yupResolver(role === "USER_BUYER" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
     defaultValues: {
       email: "",
       password: "",
@@ -24,20 +26,7 @@ const SignUpSecond = () => {
     },
   });
 
-  const { isLoading, mutateAsync } = usePostUserSignUp();
-
-  const onSubmitHandler = async (data: SingUpFormValues) => {
-    const { email, password, nickname, phoneNumber } = data;
-
-    const buyerFormData = { email, password, nickname, role };
-    const sellerFormData = { ...buyerFormData, phoneNumber };
-
-    try {
-      await mutateAsync(role === "USER_BUYER" ? buyerFormData : sellerFormData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { onSubmitHandler } = useSignUpSubmitHandler(role as UserType);
 
   return (
     <Center w="100%" flexDir="column" rowGap="80px">
