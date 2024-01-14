@@ -1,13 +1,13 @@
-import type { SingUpFormValues } from "@auth/_types";
 import { useModal } from "@shophub/ui";
 import { useMutation } from "@tanstack/react-query";
-import { authApi } from "~/app/_apis/apis";
+import type { SignUpFormValues } from "~/app/auth/_types";
+import { authApi } from "../api";
 
 export const usePostUserSignUp = () => {
   const modal = useModal();
 
   const { isLoading, mutateAsync } = useMutation(
-    async (userInfo: SingUpFormValues) => {
+    async (userInfo: SignUpFormValues) => {
       const res = await authApi.signUp(userInfo);
       return res.data;
     },
