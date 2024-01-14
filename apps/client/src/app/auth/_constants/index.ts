@@ -1,2 +1,2 @@
-export * from "@auth/_constants/constants";
-export * from "@auth/_constants/validation";
+export * from "./constants";
+export * from "./validation";
