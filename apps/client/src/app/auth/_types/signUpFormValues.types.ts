@@ -1,8 +1,7 @@
-export interface SingUpFormValues {
+export interface SignUpFormValues {
   email?: string;
   password?: string;
   passwordConfirm?: string;
-  userType?: "buyer" | "seller";
   nickname?: string;
   phoneNumber?: string;
   isAgeOverAgree?: boolean;

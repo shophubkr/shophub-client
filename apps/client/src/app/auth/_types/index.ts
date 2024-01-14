@@ -1,1 +1,1 @@
-export type { SingUpFormValues } from "./signUpType";
+export type { SignUpFormValues } from "./signUpFormValues.types";
