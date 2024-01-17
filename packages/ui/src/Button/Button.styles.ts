@@ -5,16 +5,19 @@ import type { ButtonProps } from "./Button.types";
 
 export const sizeCSS = {
   large: css({
-    height: "48px",
+    padding: "16px 0",
   }),
   medium: css({
-    height: "40px",
+    padding: "13px 0",
+    fontSize: "14px",
   }),
   small: css({
-    height: "32px",
+    padding: "9px 0",
+    fontSize: "14px",
   }),
   tiny: css({
-    height: "22px",
+    padding: "4px 0",
+    fontSize: "14px",
   }),
 };
 
@@ -32,21 +35,36 @@ export const roundCSS = {
 
 export const variantCSS = (disabled = false) => ({
   primary: css({
-    backgroundColor: !disabled ? `${theme.COLORS.primary[100]}` : `${theme.COLORS.primary[300]}`,
-    color: `${theme.COLORS.white}`,
+    backgroundColor: !disabled ? `${theme.COLORS.primary[100]}` : `${theme.COLORS.grey[300]}`,
+    color: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[200]}`,
   }),
   black: css({
-    backgroundColor: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[200]}`,
+    backgroundColor: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[300]}`,
+    color: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[200]}`,
+  }),
+  gray: css({
+    backgroundColor: !disabled ? `${theme.COLORS.grey[300]}` : `${theme.COLORS.grey[300]}`,
+    color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[200]}`,
+  }),
+  outline: css({
+    backgroundColor: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[300]}`,
+    border: !disabled ? `1px solid ${theme.COLORS.grey[200]}` : "none",
+    color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[200]}`,
+  }),
+});
+
+export const variantToIconColor = (disabled = false) => ({
+  primary: css({
+    color: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[200]}`,
+  }),
+  black: css({
     color: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[100]}`,
   }),
   gray: css({
-    backgroundColor: !disabled ? `${theme.COLORS.grey[300]}` : `${theme.COLORS.grey[200]}`,
     color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[100]}`,
   }),
   outline: css({
-    backgroundColor: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[200]}`,
-    border: `1px solid ${theme.COLORS.grey[200]}`,
-    color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[100]}`,
+    color: !disabled ? `${theme.COLORS.primary[100]}` : `${theme.COLORS.grey[200]}`,
   }),
 });
 

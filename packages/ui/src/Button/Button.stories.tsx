@@ -50,12 +50,10 @@ export const FullRound: Story = {
 };
 
 export const WithIcon: Story = {
-  render: () => (
-    <Button>
-      <span className="material-icons-outlined">shopping_bag</span>
-      <div>Button</div>
-    </Button>
-  ),
+  args: {
+    ...Basic.args,
+    iconNamed: "store",
+  },
 };
 
 export const OutlineAndIcon: Story = {
