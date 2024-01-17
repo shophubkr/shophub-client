@@ -6,9 +6,9 @@ const meta: Meta<typeof Button> = {
   title: "ui/Button",
   component: Button,
   argTypes: {
-    color: {
+    variant: {
       control: "inline-radio",
-      options: ["primary", "black", "gray"],
+      options: ["primary", "black", "gray", "outline"],
     },
     size: {
       control: "inline-radio",
@@ -56,6 +56,13 @@ export const WithIcon: Story = {
       <div>Button</div>
     </Button>
   ),
+};
+
+export const OutlineAndIcon: Story = {
+  args: {
+    ...Basic.args,
+    variant: "outline",
+  },
 };
 
 export const WithWidth: Story = {

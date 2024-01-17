@@ -30,7 +30,7 @@ export const roundCSS = {
   }),
 };
 
-export const colorCSS = (disabled = false) => ({
+export const variantCSS = (disabled = false) => ({
   primary: css({
     backgroundColor: !disabled ? `${theme.COLORS.primary[100]}` : `${theme.COLORS.primary[300]}`,
     color: `${theme.COLORS.white}`,
@@ -41,6 +41,11 @@ export const colorCSS = (disabled = false) => ({
   }),
   gray: css({
     backgroundColor: !disabled ? `${theme.COLORS.grey[300]}` : `${theme.COLORS.grey[200]}`,
+    color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[100]}`,
+  }),
+  outline: css({
+    backgroundColor: !disabled ? `${theme.COLORS.white}` : `${theme.COLORS.grey[200]}`,
+    border: `1px solid ${theme.COLORS.grey[200]}`,
     color: !disabled ? `${theme.COLORS.black}` : `${theme.COLORS.grey[100]}`,
   }),
 });
@@ -54,5 +59,5 @@ export const StyledButton = styled.button<ButtonProps>`
   width: ${({ w = "100%" }) => w};
   ${({ size = "large" }) => sizeCSS[size]};
   ${({ round = "default" }) => roundCSS[round]};
-  ${({ color = "primary", disabled = false }) => colorCSS(disabled)[color]};
+  ${({ variant = "primary", disabled = false }) => variantCSS(disabled)[variant]};
 `;
