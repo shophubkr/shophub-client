@@ -3,11 +3,10 @@
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
-import type { isRequireAuthType } from "./axios.types";
 
 const env = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
+export const axiosInstance = ({ isRequireAuth = true }) => {
   const instanceConfig = {
     baseURL: env,
     headers: {
@@ -57,6 +56,15 @@ export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
       },
     );
   }
+
+  createAxiosInstance.interceptors.response.use(
+    (response) => {
+      return response?.data;
+    },
+    (error) => {
+      return Promise.reject(error);
+    },
+  );
 
   return createAxiosInstance;
 };
