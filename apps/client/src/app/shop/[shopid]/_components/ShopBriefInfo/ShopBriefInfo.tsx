@@ -1,18 +1,28 @@
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
+
+import { Icon, ImageBox } from "~/components";
 
 export const ShopBriefInfo = () => {
   return (
     <>
-      <Image boxSize="358px" borderRadius="8px" src="https://picsum.photos/200" alt="Shop Thumbnail Images" />
+      <ImageBox
+        src="https://picsum.photos/200"
+        alt="ShopThumbnailImage"
+        w="358px"
+        h="358px"
+        borderRadius="8px"
+        priority
+      />
       <Flex mt="40px">
         <Flex direction="column" flex="1">
           <Flex align="center" mb="12px" columnGap="8px">
-            <Image
-              boxSize="24px"
-              objectFit="cover"
+            <ImageBox
               src="https://picsum.photos/200"
               alt="ShopLogoImage"
+              w="24px"
+              h="24px"
               borderRadius="50%"
+              priority
             />
             <Flex align="baseline" columnGap="8px">
               <Text fontSize="20px" fontWeight="700">
@@ -36,15 +46,11 @@ export const ShopBriefInfo = () => {
         </Flex>
         <Flex alignItems="flex-end" columnGap="4px">
           <Button h="inherit" p="4px 8px" fontSize="14px" fontWeight="500">
-            <span className="material-icons-outlined" style={{ fontSize: "14px" }}>
-              location_on
-            </span>
+            <Icon name="location_on" size={14} />
             공유
           </Button>
           <Button h="inherit" p="4px 8px" fontSize="14px" fontWeight="500">
-            <span className="material-icons-outlined" style={{ fontSize: "14px" }}>
-              person
-            </span>
+            <Icon name="person" size={14} />
             팔로우
           </Button>
         </Flex>

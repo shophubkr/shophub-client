@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Button, Flex } from "@chakra-ui/react";
 
+import { Icon } from "~/components";
+
 export const CouponSection = () => {
   return (
     <>
@@ -15,9 +17,7 @@ export const CouponSection = () => {
         fontSize="14px"
         fontWeight="400"
       >
-        <span className="material-icons-outlined" style={{ fontSize: "14px" }}>
-          calendar_month
-        </span>
+        <Icon name="calendar_month" size={14} />
         쿠폰 만료 3일 남았어요
       </Flex>
       <Link href="/shop/shopid/coupon">
@@ -31,9 +31,7 @@ export const CouponSection = () => {
           fontWeight="500"
         >
           최대 10,000원 초대박 할인
-          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
-            expand_more
-          </span>
+          <Icon name="expand_more" size={16} />
         </Button>
       </Link>
     </>

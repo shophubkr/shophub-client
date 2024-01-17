@@ -3,6 +3,7 @@
 import { Button, Divider, Flex } from "@chakra-ui/react";
 
 import { CouponSection, ShopBriefInfo, ShopOperationInfo, ShopProductSection } from "./_components";
+import { Icon } from "~/components";
 
 const ShopDetailPage = () => {
   return (
@@ -10,15 +11,11 @@ const ShopDetailPage = () => {
       <ShopBriefInfo />
       <Flex columnGap="14px" my="24px">
         <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
-          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
-            location_on
-          </span>
+          <Icon name="location_on" size={16} />
           길찾기
         </Button>
         <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
-          <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
-            map
-          </span>
+          <Icon name="map" size={16} />
           지도보기
         </Button>
       </Flex>
