@@ -8,7 +8,7 @@ const ShopDetailPage = () => {
   return (
     <main>
       <ShopBriefInfo />
-      <Flex columnGap="14px" m="24px 0">
+      <Flex columnGap="14px" my="24px">
         <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
           <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
             location_on

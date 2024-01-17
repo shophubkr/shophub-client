@@ -22,7 +22,7 @@ export const ShopProductSection = () => {
               상품카테고리
             </Text>
           </Flex>
-          <Text m="8px 0 16px 0" fontSize="14px" fontWeight="300">
+          <Text mt="8px" mb="16px" fontSize="14px" fontWeight="300">
             상품설명
           </Text>
           <Text fontSize="14px" fontWeight="500">
