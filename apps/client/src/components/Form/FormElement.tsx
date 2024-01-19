@@ -9,7 +9,7 @@ export const FormElement = ({ control, name, label, type, ...rest }: FormProps) 
   } = useController({ control, name });
 
   return (
-    <Flex width="100%" position="relative" flexDir="column">
+    <Flex width="full" position="relative" flexDir="column">
       <FormLabel display="flex" flexDir="column" rowGap="8px" htmlFor={name} fontSize="14px" margin="0">
         {label && <Text>{label}</Text>}
         <Input id={name} type={type} {...field} {...rest} />
