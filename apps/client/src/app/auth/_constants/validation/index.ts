@@ -1,3 +1,1 @@
-export { signUpValidationMsg } from "@auth/_constants/validation/validationMessages";
-export { formValidationRegex } from "@auth/_constants/validation/validationRegex";
-export { signUpSchema } from "@auth/_constants/validation/validationSchemas";
+export { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "./validationSchemas";
