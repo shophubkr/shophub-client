@@ -39,7 +39,7 @@ const SignUpSecond = () => {
   };
 
   return (
-    <Center w="100%" flexDir="column" rowGap="80px">
+    <Center w="full" flexDir="column" rowGap="80px">
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
@@ -67,7 +67,7 @@ const SignUpSecond = () => {
             [선택] 광고성 정보 수신에 모두 동의합니다.
           </CheckBox>
         </Flex>
-        <Button w="100%" h="48px" mt="48px" type="submit">
+        <Button w="full" h="48px" mt="48px" type="submit">
           가입하기
         </Button>
       </form>

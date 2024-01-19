@@ -12,7 +12,7 @@ const SIGN_UP_COMMON_SCHEMA = {
     .required(SIGN_UP_ERROR_MESSAGES.password.required),
   passwordConfirm: yup
     .string()
-    .oneOf([yup.ref("password")], SIGN_UP_ERROR_MESSAGES.passwordConfirm.noSame)
+    .oneOf([yup.ref("password")], SIGN_UP_ERROR_MESSAGES.passwordConfirm.notSame)
     .required(SIGN_UP_ERROR_MESSAGES.passwordConfirm.required),
   nickname: yup
     .string()

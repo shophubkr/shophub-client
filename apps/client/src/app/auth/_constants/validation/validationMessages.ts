@@ -11,7 +11,7 @@ export const SIGN_UP_ERROR_MESSAGES = {
   },
   passwordConfirm: {
     required: "비밀번호를 한번 더 입력해주세요.",
-    noSame: "비밀번호가 일치하지 않아요.",
+    notSame: "비밀번호가 일치하지 않아요.",
   },
   nickname: {
     required: "닉네임을 입력해주세요.",
