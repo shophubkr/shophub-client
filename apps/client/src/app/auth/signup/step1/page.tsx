@@ -13,11 +13,11 @@ const SignUpFirst = () => {
   };
 
   return (
-    <S.Wrapper w="100%" flexDir="column">
+    <S.Wrapper w="full" flexDir="column">
       <Heading as="h3" fontSize="24px">
         회원 유형
       </Heading>
-      <Flex w="100%" h="149px" columnGap="8px" mt="80px">
+      <Flex w="full" h="149px" columnGap="8px" mt="80px">
         <S.StyledButton
           onClick={() => onClickUserType("buyer")}
           colorScheme={userChoice === "buyer" ? "facebook" : "gray"}
@@ -46,7 +46,7 @@ const SignUpFirst = () => {
         </S.StyledButton>
       </Flex>
       <Link href={{ pathname: "/auth/signup/step2", query: { userType: userChoice } }} style={{ width: "100%" }}>
-        <Button mt="48px" w="100%" h="48px" disabled={userChoice === null}>
+        <Button mt="48px" w="full" h="48px" disabled={userChoice === null}>
           다음으로 가기
         </Button>
       </Link>
