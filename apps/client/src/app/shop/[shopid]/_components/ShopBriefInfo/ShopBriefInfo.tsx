@@ -8,10 +8,9 @@ export const ShopBriefInfo = () => {
       <ImageBox
         src="https://picsum.photos/200"
         alt="ShopThumbnailImage"
-        w="358px"
-        h="358px"
+        boxSize="358px"
         borderRadius="8px"
-        priority
+        imgOptions={{ priority: true }}
       />
       <Flex mt="40px">
         <Flex direction="column" flex="1">
@@ -19,10 +18,9 @@ export const ShopBriefInfo = () => {
             <ImageBox
               src="https://picsum.photos/200"
               alt="ShopLogoImage"
-              w="24px"
-              h="24px"
+              boxSize="24px"
               borderRadius="50%"
-              priority
+              imgOptions={{ priority: true }}
             />
             <Flex align="baseline" columnGap="8px">
               <Text fontSize="20px" fontWeight="700">

@@ -15,8 +15,7 @@ export const Default: Story = {
   args: {
     src: "https://picsum.photos/200",
     alt: "ImageAlt",
-    w: "358px",
-    h: "358px",
+    boxSize: "358px",
   },
 };
 
