@@ -1,11 +1,11 @@
 import * as Styled from "./Card.styles";
 
-import type { CardProps, SizeProps } from "./Card.types";
+import type { CardProps, CouponSectionProps, SizeProps } from "./Card.types";
 
-export const Card = ({ size = "small", isCouponValid = true }: CardProps) => {
+export const Card = ({ src, alt, size, isCouponValid, ...imgProps }: CardProps) => {
   return (
     <Styled.Container size={size}>
-      <Styled.Image src="https://picsum.photos/200" alt="" size={size} />
+      <Styled.Image src={src} alt={alt} size={size} />
       <Styled.CardInfoContainer>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
           <TitleSection size={size} />
@@ -23,7 +23,7 @@ export const Card = ({ size = "small", isCouponValid = true }: CardProps) => {
 };
 
 const TitleSection = ({ size }: SizeProps) => {
-  return size === "small" ? (
+  return size !== "large" ? (
     <Styled.Title>타이틀</Styled.Title>
   ) : (
     <div style={{ display: "flex", alignItems: "flex-end", columnGap: "4px" }}>
@@ -33,21 +33,16 @@ const TitleSection = ({ size }: SizeProps) => {
   );
 };
 
-const CouponSection = ({ size, isCouponValid }: CardProps) => {
-  return size === "small" || size === "medium" ? (
-    <Styled.Coupon>
-      <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
-        {isCouponValid ? "discount" : "label_off"}
-      </span>
-      {isCouponValid ? "쿠폰 사용가능" : "쿠폰 사용불가"}
-    </Styled.Coupon>
-  ) : (
-    <span
-      className="material-icons-outlined"
-      style={{ position: "absolute", top: "8px", right: "8px", fontSize: "16px" }}
-    >
-      {isCouponValid ? "discount" : "label_off"}
-    </span>
+const CouponSection = ({ size, isCouponValid }: CouponSectionProps) => {
+  return (
+    size !== "large" && (
+      <Styled.Coupon>
+        <span className="material-icons-outlined" style={{ fontSize: "16px" }}>
+          {isCouponValid ? "discount" : "label_off"}
+        </span>
+        {isCouponValid ? `쿠폰 ${size === "small" ? "사용가능" : ""}` : `${size === "small" ? "쿠폰 사용" : ""}불가`}
+      </Styled.Coupon>
+    )
   );
 };
 
