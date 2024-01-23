@@ -3,12 +3,11 @@
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
+import type { AxiosInstanceProps } from "./axios.types";
 
-const env = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-export const axiosInstance = ({ isRequireAuth = true }) => {
+export const axiosInstance = ({ isRequireAuth = true }: AxiosInstanceProps) => {
   const instanceConfig = {
-    baseURL: env,
+    baseURL: "/api",
     headers: {
       "Content-Type": "application/json",
       ...((isRequireAuth && { "Authorization": `Bearer ${ACCESS_TOKEN_KEY}` }) ?? {}),
@@ -39,7 +38,7 @@ export const axiosInstance = ({ isRequireAuth = true }) => {
 
         if (_err.status === 401 && REFRESH_TOKEN_KEY) {
           try {
-            const res = await createAxiosInstance.post(`${env}/api/v1/auth/reissue`, { REFRESH_TOKEN_KEY });
+            const res = await createAxiosInstance.post(`/auth/reissue`, { REFRESH_TOKEN_KEY });
             const reIssuedAccessToken: string = await res?.data?.result?.accessToken;
 
             if (reIssuedAccessToken) {
@@ -59,7 +58,7 @@ export const axiosInstance = ({ isRequireAuth = true }) => {
 
   createAxiosInstance.interceptors.response.use(
     (response) => {
-      return response?.data;
+      return response?.data.result;
     },
     (error) => {
       return Promise.reject(error);

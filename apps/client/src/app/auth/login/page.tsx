@@ -18,11 +18,9 @@ const Login = () => {
     const { email, password } = data;
 
     try {
-      const res = await LoginApi.signInResponse({ email, password });
-      const user = res?.data;
-
+      const data = await LoginApi.signInResponse({ email, password });
       // mocking test completed
-      console.log(user);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
