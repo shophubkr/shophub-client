@@ -1,2 +1,2 @@
-export * from "./constants";
+export * from "./signUpUserType.array";
 export * from "./validation";
