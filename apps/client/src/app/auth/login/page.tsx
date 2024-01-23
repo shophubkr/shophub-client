@@ -20,8 +20,8 @@ const Login = () => {
     const { email, password } = data;
 
     try {
+      // TODO: 아래는 임시용 입니다. 추후 수정이 필요합니다.
       const data = await LoginApi.signInResponse({ email, password });
-      // mocking test completed
       Cookies.set(ACCESS_TOKEN_KEY, data.accessToken); // 쿠키에 accessToken set
     } catch (error) {
       console.log(error);
