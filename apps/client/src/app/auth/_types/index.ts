@@ -1,2 +1,3 @@
 export type { SignInFormValues } from "./signInType";
-export type { SignUpApiResponse, SignUpBusinessNumber, SingUpFormValues } from "@auth/_types/signUpType";
+export * from "./signUpChoiceUser.type";
+export type { SignUpFormValues } from "./signUpFormValues.type";
