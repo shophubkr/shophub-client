@@ -2,15 +2,17 @@
 
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
-import type { AxiosInstanceProps } from "./axios.types";
 
-export const axiosInstance = ({ isRequireAuth = true }: AxiosInstanceProps) => {
+export const axiosInstance = () => {
+  const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
+
   const instanceConfig = {
     baseURL: "/api",
     headers: {
       "Content-Type": "application/json",
-      ...((isRequireAuth && { "Authorization": `Bearer ${ACCESS_TOKEN_KEY}` }) ?? {}),
+      ...((accessToken && { "Authorization": `Bearer ${accessToken}` }) ?? {}),
     },
     withCredentials: true,
     timeout: 5000,
@@ -18,7 +20,7 @@ export const axiosInstance = ({ isRequireAuth = true }: AxiosInstanceProps) => {
 
   const createAxiosInstance = axios.create(instanceConfig);
 
-  if (isRequireAuth) {
+  if (accessToken) {
     createAxiosInstance.interceptors.request.use(
       (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
         return config;

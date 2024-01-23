@@ -4,7 +4,9 @@ import { LoginApi } from "@auth/_state/server";
 import type { SignInFormValues } from "@auth/_types";
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 import { JoinNavigationForUnknownUser, ShopHubAccountLogin, SnsAccountLogin } from "./_components";
+import { ACCESS_TOKEN_KEY } from "~/app/shared/server/constants";
 
 const Login = () => {
   const { control, handleSubmit } = useForm<SignInFormValues>({
@@ -20,7 +22,7 @@ const Login = () => {
     try {
       const data = await LoginApi.signInResponse({ email, password });
       // mocking test completed
-      console.log(data);
+      Cookies.set(ACCESS_TOKEN_KEY, data.accessToken); // 쿠키에 accessToken set
     } catch (error) {
       console.log(error);
     }
