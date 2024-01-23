@@ -1,10 +1,9 @@
-import type { SignInFormValues } from "@auth/_types";
+import type { SignInFormValues, SignUpFormValues } from "@auth/_types";
 import axios from "axios";
+import { AxiosInstance } from "~/app/shared/server";
 
-export const signUpApi = {
-  signUpResponse: (postData: object) => {
-    return axios.post("/api/signup", { postData });
-  },
+export const authApi = {
+  signUp: (formData: SignUpFormValues) => AxiosInstance({ isRequireAuth: false }).post("api/v1/auth/join", formData),
 };
 
 export const LoginApi = {
