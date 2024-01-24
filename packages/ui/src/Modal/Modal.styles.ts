@@ -49,14 +49,13 @@ export const Text = styled.p`
 `;
 
 export const ButtonWrap = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
   gap: 8px;
 `;
 
-/** 퍼블리싱용입니다. */
-export const Button = styled.button`
-  width: 80px;
-  height: 32px;
-  border-radius: 8px;
+export const FooterWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
