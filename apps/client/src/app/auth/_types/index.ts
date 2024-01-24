@@ -1,2 +1,3 @@
 export type { SignInFormValues } from "./signInType";
-export type { SignUpFormValues } from "./signUpType";
+export * from "./signUpChoiceUser.type";
+export type { SignUpFormValues } from "./signUpFormValues.type";

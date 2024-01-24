@@ -13,7 +13,7 @@ const SignUpSecond = () => {
   const role = useSearchParams().get("userType");
 
   const { control, handleSubmit } = useForm<SignUpFormValues>({
-    resolver: yupResolver(role === "buyer" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
+    resolver: yupResolver(role === "USER_BUYER" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
     defaultValues: {
       email: "",
       password: "",
@@ -21,7 +21,7 @@ const SignUpSecond = () => {
       nickname: "",
       isAgeOverAgree: false,
       isSendAdsAgree: false,
-      ...(role === "seller" && { phoneNumber: "" }),
+      ...(role === "USER_SELLER" && { phoneNumber: "" }),
     },
   });
 
@@ -55,7 +55,7 @@ const SignUpSecond = () => {
             placeholder="비밀번호 확인"
           />
           <FormElement control={control} name="nickname" label="닉네임" placeholder="닉네임" />
-          {role === "seller" && (
+          {role === "USER_SELLER" && (
             <FormElement control={control} name="phoneNumber" label="연락처" placeholder="연락처" />
           )}
         </Flex>
