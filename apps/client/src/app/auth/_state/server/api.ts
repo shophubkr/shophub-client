@@ -1,5 +1,6 @@
 import type { SignInFormValues } from "@auth/_types";
 import axios from "axios";
+import { axiosInstance } from "~/app/shared/server";
 
 export const signUpApi = {
   signUpResponse: (postData: object) => {
@@ -9,6 +10,6 @@ export const signUpApi = {
 
 export const LoginApi = {
   signInResponse: ({ email, password }: SignInFormValues) => {
-    return axios.post("/api/login", { email, password });
+    return axiosInstance({ isRequireAuth: false }).post("/auth/login", { email, password });
   },
 };
