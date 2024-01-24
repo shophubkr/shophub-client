@@ -12,7 +12,7 @@ export const containerCSS = {
   medium: css`
     display: grid;
     grid-template-columns: 96px 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 96px 1fr;
     width: 358px;
     gap: 16px;
   `,

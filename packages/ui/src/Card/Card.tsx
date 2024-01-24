@@ -1,34 +1,53 @@
 import * as Styled from "./Card.styles";
 
-import type { CardProps, CouponSectionProps, SizeProps } from "./Card.types";
+import type {
+  AddressSectionProps,
+  CardProps,
+  CouponSectionProps,
+  DistanceSectionProps,
+  TitleSectionProps,
+} from "./Card.types";
 
-export const Card = ({ src, alt, size, isCouponValid, ...imgProps }: CardProps) => {
+export const Card = ({
+  title,
+  category,
+  content,
+  distance,
+  method,
+  price,
+  address,
+  src,
+  alt,
+  size,
+  isCouponValid,
+  requiredTime,
+}: CardProps) => {
   return (
     <Styled.Container size={size}>
       <Styled.Image src={src} alt={alt} size={size} />
       <Styled.CardInfoContainer>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-          <TitleSection size={size} />
+          <TitleSection size={size} title={title} category={category} />
           <CouponSection size={size} isCouponValid={isCouponValid} />
         </div>
-        <Styled.Content size={size}>내용</Styled.Content>
+        <Styled.Content size={size}>{content}</Styled.Content>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <DistanceSection size={size} />
-          {size !== "small" && <Styled.Price>가격</Styled.Price>}
+          <DistanceSection size={size} distance={distance} method={method} requiredTime={requiredTime} />
+          {size !== "small" && <Styled.Price>{price}</Styled.Price>}
         </div>
       </Styled.CardInfoContainer>
-      <AddressSection size={size} />
+      <AddressSection size={size} address={address} />
     </Styled.Container>
   );
 };
 
-const TitleSection = ({ size }: SizeProps) => {
+const TitleSection = ({ size, title, category }: TitleSectionProps) => {
   return size !== "large" ? (
-    <Styled.Title>타이틀</Styled.Title>
+    <Styled.Title>{title}</Styled.Title>
   ) : (
     <div style={{ display: "flex", alignItems: "flex-end", columnGap: "4px" }}>
-      <Styled.Title>타이틀</Styled.Title>
-      <Styled.Category>카테고리</Styled.Category>
+      <Styled.Title>{title}</Styled.Title>
+      <Styled.Category>{category}</Styled.Category>
     </div>
   );
 };
@@ -46,25 +65,27 @@ const CouponSection = ({ size, isCouponValid }: CouponSectionProps) => {
   );
 };
 
-const DistanceSection = ({ size }: SizeProps) => {
+const DistanceSection = ({ size, distance, method, requiredTime }: DistanceSectionProps) => {
   return (
     size !== "large" && (
       <div style={{ display: "flex" }}>
-        <Styled.Distance>거리</Styled.Distance>
-        <Styled.MethodAndTime>수단, 소요 시간</Styled.MethodAndTime>
+        <Styled.Distance>{distance}</Styled.Distance>
+        <Styled.MethodAndTime>
+          {method}, {requiredTime}분
+        </Styled.MethodAndTime>
       </div>
     )
   );
 };
 
-const AddressSection = ({ size }: SizeProps) => {
+const AddressSection = ({ size, address }: AddressSectionProps) => {
   return (
     size === "medium" && (
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", gridColumn: "1 / 3" }}>
         <span className="material-icons-outlined" style={{ fontSize: "18px" }}>
           location_on
         </span>
-        주소
+        {address}
       </div>
     )
   );
