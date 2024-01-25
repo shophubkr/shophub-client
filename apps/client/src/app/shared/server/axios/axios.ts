@@ -2,17 +2,17 @@
 
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
-import type { isRequireAuthType } from "./axios.types";
 
-const env = process.env.NEXT_PUBLIC_BACKEND_URL;
+export const axiosInstance = () => {
+  const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
-export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
   const instanceConfig = {
-    baseURL: env,
+    baseURL: "/api",
     headers: {
       "Content-Type": "application/json",
-      ...((isRequireAuth && { "Authorization": `Bearer ${ACCESS_TOKEN_KEY}` }) ?? {}),
+      ...((accessToken && { "Authorization": `Bearer ${accessToken}` }) ?? {}),
     },
     withCredentials: true,
     timeout: 5000,
@@ -20,7 +20,7 @@ export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
 
   const createAxiosInstance = axios.create(instanceConfig);
 
-  if (isRequireAuth) {
+  if (accessToken) {
     createAxiosInstance.interceptors.request.use(
       (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
         return config;
@@ -40,7 +40,7 @@ export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
 
         if (_err.status === 401 && REFRESH_TOKEN_KEY) {
           try {
-            const res = await createAxiosInstance.post(`${env}/api/v1/auth/reissue`, { REFRESH_TOKEN_KEY });
+            const res = await createAxiosInstance.post(`/auth/reissue`, { REFRESH_TOKEN_KEY });
             const reIssuedAccessToken: string = await res?.data?.result?.accessToken;
 
             if (reIssuedAccessToken) {
@@ -57,6 +57,15 @@ export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
       },
     );
   }
+
+  createAxiosInstance.interceptors.response.use(
+    (response) => {
+      return response?.data.result;
+    },
+    (error) => {
+      return Promise.reject(error);
+    },
+  );
 
   return createAxiosInstance;
 };

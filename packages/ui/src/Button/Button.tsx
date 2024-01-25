@@ -1,23 +1,21 @@
 "use client";
 
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import { useShophubTheme } from "@shophub/theme";
-import type { PropsWithChildren } from "react";
+import { COLORS } from "@shophub/theme/src/token";
+import { StyledButton } from "./Button.styles";
 import type { ButtonProps } from "./Button.types";
 
-export const Button = ({ children, as = "button", ...htmlButtonAttributes }: PropsWithChildren<ButtonProps>) => {
-  const theme = useShophubTheme();
-  const Element = as;
-
-  const buttonStyles = css({
-    backgroundColor: theme.COLORS.primary[400],
-    color: theme.COLORS.primary[600],
-  });
-
+export const Button = ({ iconNamed, children, ...props }: ButtonProps) => {
   return (
-    <Element css={buttonStyles} {...htmlButtonAttributes}>
+    <StyledButton {...props}>
+      {iconNamed && (
+        <span
+          className="material-icons-outlined"
+          style={{ color: props.variant === "outline" && !props.disabled ? COLORS.primary[200] : "" }}
+        >
+          {iconNamed}
+        </span>
+      )}
       {children}
-    </Element>
+    </StyledButton>
   );
 };
