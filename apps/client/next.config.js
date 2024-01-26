@@ -11,7 +11,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ["picsum/photos"],
+    domains: ["picsum.photos"],
     remotePatterns: [
       {
         protocol: "http",
