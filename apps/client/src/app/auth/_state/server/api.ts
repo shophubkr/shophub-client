@@ -9,7 +9,8 @@ export const signUpApi = {
 };
 
 export const LoginApi = {
-  signInResponse: ({ email, password }: SignInFormValues) => {
-    return axiosInstance({ isRequireAuth: false }).post("/auth/login", { email, password });
+  // TODO: 테스트 작업이며, 변경될 수 있는 사항입니다.
+  signInResponse: ({ email, password }: SignInFormValues): Promise<{ accessToken: string; refreshToken: string }> => {
+    return axiosInstance().post("/auth/login", { email, password });
   },
 };
