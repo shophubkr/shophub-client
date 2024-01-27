@@ -34,6 +34,7 @@
     "@shophub/ts-config": "workspace:^",
     "@storybook/react": "^7.4.0",
     "@tanstack/react-query-devtools": "^4.32.1",
+    "@types/js-cookie": "^3.0.6",
     "eslint": "8.43.0",
     "msw": "^1.2.3",
     "typescript": "5.1.3"
