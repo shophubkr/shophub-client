@@ -45,7 +45,7 @@ export const CouponSection = ({ shopId }: CouponSectionProps) => {
           fontWeight="500"
         >
           {data.content}
-          <Icon name="expand_more" size={16} />
+          <Icon name="expand_more" />
         </Button>
       </Link>
     </>

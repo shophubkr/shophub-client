@@ -12,7 +12,7 @@ export const ShopOperationInfo = ({ address, hour, telNum, tags }: ShopOperation
   return (
     <Flex as="ul" flexDir="column" rowGap="16px" m="24px 0">
       <Flex alignItems="center" columnGap="4px" fontSize="14px" fontWeight="400" as="li">
-        <Icon name="location_on" size={16} />
+        <Icon name="location_on" />
         {address}
         <Button
           p="0 0 0 8px"
@@ -26,16 +26,16 @@ export const ShopOperationInfo = ({ address, hour, telNum, tags }: ShopOperation
           복사
         </Button>
       </Flex>
-      <Flex alignItems="center" columnGap="4px" fontSize="12px" fontWeight="400" as="li">
-        <Icon name="schedule" size={16} />
+      <Flex alignItems="center" columnGap="4px" fontSize="14px" fontWeight="400" as="li">
+        <Icon name="schedule" />
         {hour}
       </Flex>
-      <Flex alignItems="center" columnGap="4px" fontSize="12px" fontWeight="400" as="li">
-        <Icon name="call" size={16} />
+      <Flex alignItems="center" columnGap="4px" fontSize="14px" fontWeight="400" as="li">
+        <Icon name="call" />
         {telNum}
       </Flex>
-      <Flex alignItems="center" columnGap="4px" fontSize="12px" fontWeight="400" as="li">
-        <Icon name="tag" size={16} />
+      <Flex alignItems="center" columnGap="4px" fontSize="14px" fontWeight="400" as="li">
+        <Icon name="tag" />
         {tags?.map((tag) => (
           <span key={tag}>#{tag}</span>
         ))}

@@ -9,7 +9,7 @@ export const ShopProduct = ({ id, name, imageUrl, topCategory, introduce, price 
   return (
     <Link href={`/shop/product/${id}`} style={{ position: "relative" }}>
       <div style={{ position: "absolute", top: "8px", right: "8px" }}>
-        <Icon name="sell" size={16} />
+        <Icon name="sell" />
       </div>
       <ImageBox
         src="https://picsum.photos/200"

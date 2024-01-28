@@ -1,11 +1,11 @@
 "use client";
 
-import { Button, Divider, Flex, Spinner } from "@chakra-ui/react";
+import { Divider, Flex, Spinner } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { Button } from "@shophub/ui";
 
 import { CouponSection, ShopBriefInfo, ShopOperationInfo, ShopProductSection } from "./_components";
-import { Icon } from "~/components";
 import { shopApi } from "./_states/server";
 
 const ShopDetailPage = () => {
@@ -25,12 +25,10 @@ const ShopDetailPage = () => {
     <main>
       <ShopBriefInfo name={shopInfo.name} level={shopInfo.level} introduce={shopInfo.introduce} />
       <Flex columnGap="14px" my="24px">
-        <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
-          <Icon name="location_on" size={16} />
+        <Button iconNamed="location_on" variant="outline" round="full">
           길찾기
         </Button>
-        <Button h="inherit" flex="1" borderRadius="999px" p="16px 0" columnGap="8px" fontSize="16px" fontWeight="500">
-          <Icon name="map" size={16} />
+        <Button iconNamed="map" variant="outline" round="full">
           지도보기
         </Button>
       </Flex>
