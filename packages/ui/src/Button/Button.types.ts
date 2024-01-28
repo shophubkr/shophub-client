@@ -6,5 +6,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   round?: keyof typeof roundCSS;
   variant?: keyof ReturnType<typeof variantCSS>;
   w?: string; // width
+  iconSized?: number;
   iconNamed?: string;
 }

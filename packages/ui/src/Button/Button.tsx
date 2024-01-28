@@ -10,7 +10,10 @@ export const Button = ({ iconNamed, children, ...props }: ButtonProps) => {
       {iconNamed && (
         <span
           className="material-icons-outlined"
-          style={{ color: props.variant === "outline" && !props.disabled ? COLORS.primary[200] : "" }}
+          style={{
+            color: props.variant === "outline" && !props.disabled ? COLORS.primary[200] : "",
+            fontSize: `${props.iconSized ?? 16}px`,
+          }}
         >
           {iconNamed}
         </span>
