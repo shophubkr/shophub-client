@@ -1,9 +1,23 @@
 import Link from "next/link";
-import { Button, Flex } from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
 
 import { Icon } from "~/components";
+import { couponApi } from "../../_states/server";
 
-export const CouponSection = () => {
+import type { CouponSectionProps } from "../../_types";
+
+export const CouponSection = ({ shopId }: CouponSectionProps) => {
+  const { isLoading, data, isError } = useQuery(["couponInfo", shopId], () => couponApi.getNearestExpiryCoupon(shopId));
+
+  if (isLoading)
+    return (
+      <Box mt="8px">
+        <Spinner position="absolute" left="50%" transform="translateX(-50%)" />
+      </Box>
+    );
+  if (isError) return null;
+
   return (
     <>
       <Flex
@@ -18,9 +32,9 @@ export const CouponSection = () => {
         fontWeight="400"
       >
         <Icon name="calendar_month" size={14} />
-        쿠폰 만료 3일 남았어요
+        쿠폰 만료 {data.dday}일 남았어요
       </Flex>
-      <Link href="/shop/shopid/coupon">
+      <Link href={`/shop/${shopId}/coupons`}>
         <Button
           display="flex"
           w="full"
@@ -30,7 +44,7 @@ export const CouponSection = () => {
           fontSize="16px"
           fontWeight="500"
         >
-          최대 10,000원 초대박 할인
+          {data.content}
           <Icon name="expand_more" size={16} />
         </Button>
       </Link>

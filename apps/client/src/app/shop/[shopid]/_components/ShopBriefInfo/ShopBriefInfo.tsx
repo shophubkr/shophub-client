@@ -2,7 +2,9 @@ import { Button, Flex, Text } from "@chakra-ui/react";
 
 import { Icon, ImageBox } from "~/components";
 
-export const ShopBriefInfo = () => {
+import type { ShopBriefInfoProps } from "../../_types";
+
+export const ShopBriefInfo = ({ name, level, introduce }: ShopBriefInfoProps) => {
   return (
     <>
       <ImageBox
@@ -24,10 +26,10 @@ export const ShopBriefInfo = () => {
             />
             <Flex align="baseline" columnGap="8px">
               <Text fontSize="20px" fontWeight="700">
-                가게이름
+                {name}
               </Text>
               <Text fontSize="14px" fontWeight="500">
-                가게레벨
+                Lv.{level}
               </Text>
             </Flex>
           </Flex>
@@ -39,7 +41,7 @@ export const ShopBriefInfo = () => {
             whiteSpace="nowrap"
             textOverflow="ellipsis"
           >
-            가게소개
+            {introduce}
           </Text>
         </Flex>
         <Flex alignItems="flex-end" columnGap="4px">
