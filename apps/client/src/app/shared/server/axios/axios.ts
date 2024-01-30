@@ -32,7 +32,7 @@ export const axiosInstance = () => {
 
     createAxiosInstance.interceptors.response.use(
       (response: AxiosResponse) => {
-        return response?.data.result;
+        return response;
       },
       async (error: AxiosError) => {
         const _err = error;
@@ -60,7 +60,7 @@ export const axiosInstance = () => {
 
   createAxiosInstance.interceptors.response.use(
     (response: AxiosResponse) => {
-      return response?.data.result;
+      return response;
     },
     (error: AxiosError) => {
       return Promise.reject(error);
