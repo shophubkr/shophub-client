@@ -25,7 +25,7 @@ const SignUpSecond = () => {
     },
   });
 
-  const { onSubmitHandler } = useSignUpSubmitHandler(role as UserType);
+  const { onSubmitHandler, isLoading } = useSignUpSubmitHandler(role as UserType);
 
   return (
     <Center w="full" flexDir="column" rowGap="80px">
