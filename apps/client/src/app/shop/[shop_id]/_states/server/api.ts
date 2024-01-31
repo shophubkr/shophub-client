@@ -1,21 +1,21 @@
 import { axiosInstance } from "~/app/shared/server";
+import type {
+  GetNearestExpiryCouponResponse,
+  GetProductsByShopResponse,
+  GetShopDetailInfoResponse,
+} from "../../_types";
 
-import type { CouponApiType, ProductApiType, ShopApiType } from "../../_types";
-
-export const shopApi: ShopApiType = {
-  getShopDetailInfo: (shopId) => {
-    return axiosInstance().get(`/shops/${shopId}`);
+export const API_SHOP_INFO = {
+  GetShopDetailInfo: async (shopId: number) => {
+    const res = await axiosInstance().get<GetShopDetailInfoResponse>(`/shops/${shopId}`);
+    return res.data.result;
   },
-};
-
-export const couponApi: CouponApiType = {
-  getNearestExpiryCoupon: (shopId) => {
-    return axiosInstance().get(`/shops/${shopId}/coupons/shortest`);
+  GetNearestExpiryCoupon: async (shopId: number) => {
+    const res = await axiosInstance().get<GetNearestExpiryCouponResponse>(`/shops/${shopId}/coupons/shortest`);
+    return res.data.result;
   },
-};
-
-export const productApi: ProductApiType = {
-  getProductsByShop: (shopId) => {
-    return axiosInstance().get(`/${shopId}/products`);
+  GetProductsByShop: async (shopId: number) => {
+    const res = await axiosInstance().get<GetProductsByShopResponse>(`/${shopId}/products`);
+    return res.data.result.productList;
   },
 };

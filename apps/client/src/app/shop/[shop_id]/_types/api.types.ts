@@ -1,41 +1,35 @@
-export type ShopDetailInfoResponse = {
-  id: number;
-  sellerId: number;
-  name: string;
-  address: string;
-  hour: string;
-  tags: string[];
-  images: string[];
-  telNum: string;
-  introduce: string;
-  level: number;
-  followCnt: number;
-};
-
-export type NearestExpireCouponResponse = {
-  content: string;
-  dday: number;
-};
-
-export type ProductsByShopResponse = {
-  productList: {
+export interface GetShopDetailInfoResponse {
+  result: {
     id: number;
+    sellerId: number;
     name: string;
-    imageUrl: string;
-    topCategory: string;
+    address: string;
+    hour: string;
+    tags: string[];
+    images: string[];
+    telNum: string;
     introduce: string;
-    price: number;
-  }[];
-};
-
-export interface ShopApiType {
-  getShopDetailInfo: (shopId: number) => Promise<ShopDetailInfoResponse>;
+    level: number;
+    followCnt: number;
+  };
 }
 
-export interface CouponApiType {
-  getNearestExpiryCoupon: (shopId: number) => Promise<NearestExpireCouponResponse>;
+export interface GetNearestExpiryCouponResponse {
+  result: {
+    content: string;
+    dday: number;
+  };
 }
 
-export interface ProductApiType {
-  getProductsByShop: (shopId: number) => Promise<ProductsByShopResponse>;
+export interface GetProductsByShopResponse {
+  result: {
+    productList: {
+      id: number;
+      name: string;
+      imageUrl: string;
+      topCategory: string;
+      introduce: string;
+      price: number;
+    }[];
+  };
 }
