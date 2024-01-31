@@ -31,7 +31,7 @@ export const axiosInstance = () => {
     );
 
     createAxiosInstance.interceptors.response.use(
-      (response: AxiosResponse): AxiosResponse => {
+      (response: AxiosResponse) => {
         return response;
       },
       async (error: AxiosError) => {
@@ -46,7 +46,7 @@ export const axiosInstance = () => {
             if (reIssuedAccessToken) {
               originalReqConfig!.headers.Authorization = `Bearer ${reIssuedAccessToken}`;
 
-              return originalReqConfig;
+              return createAxiosInstance(originalReqConfig as InternalAxiosRequestConfig);
             }
           } catch (refreshError) {
             return Promise.reject(refreshError);
@@ -59,10 +59,10 @@ export const axiosInstance = () => {
   }
 
   createAxiosInstance.interceptors.response.use(
-    (response) => {
-      return response?.data.result;
+    (response: AxiosResponse) => {
+      return response;
     },
-    (error) => {
+    (error: AxiosError) => {
       return Promise.reject(error);
     },
   );
