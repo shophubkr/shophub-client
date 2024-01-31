@@ -3,9 +3,13 @@ import { Button } from "@shophub/ui";
 
 import { ImageBox } from "~/components";
 
-import type { ShopBriefInfoProps } from "../../_types";
+import type { GetShopDetailInfoResponse } from "../../_types";
 
-export const ShopBriefInfo = ({ name, level, introduce }: ShopBriefInfoProps) => {
+export const ShopBriefInfo = ({
+  name,
+  level,
+  introduce,
+}: Pick<GetShopDetailInfoResponse["result"], "name" | "level" | "introduce">) => {
   return (
     <>
       <ImageBox

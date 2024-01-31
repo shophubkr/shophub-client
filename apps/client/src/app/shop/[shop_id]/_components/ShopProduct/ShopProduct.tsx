@@ -3,11 +3,13 @@ import { Flex, Text } from "@chakra-ui/react";
 
 import { Icon, ImageBox } from "~/components";
 
-import type { ShopProductProps } from "../../_types";
+import type { ProductInfo } from "../../_types";
 
-export const ShopProduct = ({ id, name, imageUrl, topCategory, introduce, price }: ShopProductProps) => {
+export const ShopProduct = (productInfo: ProductInfo) => {
+  const { id, name, topCategory, introduce, price } = productInfo;
+
   return (
-    <Link href={`/shop/product/${id}`} style={{ position: "relative" }}>
+    <Link href={`/shop/${id}/products`} style={{ position: "relative" }}>
       <div style={{ position: "absolute", top: "8px", right: "8px" }}>
         <Icon name="sell" />
       </div>

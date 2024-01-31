@@ -2,9 +2,14 @@ import { Button, Flex } from "@chakra-ui/react";
 
 import { Icon } from "~/components";
 
-import type { ShopOperationInfoProps } from "../../_types";
+import type { GetShopDetailInfoResponse } from "../../_types";
 
-export const ShopOperationInfo = ({ address, hour, telNum, tags }: ShopOperationInfoProps) => {
+export const ShopOperationInfo = ({
+  address,
+  hour,
+  telNum,
+  tags,
+}: Pick<GetShopDetailInfoResponse["result"], "address" | "hour" | "telNum" | "tags">) => {
   const handleCopyAddressToClipboard = async () => {
     await navigator.clipboard.writeText(address);
   };
