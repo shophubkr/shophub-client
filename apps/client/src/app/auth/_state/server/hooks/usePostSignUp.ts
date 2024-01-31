@@ -1,20 +1,17 @@
 import { useModal } from "@shophub/ui";
 import { useMutation } from "@tanstack/react-query";
 import type { SignUpFormValues } from "~/app/auth/_types";
-import { authApi } from "../api";
+import { API_SIGN_UP } from "../api";
 
 export const usePostUserSignUp = () => {
   const modal = useModal();
 
-  const { isLoading, mutateAsync } = useMutation(
+  return useMutation(
     async (userInfo: SignUpFormValues) => {
-      const res = await authApi.signUp(userInfo);
-
-      return res.data;
+      await API_SIGN_UP.Request(userInfo);
     },
     {
-      onSuccess: (data) =>
-        data?.result?.id &&
+      onSuccess: () =>
         modal.open({
           title: "회원가입이 완료되었습니다.",
           type: "positive",
@@ -28,6 +25,4 @@ export const usePostUserSignUp = () => {
         }),
     },
   );
-
-  return { isLoading, mutateAsync };
 };
