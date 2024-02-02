@@ -3,7 +3,7 @@ import type { SignInResponse } from "@auth/_types/signInResponse.type";
 import { axiosInstance } from "~/app/shared/server";
 
 export const API_SIGN_UP = {
-  Request: async (formData: SignUpFormValues) => {
+  postSignUp: async (formData: SignUpFormValues) => {
     const { data } = await axiosInstance().post<SignUpResponse>("auth/join", formData);
 
     return data.result;

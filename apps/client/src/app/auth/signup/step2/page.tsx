@@ -1,12 +1,12 @@
 "use client";
 
 import { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "@auth/_constants";
-import { useSignUpSubmitHandler } from "@auth/_state/server";
-import type { SignUpFormValues, UserType } from "@auth/_types";
+import type { SignUpFormValues } from "@auth/_types";
 import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { usePostUserSignUp } from "../../_state/server";
 import { AgreeCheckBox, SignUpForm } from "./_components";
 
 const SignUpSecond = () => {
@@ -25,7 +25,16 @@ const SignUpSecond = () => {
     },
   });
 
-  const { onSubmitHandler, isLoading } = useSignUpSubmitHandler(role as UserType);
+  const { mutate } = usePostUserSignUp();
+
+  const onSubmitHandler = (data: SignUpFormValues) => {
+    const { email, password, nickname, phoneNumber } = data;
+
+    const buyerFormData = { email, password, nickname, role };
+    const sellerFormData = { ...buyerFormData, phoneNumber };
+
+    mutate(role === "USER_BUYER" ? buyerFormData : sellerFormData);
+  };
 
   return (
     <Center w="full" flexDir="column" rowGap="80px">
