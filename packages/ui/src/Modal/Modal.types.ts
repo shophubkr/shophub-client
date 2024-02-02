@@ -3,7 +3,7 @@ export interface ModalProps {
   props: {
     type: "positive" | "negative" | "warning";
     title: string;
-    onConfirm: VoidFunction;
+    onConfirm?: VoidFunction;
   };
   onClose: VoidFunction;
 }
