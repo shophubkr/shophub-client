@@ -1,10 +1,10 @@
-import type { SignInFormValues, SignUpFormValues, SignUpResponse } from "@auth/_types";
+import type { SignInFormValues, SignUpFormValues } from "@auth/_types";
 import type { SignInResponse } from "@auth/_types/signInResponse.type";
 import { axiosInstance } from "~/app/shared/server";
 
 export const API_SIGN_UP = {
   postSignUp: async (formData: SignUpFormValues) => {
-    const { data } = await axiosInstance().post<SignUpResponse>("auth/join", formData);
+    const { data } = await axiosInstance().post("auth/join", formData);
 
     return data.result;
   },
