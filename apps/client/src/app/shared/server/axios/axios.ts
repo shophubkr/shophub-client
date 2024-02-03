@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
-import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+
 import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
 import type { BaseResponse } from "../types";
 
-export const axiosInstance = <T>() => {
+export const axiosInstance = () => {
   const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
   const instanceConfig = {
@@ -19,7 +20,13 @@ export const axiosInstance = <T>() => {
     timeout: 5000,
   };
 
-  const createAxiosInstance = axios.create(instanceConfig);
+  const createAxiosInstance: AxiosInstance = axios.create(instanceConfig);
+
+  const axiosInstance = {
+    get: <T, R>(url: string, params: R): Promise<AxiosResponse<BaseResponse<T>>> =>
+      createAxiosInstance.get(url, { params }),
+    post: <T, R>(url: string, body: R): Promise<AxiosResponse<BaseResponse<T>>> => createAxiosInstance.post(url, body),
+  };
 
   if (accessToken) {
     createAxiosInstance.interceptors.request.use(
@@ -32,7 +39,7 @@ export const axiosInstance = <T>() => {
     );
 
     createAxiosInstance.interceptors.response.use(
-      (response: AxiosResponse<BaseResponse<T>>) => {
+      (response: AxiosResponse) => {
         return response;
       },
       async (error: AxiosError) => {
@@ -60,7 +67,7 @@ export const axiosInstance = <T>() => {
   }
 
   createAxiosInstance.interceptors.response.use(
-    (response: AxiosResponse<BaseResponse<T>>) => {
+    (response: AxiosResponse) => {
       return response;
     },
     (error: AxiosError) => {
@@ -68,5 +75,5 @@ export const axiosInstance = <T>() => {
     },
   );
 
-  return createAxiosInstance;
+  return axiosInstance;
 };
