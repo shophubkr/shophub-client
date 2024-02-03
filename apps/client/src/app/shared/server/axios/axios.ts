@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
-import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
 
 import Cookies from "js-cookie";
@@ -23,9 +23,10 @@ export const axiosInstance = () => {
   const createAxiosInstance: AxiosInstance = axios.create(instanceConfig);
 
   const axiosInstance = {
-    get: <T, R>(url: string, params: R): Promise<AxiosResponse<BaseResponse<T>>> =>
+    get: <T, R>(url: string, params?: R): Promise<AxiosResponse<BaseResponse<T>>> =>
       createAxiosInstance.get(url, { params }),
-    post: <T, R>(url: string, body: R): Promise<AxiosResponse<BaseResponse<T>>> => createAxiosInstance.post(url, body),
+    post: <T, R>(url: string, body: R, headers?: AxiosRequestConfig<R>): Promise<AxiosResponse<BaseResponse<T>>> =>
+      createAxiosInstance.post(url, body, headers),
   };
 
   if (accessToken) {
