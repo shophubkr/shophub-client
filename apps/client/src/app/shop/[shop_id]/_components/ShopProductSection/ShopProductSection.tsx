@@ -1,10 +1,10 @@
 import { Flex, Grid } from "@chakra-ui/react";
 
 import { ShopProduct } from "../ShopProduct";
-import { useGetProductsByShop } from "../../_hooks";
+import { useGetProductsByShop } from "../../_states/server";
 
 export const ShopProductSection = () => {
-  const productList = useGetProductsByShop();
+  const { data: productList } = useGetProductsByShop();
 
   return (
     <>

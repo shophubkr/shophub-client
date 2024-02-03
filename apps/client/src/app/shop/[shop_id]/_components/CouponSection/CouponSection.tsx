@@ -3,11 +3,11 @@ import { Button, Flex } from "@chakra-ui/react";
 import { useParams } from "next/navigation";
 
 import { Icon } from "~/components";
-import { useGetNearestExpiryCoupon } from "../../_hooks";
+import { useGetNearestExpiryCoupon } from "../../_states/server";
 
 export const CouponSection = () => {
   const params = useParams();
-  const couponInfo = useGetNearestExpiryCoupon();
+  const { data: couponInfo } = useGetNearestExpiryCoupon();
 
   return (
     <div>

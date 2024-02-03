@@ -4,10 +4,10 @@ import { Divider, Flex } from "@chakra-ui/react";
 import { Button } from "@shophub/ui";
 
 import { CouponSection, ShopBriefInfo, ShopOperationInfo, ShopProductSection } from "./_components";
-import { useGetShopDetailInfo } from "./_hooks";
+import { useGetShopDetailInfo } from "./_states/server";
 
 const ShopDetailPage = () => {
-  const shopInfo = useGetShopDetailInfo();
+  const { data: shopInfo } = useGetShopDetailInfo();
 
   return (
     <main>
