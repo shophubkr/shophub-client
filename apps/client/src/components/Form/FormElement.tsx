@@ -2,7 +2,7 @@ import { Flex, FormLabel, Input, Text } from "@chakra-ui/react";
 import { useController } from "react-hook-form";
 import type { FormProps } from "./FormProps.type";
 
-export const FormElement = ({ control, name, label, type, ...rest }: FormProps) => {
+export const FormElement = ({ control, name, label, type, showValidationMessage = true, ...rest }: FormProps) => {
   const {
     field,
     fieldState: { error: errors },
@@ -14,7 +14,7 @@ export const FormElement = ({ control, name, label, type, ...rest }: FormProps) 
         {label && <Text>{label}</Text>}
         <Input id={name} type={type} {...field} {...rest} />
       </FormLabel>
-      {errors && (
+      {errors && showValidationMessage && (
         <Text position="absolute" top="100%" marginTop="8px" fontSize="12px" color="#ff6565">
           {errors.message}
         </Text>
