@@ -15,10 +15,10 @@ const ShopDetailPage = () => {
         <>
           <ShopBriefInfo {...shopInfo} />
           <Flex columnGap="14px" my="24px">
-            <Button iconNamed="location_on" variant="outline" round="full">
+            <Button iconNamed="location_on" variant="outline" round="pill">
               길찾기
             </Button>
-            <Button iconNamed="map" variant="outline" round="full">
+            <Button iconNamed="map" variant="outline" round="pill">
               지도보기
             </Button>
           </Flex>

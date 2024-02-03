@@ -32,8 +32,11 @@ export const roundCSS = {
   none: css`
     border-radius: 0px;
   `,
-  full: css`
+  pill: css`
     border-radius: 999px;
+  `,
+  full: css`
+    border-radius: 50%;
   `,
 };
 
