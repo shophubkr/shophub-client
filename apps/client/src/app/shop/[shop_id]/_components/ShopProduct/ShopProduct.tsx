@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 import { Icon, ImageBox } from "~/components";
 
-import type { ProductInfo } from "../../_types";
+import type { GetProductsByShopResponse } from "../../_types";
 
-export const ShopProduct = (productInfo: ProductInfo) => {
+export const ShopProduct = (productInfo: GetProductsByShopResponse["result"]["productList"][number]) => {
   const { id, name, topCategory, introduce, price } = productInfo;
 
   return (
     <Link href={`/shop/${id}/products`} style={{ position: "relative" }}>
-      <div style={{ position: "absolute", top: "8px", right: "8px" }}>
+      <Box position="absolute" top="8px" right="8px">
         <Icon name="sell" />
-      </div>
+      </Box>
       <ImageBox
         src="https://picsum.photos/200"
         alt="ProductImage"

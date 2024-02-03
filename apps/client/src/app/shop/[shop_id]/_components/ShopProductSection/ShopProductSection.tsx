@@ -10,10 +10,9 @@ export const ShopProductSection = () => {
     <>
       <Flex mt="32px">브랜드 상품</Flex>
       <Grid gridTemplateColumns="172px 172px" gap="24px 12px" mt="16px">
-        {productList &&
-          productList.map((product) => {
-            return <ShopProduct key={product.name + product.id} {...product} />;
-          })}
+        {productList?.map((product) => (
+          <ShopProduct key={product.name + product.id} {...product} />
+        ))}
       </Grid>
     </>
   );
