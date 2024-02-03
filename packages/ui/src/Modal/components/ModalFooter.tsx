@@ -6,7 +6,7 @@ export const ModalFooter = ({ props, onClose }: Pick<ModalProps, "props" | "onCl
   const { type, onConfirm } = props;
 
   const onConfirmAndClose = () => {
-    onConfirm();
+    if (onConfirm) onConfirm();
     onClose();
   };
 
