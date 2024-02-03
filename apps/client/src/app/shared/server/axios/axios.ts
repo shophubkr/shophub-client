@@ -4,8 +4,9 @@ import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axio
 import axios from "axios";
 import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
+import type { BaseResponse } from "../types";
 
-export const axiosInstance = () => {
+export const axiosInstance = <T>() => {
   const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
   const instanceConfig = {
@@ -31,7 +32,7 @@ export const axiosInstance = () => {
     );
 
     createAxiosInstance.interceptors.response.use(
-      (response: AxiosResponse) => {
+      (response: AxiosResponse<BaseResponse<T>>) => {
         return response;
       },
       async (error: AxiosError) => {
@@ -59,7 +60,7 @@ export const axiosInstance = () => {
   }
 
   createAxiosInstance.interceptors.response.use(
-    (response: AxiosResponse) => {
+    (response: AxiosResponse<BaseResponse<T>>) => {
       return response;
     },
     (error: AxiosError) => {
