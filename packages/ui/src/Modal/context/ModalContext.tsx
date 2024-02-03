@@ -1,3 +1,5 @@
+"use client";
+
 import type { PropsWithChildren } from "react";
 import { createContext, useState } from "react";
 import { Modal } from "../Modal";

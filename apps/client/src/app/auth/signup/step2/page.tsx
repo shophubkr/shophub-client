@@ -1,38 +1,33 @@
 "use client";
 
-import { CheckBox } from "@auth/_components";
-import { BusinessApiButton } from "@auth/_components/Form";
-import { signUpSchema } from "@auth/_constants";
+import { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "@auth/_constants";
 import { signUpApi } from "@auth/_state/server/api";
-import type { SingUpFormValues } from "@auth/_types";
+import type { SignUpFormValues } from "@auth/_types";
 import { Button, Center, Flex, Heading } from "@chakra-ui/react";
-import { FormElement } from "@components/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { CheckBox, FormElement } from "~/components";
 
 const SignUpSecond = () => {
-  const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({
-    resolver: yupResolver(signUpSchema),
+  const role = useSearchParams().get("userType");
+
+  const { control, handleSubmit } = useForm<SignUpFormValues>({
+    resolver: yupResolver(role === "USER_BUYER" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
     defaultValues: {
       email: "",
       password: "",
       passwordConfirm: "",
-      nickName: "",
-      tel: "",
-      businessNum: "",
-      isBusinessNumState: false,
+      nickname: "",
       isAgeOverAgree: false,
       isSendAdsAgree: false,
+      ...(role === "USER_SELLER" && { phoneNumber: "" }),
     },
   });
 
-  const { get } = useSearchParams();
-  const userType = get("userType");
-
-  const onSubmitHandler = async (data: SingUpFormValues) => {
+  const onSubmitHandler = async (data: SignUpFormValues) => {
     console.log(data);
-    const postData = { ...data, userType };
+    const postData = { ...data, role };
 
     try {
       // mocking test completed
@@ -44,7 +39,7 @@ const SignUpSecond = () => {
   };
 
   return (
-    <Center w="100%" flexDir="column" rowGap="80px">
+    <Center w="full" flexDir="column" rowGap="80px">
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
@@ -59,24 +54,11 @@ const SignUpSecond = () => {
             type="password"
             placeholder="비밀번호 확인"
           />
-          <FormElement control={control} name="nickName" label="닉네임" placeholder="닉네임" />
-
-          {userType === "seller" && (
-            <>
-              <FormElement control={control} name="tel" label="연락처" placeholder="연락처" />
-              <Flex justifyContent="space-between" alignItems="flex-end" columnGap="8px">
-                <FormElement control={control} name="businessNum" label="사업자 등록번호" placeholder="사업자 번호" />
-                <BusinessApiButton
-                  control={control}
-                  name="isBusinessNumState"
-                  getValues={getValues}
-                  setValue={setValue}
-                />
-              </Flex>
-            </>
+          <FormElement control={control} name="nickname" label="닉네임" placeholder="닉네임" />
+          {role === "USER_SELLER" && (
+            <FormElement control={control} name="phoneNumber" label="연락처" placeholder="연락처" />
           )}
         </Flex>
-
         <Flex mt="48px" flexDir="column" rowGap="8px">
           <CheckBox control={control} name="isAgeOverAgree">
             [필수] 만 14세 이상이며 모두 동의합니다.
@@ -85,7 +67,7 @@ const SignUpSecond = () => {
             [선택] 광고성 정보 수신에 모두 동의합니다.
           </CheckBox>
         </Flex>
-        <Button w="100%" h="48px" mt="48px" type="submit">
+        <Button w="full" h="48px" mt="48px" type="submit">
           가입하기
         </Button>
       </form>

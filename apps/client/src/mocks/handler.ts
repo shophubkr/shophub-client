@@ -1,3 +1,3 @@
-import * as Api from "./Apis/index";
+import * as Apis from "./Apis";
 
-export const handler = [...Object.values(Api)];
+export const handler = [...Object.values(Apis)];

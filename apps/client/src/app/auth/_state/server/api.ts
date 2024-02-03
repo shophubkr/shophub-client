@@ -1,21 +1,22 @@
-import type { SignInFormValues, SignUpApiResponse, SignUpBusinessNumber } from "@auth/_types";
+import type { SignInFormValues } from "@auth/_types";
+import type { SignInResponse } from "@auth/_types/signInResponse.type";
 import axios from "axios";
+import { axiosInstance } from "~/app/shared/server";
 
 export const signUpApi = {
-  businessConfirm: (value: string) => {
-    return axios.post<SignUpApiResponse<SignUpBusinessNumber>>(
-      `https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=jLYDm8UrTI6O0xwYjloDybofTULlg9YFEVIbA8pyRkS78TmOmeB%2B%2FlVlBWBqqoOtBAiEn%2FyukJGWMuMJrMdt0w%3D%3D`,
-      { b_no: [value] },
-    );
-  },
-
   signUpResponse: (postData: object) => {
     return axios.post("/api/signup", { postData });
   },
 };
 
-export const LoginApi = {
-  signInResponse: ({ email, password }: SignInFormValues) => {
-    return axios.post("/api/login", { email, password });
+export const API_LOGIN = {
+  // TODO: 테스트 작업이며, 변경될 수 있는 사항입니다.
+  Request: async ({ email, password }: SignInFormValues) => {
+    const { data } = await axiosInstance().post<SignInResponse>("/auth/login", {
+      email,
+      password,
+    });
+
+    return data.result;
   },
 };

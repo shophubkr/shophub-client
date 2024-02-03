@@ -1,9 +1,11 @@
 "use client";
 
-import { LoginApi } from "@auth/_state/server";
+import { API_LOGIN } from "@auth/_state/server";
 import type { SignInFormValues } from "@auth/_types";
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
+import { ACCESS_TOKEN_KEY } from "~/app/shared/server/constants";
 import { JoinNavigationForUnknownUser, ShopHubAccountLogin, SnsAccountLogin } from "./_components";
 
 const Login = () => {
@@ -18,11 +20,9 @@ const Login = () => {
     const { email, password } = data;
 
     try {
-      const res = await LoginApi.signInResponse({ email, password });
-      const user = res?.data;
-
-      // mocking test completed
-      console.log(user);
+      // TODO: 아래는 임시용 입니다. 추후 수정이 필요합니다.
+      const data = await API_LOGIN.Request({ email, password });
+      Cookies.set(ACCESS_TOKEN_KEY, data.accessToken); // 쿠키에 accessToken set
     } catch (error) {
       console.log(error);
     }
