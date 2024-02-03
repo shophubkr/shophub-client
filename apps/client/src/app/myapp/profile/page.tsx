@@ -29,7 +29,7 @@ const ProfilePage = () => {
     },
   });
 
-  const passwordErrorMessage = errors.password?.message || errors.passwordConfirm?.message || "";
+  const passwordErrorMessage = errors.newPassword?.message || errors.oldPassword?.message || "";
 
   const handleNicknameDuplicationCheck = () => {
     // TODO: api 요청 처리
@@ -66,10 +66,11 @@ const ProfilePage = () => {
           <Flex w="full" alignItems="flex-end" columnGap="8px">
             <FormElement
               control={control}
-              name="password"
+              name="oldPassword"
               label="비밀번호"
               placeholder="현재 비밀번호를 입력해주세요"
               showValidationMessage={false}
+              type="password"
             />
             <Button w="20%" size="medium" variant="gray" type="button">
               확인
@@ -77,9 +78,10 @@ const ProfilePage = () => {
           </Flex>
           <FormElement
             control={control}
-            name="passwordConfirm"
+            name="newPassword"
             placeholder="변경할 비밀번호를 입력해주세요"
             showValidationMessage={false}
+            type="password"
           />
           <Text position="absolute" top="100%" marginTop="8px" fontSize="12px" color="#ff6565">
             {passwordErrorMessage}
