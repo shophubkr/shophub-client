@@ -5,21 +5,22 @@ import type { ButtonProps } from "./Button.types";
 
 export const sizeCSS = {
   large: css`
-    padding: 16px 0;
+    height: 48px;
     column-gap: 8px;
   `,
   medium: css`
-    padding: 13px 0;
+    height: 40px;
     font-size: 14px;
     column-gap: 8px;
   `,
   small: css`
-    padding: 9px 0;
+    height: 32px;
     font-size: 14px;
     column-gap: 8px;
   `,
   tiny: css`
-    padding: 4px 8px;
+    padding: 0 8px;
+    height: 22px;
     font-size: 14px;
     column-gap: 4px;
   `,
