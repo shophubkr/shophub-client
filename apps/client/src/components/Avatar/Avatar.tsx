@@ -1,10 +1,10 @@
 "use client";
 
-import { Box, Avatar as BaseAvatar, Text } from "@chakra-ui/react";
+import { Box, Avatar as BaseAvatar, Text, forwardRef, Input } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
 import type { AvatarProps } from "./Avatar.types";
 
-export const Avatar = ({ size = 72, edit = false, src, onClick }: AvatarProps) => {
+export const Avatar = forwardRef(({ size = 72, edit = false, src, onClick, onChange }: AvatarProps, ref) => {
   const theme = useShophubTheme();
 
   return (
@@ -16,6 +16,7 @@ export const Avatar = ({ size = 72, edit = false, src, onClick }: AvatarProps) =
       cursor="pointer"
       onClick={onClick}
     >
+      {edit && <Input type="file" accept="image/*" display="none" ref={ref} onChange={onChange} />}
       <BaseAvatar src={src} w="full" h="full" />
       {edit && (
         <Box
@@ -32,4 +33,4 @@ export const Avatar = ({ size = 72, edit = false, src, onClick }: AvatarProps) =
       )}
     </Box>
   );
-};
+});

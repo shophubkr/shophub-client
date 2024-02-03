@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Avatar, FormElement } from "~/components";
 import type { ProfileFormProps } from "./_types";
 import { PROFILE_FORM_SCHEMA } from "./_constants";
+import { useUploadImage } from "~/hooks";
 
 // TODO: api 연동 후 제거
 const myInfo = {
@@ -15,6 +16,7 @@ const myInfo = {
 };
 
 const ProfilePage = () => {
+  const { imageRef, readImgFile, onClickImageButton, onChangeImageFile } = useUploadImage();
   const {
     control,
     formState: { errors },
@@ -44,7 +46,13 @@ const ProfilePage = () => {
   return (
     <form onSubmit={handleSubmit(handleEditProfileSubmit)}>
       <Center w="full" h="160px">
-        <Avatar edit src={myInfo.image} />
+        <Avatar
+          edit
+          src={readImgFile || myInfo.image}
+          ref={imageRef}
+          onClick={onClickImageButton}
+          onChange={onChangeImageFile}
+        />
       </Center>
       <Flex flexDir="column" rowGap="32px" alignItems="flex-start">
         <Text fontWeight="700">프로필 정보</Text>
