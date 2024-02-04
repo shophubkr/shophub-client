@@ -40,7 +40,7 @@ export const ShopProduct = (productInfo: GetProductsByShopResponse["result"]["pr
         {introduce}
       </Text>
       <Text fontSize="14px" fontWeight="500">
-        {price}원 ~
+        {price.toLocaleString()}원 ~
       </Text>
     </Link>
   );
