@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { UseQueryOptions } from "@tanstack/react-query";
 import type { GetNearestExpiryCouponResponse } from "../../../_types";
 import { API_SHOP_INFO } from "../api";
-import { useShopId } from "./useShopId";
+import { useShopId } from ".";
 
 export const useGetNearestExpiryCoupon = (options?: UseQueryOptions<GetNearestExpiryCouponResponse["result"]>) => {
   const SHOP_ID = useShopId();

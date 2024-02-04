@@ -2,7 +2,7 @@ import type { UseQueryOptions } from "@tanstack/react-query";
 import { useQuery } from "@tanstack/react-query";
 import type { GetShopDetailInfoResponse } from "../../../_types";
 import { API_SHOP_INFO } from "../api";
-import { useShopId } from "./useShopId";
+import { useShopId } from ".";
 
 export const useGetShopDetailInfo = (options?: UseQueryOptions<GetShopDetailInfoResponse["result"]>) => {
   const SHOP_ID = useShopId();
