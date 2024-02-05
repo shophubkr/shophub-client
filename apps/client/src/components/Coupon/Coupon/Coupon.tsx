@@ -1,9 +1,7 @@
 "use client";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { CouponBody, Validity } from "../components";
-import CouponState from "../components/CouponState";
-import { Dday } from "../components/Dday";
+import { CouponState, CouponBody, Validity, Dday } from "../components";
 import type { CouponProps } from "./Coupon.types";
 
 export const Coupon = ({ shopName, couponType, couponContent, dday, startedAt, expiredAt }: CouponProps) => {
