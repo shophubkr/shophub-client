@@ -34,3 +34,13 @@ export const SIGN_UP_SELLER_SCHEMA = yup.object({
     .required(SIGN_UP_ERROR_MESSAGES.phoneNumber.required)
     .matches(SIGN_UP_FORM_VALIDATION_REGEX.phoneNumber, SIGN_UP_ERROR_MESSAGES.phoneNumber.pattern),
 });
+
+export const LOGIN_SCHEMA = yup.object({
+  email: yup.string().required(SIGN_UP_ERROR_MESSAGES.email.required).email(SIGN_UP_ERROR_MESSAGES.email.pattern),
+  password: yup
+    .string()
+    .min(8, SIGN_UP_ERROR_MESSAGES.password.min)
+    .max(20, SIGN_UP_ERROR_MESSAGES.password.max)
+    .matches(SIGN_UP_FORM_VALIDATION_REGEX.password, SIGN_UP_ERROR_MESSAGES.password.pattern)
+    .required(SIGN_UP_ERROR_MESSAGES.password.required),
+});
