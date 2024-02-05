@@ -4,6 +4,7 @@ import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConf
 import axios from "axios";
 import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
+import type { BaseResponse } from "../types";
 
 const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
@@ -66,4 +67,20 @@ axiosInstance.interceptors.response.use(
   },
 );
 
-export default axiosInstance;
+export const api = {
+  get: <T>(...args: Parameters<typeof axiosInstance.get>) => {
+    return axiosInstance.get<BaseResponse<T>>(...args);
+  },
+  post: <T>(...args: Parameters<typeof axiosInstance.post>) => {
+    return axiosInstance.post<BaseResponse<T>>(...args);
+  },
+  put: <T>(...args: Parameters<typeof axiosInstance.put>) => {
+    return axiosInstance.put<BaseResponse<T>>(...args);
+  },
+  patch: <T>(...args: Parameters<typeof axiosInstance.patch>) => {
+    return axiosInstance.patch<BaseResponse<T>>(...args);
+  },
+  delete: <T>(...args: Parameters<typeof axiosInstance.delete>) => {
+    return axiosInstance.delete<BaseResponse<T>>(...args);
+  },
+};
