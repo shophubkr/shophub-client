@@ -5,6 +5,5 @@ export interface FormProps extends InputProps {
   control: Control;
   name: string;
   label?: string;
-  type?: string;
   showValidationMessage?: boolean;
 }
