@@ -54,11 +54,11 @@ const ProfilePage = () => {
           onChange={onChangeImageFile}
         />
       </Center>
-      <Flex flexDir="column" rowGap="32px" alignItems="flex-start">
+      <Flex flexDir="column" rowGap="32px">
         <Text fontWeight="700">프로필 정보</Text>
         <Flex w="full" alignItems="flex-end" columnGap="8px">
           <FormElement control={control} name="nickname" label="닉네임" placeholder="변경할 닉네임을 입력해주세요" />
-          <Button w="20%" size="medium" variant="gray" type="button">
+          <Button w="64px" size="medium" variant="gray" type="button">
             중복
           </Button>
         </Flex>
@@ -72,7 +72,7 @@ const ProfilePage = () => {
               showValidationMessage={false}
               type="password"
             />
-            <Button w="20%" size="medium" variant="gray" type="button">
+            <Button w="64px" size="medium" variant="gray" type="button">
               확인
             </Button>
           </Flex>
