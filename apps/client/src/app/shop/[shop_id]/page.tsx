@@ -1,10 +1,11 @@
 "use client";
 
-import { Divider, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Button } from "@shophub/ui";
 
 import { CouponSection, ShopBriefInfo, ShopOperationInfo, ShopProductSection } from "./_components";
 import { useGetShopDetailInfo } from "./_states/server";
+import { HorizontalLine } from "~/components";
 
 const ShopDetailPage = () => {
   const { data: shopInfo } = useGetShopDetailInfo();
@@ -22,9 +23,9 @@ const ShopDetailPage = () => {
               지도보기
             </Button>
           </Flex>
-          <Divider orientation="horizontal" h="1px" />
+          <HorizontalLine h="1px" />
           <ShopOperationInfo {...shopInfo} />
-          <Divider orientation="horizontal" h="1px" />
+          <HorizontalLine h="1px" />
           <CouponSection />
           <ShopProductSection />
         </>
