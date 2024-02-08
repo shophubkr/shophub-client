@@ -25,7 +25,7 @@ const couponList = [
 ];
 const couponListTotal = couponList.length;
 
-const CouponListPage = () => {
+const CouponsPage = () => {
   const { value: isUsedCoupon, onChange: handleIsUsedCoupon } = useBooleanState();
 
   return (
@@ -47,4 +47,4 @@ const CouponListPage = () => {
   );
 };
 
-export default CouponListPage;
+export default CouponsPage;

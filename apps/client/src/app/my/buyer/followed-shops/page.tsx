@@ -6,7 +6,7 @@ import { HorizontalLine, ListLayout, ListTotal, StoreItem } from "~/components";
 import { useBooleanState } from "~/hooks";
 import { Filters } from "./_components";
 
-const FollowListPage = () => {
+const FollowedShopsPage = () => {
   const { value: isCouponFilterEnabled, onChange: onChangeCouponFilter } = useBooleanState();
   const { value: isDistanceFilterEnabled, onChange: onChangeDistanceFilter } = useBooleanState();
 
@@ -31,4 +31,4 @@ const FollowListPage = () => {
   );
 };
 
-export default FollowListPage;
+export default FollowedShopsPage;
