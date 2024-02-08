@@ -5,19 +5,24 @@ import type { ButtonProps } from "./Button.types";
 
 export const sizeCSS = {
   large: css`
-    padding: 16px 0;
+    height: 48px;
+    column-gap: 8px;
   `,
   medium: css`
-    padding: 13px 0;
+    height: 40px;
     font-size: 14px;
+    column-gap: 8px;
   `,
   small: css`
-    padding: 9px 0;
+    height: 32px;
     font-size: 14px;
+    column-gap: 8px;
   `,
   tiny: css`
-    padding: 4px 0;
+    padding: 0 8px;
+    height: 22px;
     font-size: 14px;
+    column-gap: 4px;
   `,
 };
 
@@ -27,6 +32,9 @@ export const roundCSS = {
   `,
   none: css`
     border-radius: 0px;
+  `,
+  pill: css`
+    border-radius: 999px;
   `,
   full: css`
     border-radius: 50%;
@@ -72,7 +80,6 @@ export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 8px;
   font-weight: 500;
   width: ${({ w = "100%" }) => w};
   ${({ size = "large" }) => sizeCSS[size]};
