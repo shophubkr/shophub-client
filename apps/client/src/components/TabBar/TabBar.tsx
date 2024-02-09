@@ -1,38 +1,10 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
-import { useRouter } from "next/navigation";
+import { TAB_BAR_NAVIGATION_GROUP } from "./TabBar.constant";
+import type { TabBarProps } from "./TabBar.type";
 
-export const TabBar = () => {
-  const router = useRouter();
+export const TabBar = ({ onPathRoutingHandler }: TabBarProps) => {
   const theme = useShophubTheme();
-
-  // TODO : 상수 파일로 분리합니다.
-  const tabContentsArray = [
-    {
-      iconSymbol: "home",
-      iconName: "홈",
-      path: "",
-    },
-    {
-      iconSymbol: "storefront",
-      iconName: "팔로우",
-      path: "",
-    },
-    {
-      iconSymbol: "discount",
-      iconName: "쿠폰",
-      path: "",
-    },
-    {
-      iconSymbol: "perm_identity",
-      iconName: "마이 페이지",
-      path: "",
-    },
-  ];
-
-  const onPathRoutingHandler = (path: string) => {
-    router.push(path);
-  };
 
   return (
     <Flex
@@ -47,18 +19,18 @@ export const TabBar = () => {
       bgColor={theme.COLORS.white}
       boxShadow="0 -4px 8px rgba(0,0,0,0.05)"
     >
-      {tabContentsArray.map((content) => (
+      {TAB_BAR_NAVIGATION_GROUP.map((navigation) => (
         <Flex
           w="84px"
           flexDir="column"
           alignItems="center"
           rowGap="4px"
-          onClick={() => onPathRoutingHandler(content.path)}
+          onClick={() => onPathRoutingHandler(navigation.path)}
           cursor="pointer"
           color={theme.COLORS.grey[500]}
         >
-          <Text className="material-icons-outlined">{content.iconSymbol}</Text>
-          <Text>{content.iconName}</Text>
+          <Text className="material-icons-outlined">{navigation.iconSymbol}</Text>
+          <Text>{navigation.iconName}</Text>
         </Flex>
       ))}
     </Flex>

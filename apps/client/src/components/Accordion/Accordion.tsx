@@ -1,11 +1,9 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
-import type { PropsWithChildren } from "react";
-import { useBooleanState } from "~/hooks";
+import type { AccordionProps } from "./Accordion.type";
 
-export const Accordion = ({ children }: PropsWithChildren) => {
+export const Accordion = ({ value: isOpenAccordion, onChange, children }: AccordionProps) => {
   const theme = useShophubTheme();
-  const { value: isOpenAccordion, onChange } = useBooleanState();
 
   return (
     <Flex
