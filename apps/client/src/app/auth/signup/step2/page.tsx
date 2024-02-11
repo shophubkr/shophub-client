@@ -27,7 +27,7 @@ const SignUpSecond = () => {
 
   const { mutate } = usePostUserSignUp();
 
-  const onSubmitHandler = (data: SignUpFormValues) => {
+  const handleSubmitHandler = (data: SignUpFormValues) => {
     const { email, password, nickname, phoneNumber } = data;
 
     const buyerFormData = { email, password, nickname, role };
@@ -41,7 +41,7 @@ const SignUpSecond = () => {
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <form onSubmit={handleSubmit(handleSubmitHandler)}>
         <SignUpForm control={control} name="signUpForm" />
         <AgreeCheckBox control={control} name="signUpCheckbox" />
         <Button w="full" h="48px" mt="48px" type="submit">
