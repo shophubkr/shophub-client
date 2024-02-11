@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import { Providers } from "./providers";
+import { BaseLayout } from "./shared/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </head>
       <body className={inter.className}>
         <Providers>
-          <main className="baseLayout">{children}</main>
+          <BaseLayout>{children}</BaseLayout>
         </Providers>
       </body>
     </html>
