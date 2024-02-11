@@ -12,3 +12,8 @@ ul,
 li {
   list-style: none;
 }
+
+.baseLayout {
+  max-width: 390px;
+  margin: 0 auto;
+}
