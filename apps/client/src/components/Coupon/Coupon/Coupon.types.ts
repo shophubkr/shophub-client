@@ -1,9 +1,10 @@
-import type { CouponBodyProps, RestDayProps, ValidityProps } from "../components/CouponComponents.types";
+import type { CouponBodyProps, RestDayProps } from "../components/CouponComponents.types";
 
 export interface CouponProps {
   couponType: "buyer" | "seller";
-  storeName: CouponBodyProps["title"];
-  title: CouponBodyProps["title"];
-  restDay: RestDayProps["restDay"];
-  validity: ValidityProps;
+  shopName: CouponBodyProps["title"];
+  couponContent: CouponBodyProps["title"];
+  dday: RestDayProps["dday"];
+  startedAt: string;
+  expiredAt: string;
 }
