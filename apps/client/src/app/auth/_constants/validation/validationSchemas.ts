@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { SIGN_UP_ERROR_MESSAGES } from "./validationMessages";
 import { SIGN_UP_FORM_VALIDATION_REGEX } from "./validationRegex";
 
-const SIGN_UP_COMMON_SCHEMA = {
+export const SIGN_UP_COMMON_SCHEMA = {
   email: yup.string().required(SIGN_UP_ERROR_MESSAGES.email.required).email(SIGN_UP_ERROR_MESSAGES.email.pattern),
   password: yup
     .string()

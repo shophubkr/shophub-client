@@ -6,4 +6,5 @@ export * from "./StoreItem";
 export * from "./ListTotal";
 export * from "./Icon";
 export * from "./ImageBox";
+export * from "./Avatar";
 export * from "./ListLayout";
