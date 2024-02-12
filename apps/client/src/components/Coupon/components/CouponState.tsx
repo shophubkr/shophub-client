@@ -3,7 +3,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import type { CouponStateProps } from "./CouponComponents.types";
 
-const CouponState = ({ isExpired }: CouponStateProps) => {
+export const CouponState = ({ isExpired }: CouponStateProps) => {
   const iconAndTitle = !isExpired ? { title: "진행", icon: "play_circle" } : { title: "종료", icon: "stop_circle" };
   return (
     <Flex
@@ -23,5 +23,3 @@ const CouponState = ({ isExpired }: CouponStateProps) => {
     </Flex>
   );
 };
-
-export default CouponState;

@@ -1,4 +1,5 @@
 export interface StoreProps {
+  id: number;
   thumbnailUrl: string;
   name: string;
   description: string;

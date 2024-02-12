@@ -9,3 +9,5 @@ export * from "./ListTotal";
 export * from "./ShopPin";
 export * from "./StoreItem";
 export * from "./TabBar";
+export * from "./Avatar";
+export * from "./ListLayout";
