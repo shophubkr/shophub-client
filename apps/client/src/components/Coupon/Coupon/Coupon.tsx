@@ -1,41 +1,37 @@
 "use client";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { CouponBody, Validity } from "../components";
-import CouponState from "../components/CouponState";
-import { RestDay } from "../components/RestDays";
+import { CouponState, CouponBody, Validity, Dday } from "../components";
 import type { CouponProps } from "./Coupon.types";
 
-export const Coupon = ({ storeName, couponType, title, restDay, validity }: CouponProps) => {
-  const isExpired = restDay <= 0;
+export const Coupon = ({ shopName, couponType, couponContent, dday, startedAt, expiredAt }: CouponProps) => {
+  const isExpired = dday <= 0;
   return (
-    <Box w="358px" h="191px">
+    <Box w="full" h="191px">
       {couponType === "buyer" && (
         <Box>
           <Flex w="full" alignItems="center" justifyContent="space-between" mb="13px">
             <Flex>
               <Text>매장 : &nbsp;</Text>
-              <Text fontWeight="700">{storeName}</Text>
+              <Text fontWeight="700">{shopName}</Text>
             </Flex>
-            <Box w="168px">
-              <RestDay restDay={restDay} />
-            </Box>
+            <Dday dday={dday} />
           </Flex>
-          <CouponBody title={title} isExpired={isExpired} />
+          <CouponBody title={couponContent} isExpired={isExpired} />
           <Box mt="16px">
-            <Validity start={validity.start} end={validity.end} />
+            <Validity start={startedAt} end={expiredAt} />
           </Box>
         </Box>
       )}
       {couponType === "seller" && (
         <Box>
           <Flex alignItems="center" justifyContent="space-between" mb="13px">
-            <Validity start={validity.start} end={validity.end} />
+            <Validity start={startedAt} end={expiredAt} />
             <CouponState isExpired={isExpired} />
           </Flex>
-          <CouponBody title={title} isExpired={isExpired} />
+          <CouponBody title={couponContent} isExpired={isExpired} />
           <Box mt="8px">
-            <RestDay restDay={restDay} />
+            <Dday dday={dday} />
           </Box>
         </Box>
       )}
