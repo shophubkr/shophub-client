@@ -1,9 +1,9 @@
 export interface StoreProps {
   id: number;
-  thumbnailUrl: string;
+  image: string;
   name: string;
-  description: string;
-  isCouponAvailable: boolean;
+  introduce: string;
+  checkCoupon: boolean;
   address: string;
   distance: string;
   minimumPrice: number;
