@@ -4,7 +4,7 @@ import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import * as Styled from "./ChoiceUserType.style";
 
 export const ChoiceUserType = ({ userChoice, setUserChoice }: ChoiceUserTypeProps) => {
-  const onClickUserType = (user: UserType) => {
+  const handleClickUserType = (user: UserType) => {
     setUserChoice(user);
   };
 
@@ -13,7 +13,7 @@ export const ChoiceUserType = ({ userChoice, setUserChoice }: ChoiceUserTypeProp
       {CHOICE_USER_TYPE_GROUP.map((user) => (
         <Button
           key={user.userType}
-          onClick={() => onClickUserType(user.userType)}
+          onClick={() => handleClickUserType(user.userType)}
           w="full"
           h="149px"
           flexDir="column"
