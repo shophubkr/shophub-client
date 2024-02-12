@@ -6,7 +6,7 @@ import { type PropsWithChildren } from "react";
 import { useShophubTheme } from "@shophub/theme";
 import type { SummarySectionProps } from "./SummarySection.types";
 
-export const SummarySection = ({ title, href, empty, children }: PropsWithChildren<SummarySectionProps>) => {
+export const SummarySection = ({ title, href, empty = false, children }: PropsWithChildren<SummarySectionProps>) => {
   const theme = useShophubTheme();
 
   return (
