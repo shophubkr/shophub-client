@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Box, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { Button } from "@shophub/ui";
 import type { ProductProps } from "./Product.types";
 import { ImageBox } from "~/components";
@@ -13,26 +13,24 @@ export const Product = ({ product: { id, imageUrl, name, introduce, date, price 
 
   return (
     <Flex flexDir="column" rowGap="16px">
-      <Flex columnGap="14px" alignItems="center">
-        <ImageBox src={imageUrl} alt={`${name} 상품 이미지`} boxSize="96px" />
-        <Box w="full">
-          <Flex flexDir="column" rowGap="28px">
-            <Flex flexDir="column" rowGap="8px">
-              <Text fontWeight={700}>{name}</Text>
-              <Text fontSize="14px" fontWeight={300}>
-                {introduce}
-              </Text>
-            </Flex>
-            <Flex justifyContent="space-between">
-              <Text fontSize="14px" fontWeight={300}>
-                {date}
-              </Text>
-              <Text fontSize="14px" fontWeight={500}>
-                {price.toLocaleString()}원
-              </Text>
-            </Flex>
+      <Flex columnGap="14px">
+        <ImageBox src={imageUrl} alt={`${name} 상품 이미지`} boxSize="96px" borderRadius="8px" />
+        <Flex flexDir="column" rowGap="14px" py="8px" flexGrow={1}>
+          <Flex flexDir="column">
+            <Text fontWeight={700}>{name}</Text>
+            <Text fontSize="14px" fontWeight={300}>
+              {introduce}
+            </Text>
           </Flex>
-        </Box>
+          <Flex justifyContent="space-between">
+            <Text fontSize="14px" fontWeight={300}>
+              {date}
+            </Text>
+            <Text fontSize="14px" fontWeight={500}>
+              {price.toLocaleString()}원
+            </Text>
+          </Flex>
+        </Flex>
       </Flex>
       {edit && (
         <Flex>
