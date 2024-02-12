@@ -1,43 +1,36 @@
 "use client";
 
-import { API_LOGIN } from "@auth/_state/server";
 import type { SignInFormValues } from "@auth/_types";
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
-import Cookies from "js-cookie";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { ACCESS_TOKEN_KEY } from "~/app/shared/server/constants";
+import { LOGIN_SCHEMA } from "../_constants";
+import { usePostLogin } from "../_state/server/hooks";
 import { JoinNavigationForUnknownUser, ShopHubAccountLogin, SnsAccountLogin } from "./_components";
 
 const Login = () => {
   const { control, handleSubmit } = useForm<SignInFormValues>({
+    resolver: yupResolver(LOGIN_SCHEMA),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  const onSubmitHandler = async (data: SignInFormValues) => {
-    const { email, password } = data;
+  const { mutate } = usePostLogin();
 
-    try {
-      // TODO: 아래는 임시용 입니다. 추후 수정이 필요합니다.
-      const data = await API_LOGIN.Request({ email, password });
-      Cookies.set(ACCESS_TOKEN_KEY, data.accessToken); // 쿠키에 accessToken set
-    } catch (error) {
-      console.log(error);
-    }
+  const handleSubmitHandler = async (submitData: SignInFormValues) => {
+    mutate(submitData);
   };
 
   return (
-    <Center flexDirection="column" w="80%" maxW="312px" margin="80px auto" rowGap="80px">
+    <Center flexDirection="column" w="312px" margin="0 auto" rowGap="64px">
       <Box textAlign="center">
-        <Text>입어보고 사자</Text>
-        <Heading as="h3" fontSize="24px">
-          SHOPHUB
-        </Heading>
+        <Text fontSize="16px">입어보고 사자</Text>
+        <Heading as="h3">SHOPHUB</Heading>
       </Box>
-      <Flex flexDir="column" w="100%" rowGap="80px">
-        <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <Flex flexDir="column" w="full" rowGap="80px">
+        <form onSubmit={handleSubmit(handleSubmitHandler)}>
           <ShopHubAccountLogin control={control} name="shopHub" />
         </form>
         <Flex flexDir="column" rowGap="48px">
