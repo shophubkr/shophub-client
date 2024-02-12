@@ -2,11 +2,11 @@
 
 import { Flex } from "@chakra-ui/react";
 import type { StoreProps } from "~/components";
-import { HorizontalLine, ListTotal, StoreItem } from "~/components";
+import { HorizontalLine, ListLayout, ListTotal, StoreItem } from "~/components";
 import { useBooleanState } from "~/hooks";
 import { Filters } from "./_components";
 
-const FollowListPage = () => {
+const FollowedShopsPage = () => {
   const { value: isCouponFilterEnabled, onChange: onChangeCouponFilter } = useBooleanState();
   const { value: isDistanceFilterEnabled, onChange: onChangeDistanceFilter } = useBooleanState();
 
@@ -22,14 +22,13 @@ const FollowListPage = () => {
         distanceState={{ isDistanceFilterEnabled, onChangeDistanceFilter }}
       />
       <HorizontalLine h="1px" />
-      {stores.map((store, index) => (
-        <Flex flexDir="column" rowGap="24px" pt="24px">
-          <StoreItem storeInformation={store} />
-          {index + 1 !== followCount && <HorizontalLine h="1px" />}
-        </Flex>
-      ))}
+      <ListLayout>
+        {stores.map((store) => (
+          <StoreItem key={store.id} storeInformation={store} />
+        ))}
+      </ListLayout>
     </Flex>
   );
 };
 
-export default FollowListPage;
+export default FollowedShopsPage;
