@@ -1,5 +1,5 @@
-import type { ProductDataProps } from "~/app/my/_components/Product/Product.types";
+import type { ProductItemProps } from "~/components";
 
 export interface RegisteredProductsProps {
-  products: ProductDataProps[];
+  products: ProductItemProps[];
 }
