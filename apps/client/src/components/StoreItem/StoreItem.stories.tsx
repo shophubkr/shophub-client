@@ -15,14 +15,12 @@ type Story = StoryObj<typeof StoreItem>;
 
 export const Default: Story = {
   args: {
-    storeInformation: {
-      thumbnailUrl: TEST_IMAGE_URL,
-      name: "BEEN STORE",
-      description: "스트릿 옷가게",
-      distance: "12m",
-      address: "서울특별시 강남구 테헤란로 11111",
-      isCouponAvailable: false,
-      minimumPrice: 14000,
-    },
+    id: 1,
+    image: TEST_IMAGE_URL,
+    name: "그래비티",
+    introduce: "오버핏 전문 스트릿 브랜드샵",
+    address: "서울특별시 강남구 테헤란로 11111",
+    checkCoupon: true,
+    minPrice: 69000,
   },
 };
