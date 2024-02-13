@@ -14,8 +14,7 @@ const data = {
         address: "상점 주소",
         introduce: "상점 소개",
         checkCoupon: true,
-        distance: "100m",
-        minimumPrice: 2000,
+        minPrice: 2000,
       },
     ],
   },
@@ -31,7 +30,7 @@ const BuyerMainPage = () => {
       <SummarySection title="가장 가까운 매장" href="/my-page/buyer/nearby-stores">
         <ListLayout>
           {data?.followShop.shopList.map((store) => (
-            <StoreItem key={store.id} storeInformation={store} />
+            <StoreItem key={store.id} {...store} />
           ))}
         </ListLayout>
       </SummarySection>
