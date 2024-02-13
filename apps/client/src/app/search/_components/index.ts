@@ -1,2 +1,2 @@
-export * from "./SearchBar";
-export * from "./FilterBar";
+export * from "./FilterBar/FilterBar";
+export * from "./RecentSearchWord/RecentSearchWord";

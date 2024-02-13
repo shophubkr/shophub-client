@@ -1,11 +1,12 @@
 "use client";
 
-import { Flex, Text } from "@chakra-ui/react";
-import { useCallback, useState } from "react";
+import Link from "next/link";
+import { Flex } from "@chakra-ui/react";
+import { useSearchParams } from "next/navigation";
 
-import { HorizontalLine, StoreItem } from "~/components";
-import { SearchBar, FilterBar } from "./_components";
-import { useSetSearchWordValue } from "./_states/client";
+import { HorizontalLine, Icon, ListTotal, SearchBar, StoreItem } from "~/components";
+import { FilterBar, RecentSearchWord } from "./_components";
+import { isEmptySearchWord } from "~/utils";
 
 // 퍼블리싱용
 const STORE_LIST = [
@@ -30,57 +31,32 @@ const STORE_LIST = [
     distance: "도보 120m",
   },
 ];
-const RECENT_SEARCH_WORDS = ["양말", "홍대입구"];
 
 const SearchPage = () => {
-  const [isSearchResult, setIsSearchResult] = useState(true);
-  const setSearchWordValue = useSetSearchWordValue();
-
-  const onClickRecentSearchWord = useCallback(
-    (e: React.MouseEvent<HTMLParagraphElement>) => {
-      const word = e.currentTarget.textContent;
-      if (word) setSearchWordValue(word);
-    },
-    [setSearchWordValue],
-  );
+  const SEARCH_QUERY = useSearchParams().get("search");
 
   return (
     <>
-      <SearchBar />
-      {isSearchResult ? (
+      <Flex as="header" alignItems="center" columnGap="8px" mb="24px">
+        <Link href="/">
+          <Icon name="arrow_back_ios_new" size={24} />
+        </Link>
+        <SearchBar />
+      </Flex>
+
+      {!isEmptySearchWord(SEARCH_QUERY) ? (
+        <RecentSearchWord />
+      ) : (
         <>
-          <Text>
-            검색 결과 <span>102개</span>
-          </Text>
+          <ListTotal title="검색 결과" total={102} />
           <FilterBar />
+          <HorizontalLine h="1px" />
           <Flex flexDir="column" rowGap="24px" pt="24px">
             {STORE_LIST.map((item) => (
               <>
                 <StoreItem key={item.address} storeInformation={item} />
                 <HorizontalLine h="1px" />
               </>
-            ))}
-          </Flex>
-        </>
-      ) : (
-        <>
-          <Text fontSize="16px" fontWeight="700" mb="24px">
-            최근 검색어
-          </Text>
-          <Flex gap="16px" overflowX="scroll" as="ul">
-            {RECENT_SEARCH_WORDS.map((word) => (
-              <Text
-                key={word}
-                fontSize="14px"
-                fontWeight="500"
-                borderRadius="8px"
-                p="4px 8px"
-                bgColor="#EEEEEE"
-                flex="0 0 auto"
-                onClick={onClickRecentSearchWord}
-              >
-                {word}
-              </Text>
             ))}
           </Flex>
         </>

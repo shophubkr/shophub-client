@@ -4,7 +4,7 @@ import { Icon } from "~/components";
 
 export const FilterBar = () => {
   return (
-    <Flex justifyContent="space-between" borderBottom="1px solid lightgray" alignItems="center" p="24px 0 16px 0">
+    <Flex justifyContent="space-between" alignItems="center" p="24px 0 16px 0">
       <Select
         size="sm"
         w="102px"
