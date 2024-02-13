@@ -1,5 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
+import { Icon } from "../Icon";
 import { TAB_BAR_NAVIGATION_GROUP } from "./TabBar.constant";
 import type { TabBarProps } from "./TabBar.type";
 
@@ -28,8 +29,9 @@ export const TabBar = ({ onPathRoutingHandler }: TabBarProps) => {
           onClick={() => onPathRoutingHandler(navigation.path)}
           cursor="pointer"
           color={theme.COLORS.grey[500]}
+          key={navigation.iconName}
         >
-          <Text className="material-icons-outlined">{navigation.iconSymbol}</Text>
+          <Icon name={navigation.iconSymbol} size={24} />
           <Text>{navigation.iconName}</Text>
         </Flex>
       ))}

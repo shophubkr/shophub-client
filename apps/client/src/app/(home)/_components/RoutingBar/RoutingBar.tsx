@@ -1,6 +1,7 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
 import { useRouter } from "next/navigation";
+import { Icon } from "~/components";
 
 export const RoutingBar = () => {
   const router = useRouter();
@@ -23,16 +24,9 @@ export const RoutingBar = () => {
       >
         장소, 매장, 상품 검색
       </Flex>
-      <Text
-        className="material-icons-outlined"
-        color={theme.COLORS.primary[100]}
-        position="absolute"
-        top="50%"
-        right="8px"
-        transform="transLateY(-50%)"
-      >
-        search
-      </Text>
+      <Box h="24px" position="absolute" top="50%" right="8px" transform="transLateY(-50%)">
+        <Icon name="search" size={24} color={theme.COLORS.primary[100]} />
+      </Box>
     </Box>
   );
 };
