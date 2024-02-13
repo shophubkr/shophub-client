@@ -1,1 +1,1 @@
-export * from "./my-page";
+export * from "./sign";

@@ -1,28 +1,26 @@
 "use client";
 
 import { Box } from "@chakra-ui/react";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { CouponSummary, HorizontalLine, StoreItem } from "~/components";
-import type { MyPageBuyerProps } from "~/mocks/Apis";
+import { CouponSummaryContainer, CouponSummaryItem, HorizontalLine, ListLayout, StoreItem } from "~/components";
 import { SummarySection, UserProfile } from "../_components";
 
-const BuyerMainPage = () => {
-  // 퍼블리싱 용입니다.
-  const [data, setData] = useState<MyPageBuyerProps>({ nearbyStores: [], CouponSummary: {} });
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get<MyPageBuyerProps>("/api/user/my-page");
-        console.log(data);
-        setData(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getData();
-  }, []);
+const data = {
+  followShop: {
+    shopList: [
+      {
+        id: 1,
+        name: "상점 이름3",
+        image: "https://picsum.photos/200",
+        address: "상점 주소",
+        introduce: "상점 소개",
+        checkCoupon: true,
+        minPrice: 2000,
+      },
+    ],
+  },
+};
 
+const BuyerMainPage = () => {
   return (
     <Box w="full" mt="32px">
       <Box mb="42px" ml="16px">
@@ -30,16 +28,20 @@ const BuyerMainPage = () => {
       </Box>
       <HorizontalLine />
       <SummarySection title="가장 가까운 매장" href="/my-page/buyer/nearby-stores">
-        {data?.nearbyStores.map((store, index) => (
-          <Box>
-            <StoreItem key={store.thumbnailUrl} storeInformation={store} />
-            {index !== data.nearbyStores.length - 1 && <HorizontalLine h="1px" m="26px 0 24px" />}
-          </Box>
-        ))}
+        <ListLayout>
+          {data?.followShop.shopList.map((store) => (
+            <StoreItem key={store.id} {...store} />
+          ))}
+        </ListLayout>
       </SummarySection>
       <HorizontalLine />
       <SummarySection title="쿠폰 내역" href="/my-page/buyer/coupons">
-        <CouponSummary couponSummary={data?.CouponSummary} />
+        <CouponSummaryContainer>
+          <CouponSummaryItem title="전체" count={8} variant="red" />
+          <CouponSummaryItem title="사용 쿠폰" count={8} variant="black" />
+          <CouponSummaryItem title="미사용 쿠폰" count={8} variant="gray" />
+          <CouponSummaryItem title="만료 쿠폰" count={8} variant="gray" />
+        </CouponSummaryContainer>
       </SummarySection>
     </Box>
   );
