@@ -1,5 +1,6 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
+import { Button } from "@shophub/ui";
 import Link from "next/link";
 import type { FormProps } from "~/components";
 import { FormElement } from "~/components";
@@ -9,7 +10,7 @@ export const ShopHubAccountLogin = ({ control }: FormProps) => {
 
   return (
     <>
-      <Flex flexDir="column" rowGap="24px">
+      <Flex flexDir="column" rowGap="24px" mb="48px">
         <FormElement
           control={control}
           name="email"
@@ -26,15 +27,7 @@ export const ShopHubAccountLogin = ({ control }: FormProps) => {
           borderColor={theme.COLORS.grey[200]}
         />
       </Flex>
-      <Button
-        type="submit"
-        w="full"
-        h="48px"
-        mt="48px"
-        fontSize="16px"
-        bgColor={theme.COLORS.primary[100]}
-        color={theme.COLORS.white}
-      >
+      <Button type="submit" size="large">
         로그인
       </Button>
       <Flex justifyContent="flex-end" mt="16px">
