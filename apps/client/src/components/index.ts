@@ -8,3 +8,4 @@ export * from "./Icon";
 export * from "./ImageBox";
 export * from "./Avatar";
 export * from "./ListLayout";
+export * from "./SearchBar";
