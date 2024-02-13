@@ -1,10 +1,10 @@
 "use client";
 
 import { Box, Flex } from "@chakra-ui/react";
+import type { ProductItemProps } from "~/components";
 import { HorizontalLine } from "~/components";
 import { UserProfile } from "../../_components";
 import { MyShopSelect, RegisteredProducts, SellerCouponSummary } from "./_components";
-import type { ProductDataProps } from "../../_components/Product/Product.types";
 
 const data = {
   email: "test@test.com",
@@ -18,7 +18,7 @@ const data = {
       date: "2023. 07. 27",
       price: 1000,
     },
-  ] as ProductDataProps[],
+  ] as ProductItemProps[],
 };
 
 const SellerMainPage = () => {
