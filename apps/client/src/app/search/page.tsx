@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { Flex } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 
-import { HorizontalLine, Icon, ListTotal, SearchBar, StoreItem } from "~/components";
+import { HorizontalLine, ListTotal, SearchBar, StoreItem } from "~/components";
 import { FilterBar, RecentSearchWord } from "./_components";
 import { isEmptySearchWord } from "~/utils";
+import { BackButton } from "~/components/BackButton";
 
 // 퍼블리싱용
 const STORE_LIST = [
@@ -37,13 +37,10 @@ const SearchPage = () => {
 
   return (
     <>
-      <Flex as="header" alignItems="center" columnGap="8px" mb="24px">
-        <Link href="/">
-          <Icon name="arrow_back_ios_new" size={24} />
-        </Link>
+      <Flex as="header" alignItems="center" columnGap="8px" m="16px 0 24px 0">
+        <BackButton href="/" />
         <SearchBar />
       </Flex>
-
       {!isEmptySearchWord(SEARCH_QUERY) ? (
         <RecentSearchWord />
       ) : (
