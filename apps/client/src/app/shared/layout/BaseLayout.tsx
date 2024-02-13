@@ -1,3 +1,5 @@
+"use client";
+
 import { Container, css } from "@chakra-ui/react";
 import type { PropsWithChildren } from "react";
 import React from "react";
