@@ -5,6 +5,7 @@ import type { ProductItemProps } from "~/components";
 import { HorizontalLine } from "~/components";
 import { UserProfile } from "../../_components";
 import { MyShopSelect, RegisteredProducts, SellerCouponSummary } from "./_components";
+import type { SellerCouponSummaryProps } from "./_components/SellerCouponSummary/SellerCouponSummary.types";
 
 const data = {
   email: "test@test.com",
@@ -19,6 +20,11 @@ const data = {
       price: 1000,
     },
   ] as ProductItemProps[],
+  coupon: {
+    total: 2,
+    progress: 2,
+    finish: 0,
+  } as SellerCouponSummaryProps,
 };
 
 const SellerMainPage = () => {
@@ -30,7 +36,7 @@ const SellerMainPage = () => {
       <HorizontalLine />
       <MyShopSelect shopNameList={data.shops} />
       <RegisteredProducts products={data.products} />
-      <SellerCouponSummary />
+      <SellerCouponSummary {...data.coupon} />
     </Flex>
   );
 };
