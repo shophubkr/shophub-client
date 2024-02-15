@@ -15,6 +15,7 @@
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/no-empty-function": "off",
+    "@tanstack/query/prefer-query-object-syntax": "error",
     "react/button-has-type": "off",
     "jsx-a11y/media-has-caption": "off",
     "import/prefer-default-export": "off",

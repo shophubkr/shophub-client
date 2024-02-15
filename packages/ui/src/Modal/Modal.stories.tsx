@@ -5,6 +5,7 @@ import { ModalProvider } from "./context/ModalContext";
 import { useModal } from "./hooks/useModal";
 
 const meta: Meta<typeof Modal> = {
+  title: "ui/Modal",
   component: Modal,
 };
 

@@ -1,15 +1,10 @@
-export interface ValidityProps {
-  start: string;
-  end: string;
-}
-
 export interface CouponBodyProps {
   title: string;
   isExpired: boolean;
 }
 
 export interface RestDayProps {
-  restDay: number;
+  dday: number;
   align?: "start" | "center" | "end";
 }
 

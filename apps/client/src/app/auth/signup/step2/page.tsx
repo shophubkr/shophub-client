@@ -1,90 +1,50 @@
 "use client";
 
-import { BusinessApiButton } from "@auth/_components/Form";
-import { signUpSchema } from "@auth/_constants";
-import { signUpApi } from "@auth/_state/server/api";
-import type { SingUpFormValues } from "@auth/_types";
-import { Button, Center, Flex, Heading } from "@chakra-ui/react";
+import { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "@auth/_constants";
+import type { SignUpFormValues } from "@auth/_types";
+import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { CheckBox, FormElement } from "~/components";
+import { usePostUserSignUp } from "../../_state/server";
+import { AgreeCheckBox, SignUpForm } from "./_components";
 
 const SignUpSecond = () => {
-  const { getValues, setValue, control, handleSubmit } = useForm<SingUpFormValues>({
-    resolver: yupResolver(signUpSchema),
+  const role = useSearchParams().get("userType");
+
+  const { control, handleSubmit } = useForm<SignUpFormValues>({
+    resolver: yupResolver(role === "USER_BUYER" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
     defaultValues: {
       email: "",
       password: "",
       passwordConfirm: "",
-      nickName: "",
-      tel: "",
-      businessNum: "",
-      isBusinessNumState: false,
+      nickname: "",
       isAgeOverAgree: false,
       isSendAdsAgree: false,
+      ...(role === "USER_SELLER" && { phoneNumber: "" }),
     },
   });
 
-  const { get } = useSearchParams();
-  const userType = get("userType");
+  const { mutate } = usePostUserSignUp();
 
-  const onSubmitHandler = async (data: SingUpFormValues) => {
-    console.log(data);
-    const postData = { ...data, userType };
+  const handleSubmitHandler = (data: SignUpFormValues) => {
+    const { email, password, nickname, phoneNumber } = data;
 
-    try {
-      // mocking test completed
-      const res = await signUpApi.signUpResponse(postData as object);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+    const buyerFormData = { email, password, nickname, role };
+    const sellerFormData = { ...buyerFormData, phoneNumber };
+
+    mutate(role === "USER_BUYER" ? buyerFormData : sellerFormData);
   };
 
   return (
-    <Center w="100%" flexDir="column" rowGap="80px">
+    <Center w="full" flexDir="column" rowGap="80px">
       <Heading as="h3" fontSize="24px" textAlign="center">
         회원 가입
       </Heading>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <Flex flexDir="column" rowGap="40px">
-          <FormElement control={control} name="email" label="이메일 계정" placeholder="이메일 계정" />
-          <FormElement control={control} name="password" label="비밀번호" type="password" placeholder="비밀번호" />
-          <FormElement
-            control={control}
-            name="passwordConfirm"
-            label="비밀번호 확인"
-            type="password"
-            placeholder="비밀번호 확인"
-          />
-          <FormElement control={control} name="nickName" label="닉네임" placeholder="닉네임" />
-
-          {userType === "seller" && (
-            <>
-              <FormElement control={control} name="tel" label="연락처" placeholder="연락처" />
-              <Flex justifyContent="space-between" alignItems="flex-end" columnGap="8px">
-                <FormElement control={control} name="businessNum" label="사업자 등록번호" placeholder="사업자 번호" />
-                <BusinessApiButton
-                  control={control}
-                  name="isBusinessNumState"
-                  getValues={getValues}
-                  setValue={setValue}
-                />
-              </Flex>
-            </>
-          )}
-        </Flex>
-
-        <Flex mt="48px" flexDir="column" rowGap="8px">
-          <CheckBox control={control} name="isAgeOverAgree">
-            [필수] 만 14세 이상이며 모두 동의합니다.
-          </CheckBox>
-          <CheckBox control={control} name="isSendAdsAgree">
-            [선택] 광고성 정보 수신에 모두 동의합니다.
-          </CheckBox>
-        </Flex>
-        <Button w="100%" h="48px" mt="48px" type="submit">
+      <form onSubmit={handleSubmit(handleSubmitHandler)}>
+        <SignUpForm control={control} name="signUpForm" />
+        <AgreeCheckBox control={control} name="signUpCheckbox" />
+        <Button w="full" h="48px" mt="48px" type="submit">
           가입하기
         </Button>
       </form>

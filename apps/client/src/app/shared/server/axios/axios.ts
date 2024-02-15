@@ -1,62 +1,86 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
-import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from "../constants";
-import type { isRequireAuthType } from "./axios.types";
+import type { BaseResponse } from "../types";
 
-const env = process.env.NEXT_PUBLIC_BACKEND_URL;
+const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
-export const AxiosInstance = ({ isRequireAuth }: isRequireAuthType) => {
-  const instanceConfig = {
-    baseURL: env,
-    headers: {
-      "Content-Type": "application/json",
-      ...((isRequireAuth && { "Authorization": `Bearer ${ACCESS_TOKEN_KEY}` }) ?? {}),
+const instanceConfig = {
+  baseURL: "/api",
+  headers: {
+    "Content-Type": "application/json",
+    ...((accessToken && { "Authorization": `Bearer ${accessToken}` }) ?? {}),
+  },
+  withCredentials: true,
+  timeout: 5000,
+};
+
+const axiosInstance: AxiosInstance = axios.create(instanceConfig);
+
+if (accessToken) {
+  axiosInstance.interceptors.request.use(
+    (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
+      return config;
     },
-    withCredentials: true,
-    timeout: 5000,
-  };
+    (error: AxiosError) => {
+      return Promise.reject(error);
+    },
+  );
 
-  const createAxiosInstance = axios.create(instanceConfig);
+  axiosInstance.interceptors.response.use(
+    (response: AxiosResponse) => {
+      return response;
+    },
+    async (error: AxiosError) => {
+      const _err = error;
+      const originalReqConfig = error?.config;
 
-  if (isRequireAuth) {
-    createAxiosInstance.interceptors.request.use(
-      (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-        return config;
-      },
-      (error: AxiosError) => {
-        return Promise.reject(error);
-      },
-    );
+      if (_err.status === 401 && REFRESH_TOKEN_KEY) {
+        try {
+          const res = await axiosInstance.post(`/auth/reissue`, { REFRESH_TOKEN_KEY });
+          const reIssuedAccessToken: string = await res?.data?.result?.accessToken;
 
-    createAxiosInstance.interceptors.response.use(
-      (response: AxiosResponse): AxiosResponse => {
-        return response;
-      },
-      async (error: AxiosError) => {
-        const _err = error;
-        const originalReqConfig = error?.config;
+          if (reIssuedAccessToken) {
+            originalReqConfig!.headers.Authorization = `Bearer ${reIssuedAccessToken}`;
 
-        if (_err.status === 401 && REFRESH_TOKEN_KEY) {
-          try {
-            const res = await createAxiosInstance.post(`${env}/api/v1/auth/reissue`, { REFRESH_TOKEN_KEY });
-            const reIssuedAccessToken: string = await res?.data?.result?.accessToken;
-
-            if (reIssuedAccessToken) {
-              originalReqConfig!.headers.Authorization = `Bearer ${reIssuedAccessToken}`;
-
-              return originalReqConfig;
-            }
-          } catch (refreshError) {
-            return Promise.reject(refreshError);
+            return axiosInstance(originalReqConfig as InternalAxiosRequestConfig);
           }
+        } catch (refreshError) {
+          return Promise.reject(refreshError);
         }
+      }
 
-        return Promise.reject(error);
-      },
-    );
-  }
+      return Promise.reject(error);
+    },
+  );
+}
 
-  return createAxiosInstance;
+axiosInstance.interceptors.response.use(
+  (response: AxiosResponse) => {
+    return response;
+  },
+  (error: AxiosError) => {
+    return Promise.reject(error);
+  },
+);
+
+export const api = {
+  get: <T>(...args: Parameters<typeof axiosInstance.get>) => {
+    return axiosInstance.get<BaseResponse<T>>(...args);
+  },
+  post: <T>(...args: Parameters<typeof axiosInstance.post>) => {
+    return axiosInstance.post<BaseResponse<T>>(...args);
+  },
+  put: <T>(...args: Parameters<typeof axiosInstance.put>) => {
+    return axiosInstance.put<BaseResponse<T>>(...args);
+  },
+  patch: <T>(...args: Parameters<typeof axiosInstance.patch>) => {
+    return axiosInstance.patch<BaseResponse<T>>(...args);
+  },
+  delete: <T>(...args: Parameters<typeof axiosInstance.delete>) => {
+    return axiosInstance.delete<BaseResponse<T>>(...args);
+  },
 };

@@ -1,5 +1,11 @@
-import type { ElementType, HTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
+import type { sizeCSS, roundCSS, variantCSS } from "./Button.styles";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  as?: ElementType;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: keyof typeof sizeCSS;
+  round?: keyof typeof roundCSS;
+  variant?: keyof ReturnType<typeof variantCSS>;
+  w?: string; // width
+  iconSized?: number;
+  iconNamed?: string;
 }
