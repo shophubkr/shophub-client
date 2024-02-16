@@ -1,13 +1,12 @@
 "use client";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import { CouponState, CouponBody, Validity, Dday } from "../components";
 import type { CouponProps } from "./Coupon.types";
 
-export const Coupon = ({ shopName, couponType, couponContent, dday, startedAt, expiredAt }: CouponProps) => {
-  const isExpired = dday <= 0;
+export const Coupon = ({ shopName, couponType, content, isFinished, dday, startedAt, expiredAt }: CouponProps) => {
   return (
-    <Box w="full" h="191px">
+    <Box w="full">
       {couponType === "buyer" && (
         <Box>
           <Flex w="full" alignItems="center" justifyContent="space-between" mb="13px">
@@ -17,7 +16,9 @@ export const Coupon = ({ shopName, couponType, couponContent, dday, startedAt, e
             </Flex>
             <Dday dday={dday} />
           </Flex>
-          <CouponBody title={couponContent} isExpired={isExpired} />
+          <Link href={`/my/buyer/coupons/${content}`} style={{ textDecoration: "none" }}>
+            <CouponBody title={content} isExpired={isFinished} />
+          </Link>
           <Box mt="16px">
             <Validity start={startedAt} end={expiredAt} />
           </Box>
@@ -27,11 +28,11 @@ export const Coupon = ({ shopName, couponType, couponContent, dday, startedAt, e
         <Box>
           <Flex alignItems="center" justifyContent="space-between" mb="13px">
             <Validity start={startedAt} end={expiredAt} />
-            <CouponState isExpired={isExpired} />
+            <CouponState isExpired={isFinished} />
           </Flex>
-          <CouponBody title={couponContent} isExpired={isExpired} />
+          <CouponBody title={content} isExpired={isFinished} />
           <Box mt="8px">
-            <Dday dday={dday} />
+            <Dday dday={dday} align="center" />
           </Box>
         </Box>
       )}
