@@ -1,2 +1,2 @@
 export * from "./StoreItem";
-export type { StoreProps } from "./StoreItem.types";
+export type { StoreItemProps } from "./StoreItem.types";
