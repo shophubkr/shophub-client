@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 import { Accordion, ShopPin, StoreItem, TabBar } from "~/components";
 import { useBooleanState, useMap } from "~/hooks";
+import { VH } from "~/utils";
 import { KakaoMap, RoutingBar } from "./(home)/_components";
 
 export default function Home() {
@@ -45,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <Container w="390px" h="100vh" m="0 auto" p="8px 0 0 0">
+    <Container w="390px" h={VH(100)} m="0 auto" p="8px 0 0 0">
       <RoutingBar />
       <KakaoMap isKakaoLoaded={isKakaoLoaded}>
         {storeInformationArray.map((shop) => (

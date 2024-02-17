@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { VH } from "~/utils";
 import { TabBar } from "./TabBar";
 
 const meta: Meta<typeof TabBar> = {
@@ -6,7 +7,7 @@ const meta: Meta<typeof TabBar> = {
   component: TabBar,
   decorators: [
     (Story) => (
-      <div style={{ position: "relative", width: "390px", height: "100vh" }}>
+      <div style={{ position: "relative", width: "390px", height: VH(100) }}>
         <Story />
       </div>
     ),

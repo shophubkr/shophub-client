@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { VH } from "../../utils";
 import { Accordion } from "./Accordion";
 
 const meta: Meta<typeof Accordion> = {
@@ -7,7 +8,15 @@ const meta: Meta<typeof Accordion> = {
   component: Accordion,
   decorators: [
     (Story) => (
-      <div style={{ position: "relative", width: "100%", height: "100vh", margin: "0 auto", padding: "8px 0 0 0" }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: VH(100),
+          margin: "0 auto",
+          padding: "8px 0 0 0",
+        }}
+      >
         <Story />
       </div>
     ),

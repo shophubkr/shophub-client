@@ -1,5 +1,6 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
+import { VH } from "../../utils/index";
 import type { AccordionProps } from "./Accordion.type";
 
 export const Accordion = ({ value: isOpenAccordion, onChange, children }: AccordionProps) => {
@@ -9,7 +10,7 @@ export const Accordion = ({ value: isOpenAccordion, onChange, children }: Accord
     <Flex
       position="absolute"
       w="full"
-      h={!isOpenAccordion ? "112px" : "80vh"}
+      h={!isOpenAccordion ? "112px" : VH(80)}
       zIndex="5"
       overflow={isOpenAccordion ? "scroll" : "hidden"}
       left="0"
