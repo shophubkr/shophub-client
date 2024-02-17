@@ -1,10 +1,10 @@
 "use client";
 
+import { LOGIN_SCHEMA } from "@auth/_constants";
 import type { SignInFormValues } from "@auth/_types";
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { LOGIN_SCHEMA } from "../_constants";
 import { usePostLogin } from "../_state/server/hooks";
 import { JoinNavigationForUnknownUser, ShopHubAccountLogin, SnsAccountLogin } from "./_components";
 
