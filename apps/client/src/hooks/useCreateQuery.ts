@@ -15,5 +15,5 @@ export const useCreateQuery = () => {
     [pathname, searchParams],
   );
 
-  return { pathname, createQuery };
+  return { pathname, searchParams, createQuery };
 };
