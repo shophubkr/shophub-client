@@ -1,33 +1,39 @@
-import { useState } from "react";
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
 import { useRouter } from "next/navigation";
 
+import { useCallback, useEffect } from "react";
 import { Icon } from "~/components";
-import { useCreateQuery } from "~/hooks";
-import { isEmptySearchWord, isEnterKey } from "~/utils";
+import { useCreateQuery, useEnterEvent } from "~/hooks";
+import { isEmptyWord } from "~/utils";
+import { useInput } from "~/hooks/useInput";
 
 export const SearchBar = () => {
   const theme = useShophubTheme();
   const router = useRouter();
-  const { pathname, createQuery } = useCreateQuery();
-  const [searchWord, setSearchWord] = useState("");
-
-  const handleChangeSearchWord = (e: React.ChangeEvent<HTMLInputElement>) => setSearchWord(e.target.value);
-
-  const handleKeyDownSearch = (e: React.KeyboardEvent<HTMLInputElement>) => isEnterKey(e) && handleSearch();
+  const { pathname, searchParams, createQuery } = useCreateQuery();
+  const [word, setWord, handleChangeWord] = useInput("");
 
   const handleSearch = () => {
-    const query = createQuery("search", searchWord);
-    if (isEmptySearchWord(searchWord)) router.push(pathname);
-    else router.push(query);
+    const query = createQuery("search", word);
+    if (isEmptyWord(word)) return router.push(pathname);
+    return router.push(query);
   };
+
+  const { handlePressEnter } = useEnterEvent(handleSearch);
+
+  const keepSearchWordOnRefresh = useCallback(() => {
+    const SEARCH_WORD = searchParams.get("search");
+    if (SEARCH_WORD) setWord(SEARCH_WORD);
+  }, [searchParams, setWord]);
+
+  useEffect(() => keepSearchWordOnRefresh(), [keepSearchWordOnRefresh]);
 
   return (
     <InputGroup h="36px">
       <Input
-        value={searchWord}
-        onChange={handleChangeSearchWord}
+        value={word}
+        onChange={handleChangeWord}
         variant="unstyled"
         border={`1px solid ${theme.COLORS.grey[200]}`}
         borderRight="none"
@@ -35,7 +41,7 @@ export const SearchBar = () => {
         p="10px 12px"
         fontSize="14px"
         placeholder="검색어를 입력해주세요."
-        onKeyDown={handleKeyDownSearch}
+        onKeyDown={handlePressEnter}
       />
       <InputRightAddon
         h="36px"
