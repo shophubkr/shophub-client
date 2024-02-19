@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useCreateQuery } from "~/hooks";
 
@@ -9,8 +9,8 @@ export const RecentSearchWord = () => {
   const router = useRouter();
   const { createQuery } = useCreateQuery();
 
-  const onClickRecentSearchWord = (e: React.MouseEvent<HTMLParagraphElement>) => {
-    const query = createQuery("search", e.currentTarget.innerText);
+  const handleClickRecentSearchWord = (word: string) => {
+    const query = createQuery("search", word);
     router.push(query);
   };
 
@@ -19,9 +19,9 @@ export const RecentSearchWord = () => {
       <Text fontSize="16px" fontWeight="700" mb="24px">
         최근 검색어
       </Text>
-      <Flex gap="16px" overflowX="scroll" as="ul">
+      <Flex gap="16px" overflowX="scroll" as="ul" pb="10px">
         {RECENT_SEARCH_WORDS.map((word) => (
-          <Text
+          <Button
             key={word}
             fontSize="14px"
             fontWeight="500"
@@ -29,10 +29,10 @@ export const RecentSearchWord = () => {
             p="4px 8px"
             bgColor="#EEEEEE"
             flex="0 0 auto"
-            onClick={onClickRecentSearchWord}
+            onClick={() => handleClickRecentSearchWord(word)}
           >
             {word}
-          </Text>
+          </Button>
         ))}
       </Flex>
     </>
