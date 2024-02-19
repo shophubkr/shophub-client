@@ -1,4 +1,5 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { Button } from "@shophub/ui";
 import { useRouter } from "next/navigation";
 import { useCreateQuery } from "~/hooks";
 
@@ -9,7 +10,7 @@ export const RecentSearchWord = () => {
   const router = useRouter();
   const { createQuery } = useCreateQuery();
 
-  const handleClickRecentSearchWord = (word: string) => {
+  const handleClickRecentWord = (word: string) => () => {
     const query = createQuery("search", word);
     router.push(query);
   };
@@ -21,19 +22,11 @@ export const RecentSearchWord = () => {
       </Text>
       <Flex gap="16px" overflowX="scroll" as="ul" pb="10px">
         {RECENT_SEARCH_WORDS.map((word) => (
-          <Button
-            key={word}
-            fontSize="14px"
-            fontWeight="500"
-            borderRadius="8px"
-            p="4px 8px"
-            bgColor="#EEEEEE"
-            h="auto"
-            flex="0 0 auto"
-            onClick={() => handleClickRecentSearchWord(word)}
-          >
-            {word}
-          </Button>
+          <Box key={word} flex="0 0 auto">
+            <Button variant="gray" size="tiny" w="fit-content" onClick={handleClickRecentWord(word)}>
+              {word}
+            </Button>
+          </Box>
         ))}
       </Flex>
     </>
