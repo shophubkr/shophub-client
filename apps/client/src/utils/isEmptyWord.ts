@@ -1,4 +1,4 @@
 export const isEmptyWord = (word: string | null) => {
-  if (!word) return false;
+  if (!word) return true;
   return !word.trim();
 };

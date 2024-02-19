@@ -40,7 +40,7 @@ const SearchPage = () => {
         <BackButton href="/" />
         <SearchBar />
       </Flex>
-      {!isEmptyWord(SEARCH_QUERY) ? (
+      {isEmptyWord(SEARCH_QUERY) ? (
         <RecentSearchWord />
       ) : (
         <>

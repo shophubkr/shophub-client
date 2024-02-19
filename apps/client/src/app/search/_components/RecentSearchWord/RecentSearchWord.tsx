@@ -28,6 +28,7 @@ export const RecentSearchWord = () => {
             borderRadius="8px"
             p="4px 8px"
             bgColor="#EEEEEE"
+            h="auto"
             flex="0 0 auto"
             onClick={() => handleClickRecentSearchWord(word)}
           >
