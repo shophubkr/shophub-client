@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex } from "@chakra-ui/react";
-import type { StoreProps } from "~/components";
+import type { StoreItemProps } from "~/components";
 import { HorizontalLine, ListLayout, ListTotal, StoreItem } from "~/components";
 import { useBooleanState } from "~/hooks";
 import { Filters } from "./_components";
@@ -11,7 +11,7 @@ const FollowedShopsPage = () => {
   const { value: isDistanceFilterEnabled, onChange: onChangeDistanceFilter } = useBooleanState();
 
   // TODO : react-query 적용 후 제거
-  const stores: StoreProps[] = []; // 팔로우 매장 리스트
+  const stores: StoreItemProps[] = []; // 팔로우 매장 리스트
   const followCount = 0; // total
 
   return (
@@ -24,7 +24,7 @@ const FollowedShopsPage = () => {
       <HorizontalLine h="1px" />
       <ListLayout>
         {stores.map((store) => (
-          <StoreItem key={store.id} storeInformation={store} />
+          <StoreItem key={store.id} {...store} />
         ))}
       </ListLayout>
     </Flex>

@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { CouponSummaryContainer, CouponSummaryItem } from "./CouponSummary";
 
-import { CouponSummary } from "./CouponSummary";
-
-const meta: Meta<typeof CouponSummary> = {
+const meta: Meta = {
   title: "client/components/Coupon/CouponSummary",
-  component: CouponSummary,
   decorators: [
     (Story) => (
       <div style={{ width: "358px" }}>
@@ -16,25 +14,15 @@ const meta: Meta<typeof CouponSummary> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CouponSummary>;
+type Story = StoryObj;
 
-export const Compartments3: Story = {
-  args: {
-    couponSummary: {
-      total: 8,
-      used: 4,
-      expired: 2,
-    },
-  },
-};
-
-export const Compartments4: Story = {
-  args: {
-    couponSummary: {
-      total: 8,
-      used: 4,
-      unused: 2,
-      expired: 2,
-    },
-  },
+export const CouponSummary: Story = {
+  render: () => (
+    <CouponSummaryContainer>
+      <CouponSummaryItem title="전체" count={8} variant="red" />
+      <CouponSummaryItem title="사용 쿠폰" count={8} variant="black" />
+      <CouponSummaryItem title="미사용 쿠폰" count={8} variant="gray" />
+      <CouponSummaryItem title="만료 쿠폰" count={8} variant="gray" />
+    </CouponSummaryContainer>
+  ),
 };
