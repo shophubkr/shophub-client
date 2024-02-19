@@ -3,10 +3,9 @@
 import { Flex } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 
-import { HorizontalLine, ListTotal, SearchBar, StoreItem } from "~/components";
+import { HorizontalLine, ListTotal, SearchBar, StoreItem, BackButton } from "~/components";
 import { FilterBar, RecentSearchWord } from "./_components";
-import { isEmptySearchWord } from "~/utils";
-import { BackButton } from "~/components/BackButton";
+import { isEmptyWord } from "~/utils";
 
 // 퍼블리싱용
 const STORE_LIST = [
@@ -41,7 +40,7 @@ const SearchPage = () => {
         <BackButton href="/" />
         <SearchBar />
       </Flex>
-      {!isEmptySearchWord(SEARCH_QUERY) ? (
+      {!isEmptyWord(SEARCH_QUERY) ? (
         <RecentSearchWord />
       ) : (
         <>
@@ -49,9 +48,18 @@ const SearchPage = () => {
           <FilterBar />
           <HorizontalLine h="1px" />
           <Flex flexDir="column" rowGap="24px" pt="24px">
-            {STORE_LIST.map((item) => (
+            {STORE_LIST.map((store) => (
               <>
-                <StoreItem key={item.address} storeInformation={item} />
+                <StoreItem
+                  key={store.id}
+                  id={store.id}
+                  image={store.thumbnailUrl}
+                  name={store.name}
+                  introduce={store.description}
+                  checkCoupon={store.isCouponAvailable}
+                  address={store.address}
+                  minPrice={store.minimumPrice}
+                />
                 <HorizontalLine h="1px" />
               </>
             ))}
