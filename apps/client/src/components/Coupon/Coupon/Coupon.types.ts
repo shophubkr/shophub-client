@@ -5,6 +5,7 @@ export interface CouponProps extends CouponDataProps {
 }
 
 export interface CouponDataProps {
+  id: number;
   shopName?: CouponBodyProps["title"];
   content: CouponBodyProps["title"];
   detail: string;
