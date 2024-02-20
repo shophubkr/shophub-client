@@ -1,7 +1,8 @@
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
-export const useCreateQuery = () => {
+export const useRouteWithQuery = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -15,5 +16,10 @@ export const useCreateQuery = () => {
     [pathname, searchParams],
   );
 
-  return { pathname, searchParams, createQuery };
+  const handleNavigateToQuery = (key: string, value: string) => {
+    const QUERY = createQuery(key, value);
+    router.replace(QUERY);
+  };
+
+  return { router, pathname, searchParams, handleNavigateToQuery };
 };
