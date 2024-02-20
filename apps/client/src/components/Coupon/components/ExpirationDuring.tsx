@@ -1,14 +1,14 @@
 "use client";
 
 import { Text } from "@chakra-ui/react";
-import type { ValidityProps } from "./CouponComponents.types";
+import type { ExpirationDuringProps } from "./CouponComponents.types";
 
 /**
  *
  * @param start 'YYYY-MM-DD'
  * @param end 'YYYY-MM-DD'
  */
-export const Validity = ({ start, end }: ValidityProps) => {
+export const ExpirationDuring = ({ start, end }: ExpirationDuringProps) => {
   const modifiedStart = start.split("-").join(".");
   const modifiedEnd = end.split("-").join(".");
   return (

@@ -12,7 +12,7 @@ export interface CouponStateProps {
   isExpired: boolean;
 }
 
-export interface ValidityProps {
+export interface ExpirationDuringProps {
   start: string;
   end: string;
 }

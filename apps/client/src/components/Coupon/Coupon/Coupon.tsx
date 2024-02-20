@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Flex, Link, Text } from "@chakra-ui/react";
-import { CouponState, CouponBody, Validity, Dday } from "../components";
+import { CouponState, CouponBody, ExpirationDuring, Dday } from "../components";
 import type { CouponProps } from "./Coupon.types";
 
 export const Coupon = ({ shopName, couponType, content, isFinished, dday, startedAt, expiredAt }: CouponProps) => {
@@ -20,14 +20,14 @@ export const Coupon = ({ shopName, couponType, content, isFinished, dday, starte
             <CouponBody title={content} isExpired={isFinished} />
           </Link>
           <Box mt="16px">
-            <Validity start={startedAt} end={expiredAt} />
+            <ExpirationDuring start={startedAt} end={expiredAt} />
           </Box>
         </Box>
       )}
       {couponType === "seller" && (
         <Box>
           <Flex alignItems="center" justifyContent="space-between" mb="13px">
-            <Validity start={startedAt} end={expiredAt} />
+            <ExpirationDuring start={startedAt} end={expiredAt} />
             <CouponState isExpired={isFinished} />
           </Flex>
           <CouponBody title={content} isExpired={isFinished} />
