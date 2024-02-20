@@ -4,7 +4,7 @@ import React from "react";
 
 const OriginalNextImage = NextImage.default;
 
-Object.defineProperty(NextImage, "default", {
+Object.defineProperty(NextImage, "initialState", {
   configurable: true,
   value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
