@@ -6,8 +6,9 @@ import { useEffect } from "react";
 import { Icon } from "~/components";
 import { useEnterEvent, useRouteWithQuery, useInput } from "~/hooks";
 import { isEmptyWord } from "~/utils";
+import type { SearchBarProps } from "./SearchBar.types";
 
-export const SearchBar = ({ initialKeyword }: { initialKeyword: string }) => {
+export const SearchBar = ({ initialKeyword }: SearchBarProps) => {
   const theme = useShophubTheme();
   const { router, handleNavigateToQuery } = useRouteWithQuery();
   const { value: keyword, setValue: setKeyword, handleChangeValue: handleChangeKeyword } = useInput(initialKeyword);
