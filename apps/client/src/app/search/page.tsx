@@ -1,11 +1,11 @@
 "use client";
 
 import { Flex } from "@chakra-ui/react";
-import { useSearchParams } from "next/navigation";
 
-import { HorizontalLine, ListTotal, SearchBar, StoreItem, BackButton } from "~/components";
+import { HorizontalLine, Icon, ListTotal, SearchBar, StoreItem } from "~/components";
 import { FilterBar, RecentSearchWord } from "./_components";
 import { isEmptyWord } from "~/utils";
+import { useRouteWithQuery } from "~/hooks";
 
 // 퍼블리싱용
 const STORE_LIST = [
@@ -32,15 +32,20 @@ const STORE_LIST = [
 ];
 
 const SearchPage = () => {
-  const SEARCH_QUERY = useSearchParams().get("search");
+  const { router, searchParams } = useRouteWithQuery();
+  const PARAMS_KEYWORD = searchParams.get("keyword") ?? "";
+
+  const handleNavigateToBack = () => router.back();
 
   return (
     <>
       <Flex as="header" alignItems="center" columnGap="8px" m="16px 0 24px 0">
-        <BackButton href="/" />
-        <SearchBar />
+        <Flex onClick={handleNavigateToBack}>
+          <Icon name="arrow_back_ios_new" size={24} />
+        </Flex>
+        <SearchBar initialKeyword={PARAMS_KEYWORD} />
       </Flex>
-      {isEmptyWord(SEARCH_QUERY) ? (
+      {isEmptyWord(PARAMS_KEYWORD) ? (
         <RecentSearchWord />
       ) : (
         <>

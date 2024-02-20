@@ -1,19 +1,14 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { Button } from "@shophub/ui";
-import { useRouter } from "next/navigation";
-import { useCreateQuery } from "~/hooks";
+import { useRouteWithQuery } from "~/hooks";
 
 // 퍼블리싱용
 const RECENT_SEARCH_WORDS = ["양말", "홍대입구"];
 
 export const RecentSearchWord = () => {
-  const router = useRouter();
-  const { createQuery } = useCreateQuery();
+  const { handleNavigateToQuery } = useRouteWithQuery();
 
-  const handleClickRecentWord = (word: string) => () => {
-    const query = createQuery("search", word);
-    router.push(query);
-  };
+  const handleClickRecentWord = (word: string) => () => handleNavigateToQuery("keyword", word);
 
   return (
     <>

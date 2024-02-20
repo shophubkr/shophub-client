@@ -1,39 +1,38 @@
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
-import { useRouter } from "next/navigation";
+import type { ChangeEvent } from "react";
+import { useEffect } from "react";
 
-import { useCallback, useEffect } from "react";
 import { Icon } from "~/components";
-import { useCreateQuery, useEnterEvent } from "~/hooks";
+import { useEnterEvent, useRouteWithQuery, useInput } from "~/hooks";
 import { isEmptyWord } from "~/utils";
-import { useInput } from "~/hooks/useInput";
 
-export const SearchBar = () => {
+export const SearchBar = ({ initialKeyword }: { initialKeyword: string }) => {
   const theme = useShophubTheme();
-  const router = useRouter();
-  const { pathname, searchParams, createQuery } = useCreateQuery();
-  const [word, setWord, handleChangeWord] = useInput("");
+  const { router, handleNavigateToQuery } = useRouteWithQuery();
+  const { value: keyword, setValue: setKeyword, handleChangeValue: handleChangeKeyword } = useInput(initialKeyword);
+
+  useEffect(() => {
+    setKeyword(initialKeyword);
+  }, [setKeyword, initialKeyword]);
 
   const handleSearch = () => {
-    const query = createQuery("search", word);
-    if (isEmptyWord(word)) return router.push(pathname);
-    return router.push(query);
+    if (isEmptyWord(keyword) || initialKeyword === keyword) return;
+    handleNavigateToQuery("keyword", keyword);
   };
 
   const { handlePressEnter } = useEnterEvent(handleSearch);
 
-  const keepSearchWordOnRefresh = useCallback(() => {
-    const SEARCH_WORD = searchParams.get("search");
-    if (SEARCH_WORD) setWord(SEARCH_WORD);
-  }, [searchParams, setWord]);
-
-  useEffect(() => keepSearchWordOnRefresh(), [keepSearchWordOnRefresh]);
+  const handleKeywordInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "") return router.replace("/search");
+    return handleChangeKeyword(e);
+  };
 
   return (
     <InputGroup h="36px">
       <Input
-        value={word}
-        onChange={handleChangeWord}
+        value={keyword}
+        onChange={handleKeywordInput}
         variant="unstyled"
         border={`1px solid ${theme.COLORS.grey[200]}`}
         borderRight="none"
