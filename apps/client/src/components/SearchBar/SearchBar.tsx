@@ -1,33 +1,28 @@
 import { Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { useShophubTheme } from "@shophub/theme";
-import type { ChangeEvent } from "react";
-import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { type ChangeEvent } from "react";
 
 import { Icon } from "~/components";
-import { useEnterEvent, useRouteWithQuery, useInput } from "~/hooks";
+import { useEnterEvent, useInput } from "~/hooks";
 import { isEmptyWord } from "~/utils";
-import type { SearchBarProps } from "./SearchBar.types";
 
-export const SearchBar = ({ initialKeyword }: SearchBarProps) => {
+export const SearchBar = ({ initialKeyword }: { initialKeyword: string }) => {
   const theme = useShophubTheme();
-  const { router, handleNavigateToQuery } = useRouteWithQuery();
-  const { value: keyword, setValue: setKeyword, handleChangeValue: handleChangeKeyword } = useInput(initialKeyword);
+  const router = useRouter();
+  const { value: keyword, handleChangeValue: handleChangeKeyword } = useInput(initialKeyword);
 
-  useEffect(() => {
-    setKeyword(initialKeyword);
-  }, [setKeyword, initialKeyword]);
+  const handleKeywordInput = (e: ChangeEvent<HTMLInputElement>) => {
+    handleChangeKeyword(e);
+    if (isEmptyWord(e.target.value) && !isEmptyWord(initialKeyword)) router.replace("/search");
+  };
 
   const handleSearch = () => {
-    if (isEmptyWord(keyword) || initialKeyword === keyword) return;
-    handleNavigateToQuery("keyword", keyword);
+    if (keyword === initialKeyword || isEmptyWord(keyword)) return;
+    router.replace(`/search/${keyword}`);
   };
 
   const { handlePressEnter } = useEnterEvent(handleSearch);
-
-  const handleKeywordInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") return router.replace("/search");
-    return handleChangeKeyword(e);
-  };
 
   return (
     <InputGroup h="36px">

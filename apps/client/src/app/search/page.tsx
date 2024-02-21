@@ -1,76 +1,33 @@
 "use client";
 
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { Button } from "@shophub/ui";
+import { useRouter } from "next/navigation";
 
-import { HorizontalLine, Icon, ListTotal, SearchBar, StoreItem } from "~/components";
-import { FilterBar, RecentSearchWord } from "./_components";
-import { isEmptyWord } from "~/utils";
-import { useRouteWithQuery } from "~/hooks";
+import { SearchHeader } from "./_components";
 
-// 퍼블리싱용
-const STORE_LIST = [
-  {
-    id: 1,
-    thumbnailUrl: "https://picsum.photos/200",
-    name: "title",
-    description: "전문 스트릿 브랜드샵",
-    isCouponAvailable: true,
-    address: "서울특별시 강남구 테헤란로 123",
-    minimumPrice: 69000,
-    distance: "도보 120m",
-  },
-  {
-    id: 2,
-    thumbnailUrl: "https://picsum.photos/200",
-    name: "title",
-    description: "전문 스트릿 브랜드샵",
-    isCouponAvailable: true,
-    address: "서울특별시 강남구 테헤란로 124",
-    minimumPrice: 69000,
-    distance: "도보 120m",
-  },
-];
+const RECENT_SEARCH_WORDS = ["양말", "홍대입구"];
 
 const SearchPage = () => {
-  const { router, searchParams } = useRouteWithQuery();
-  const PARAMS_KEYWORD = searchParams.get("keyword") ?? "";
+  const router = useRouter();
 
-  const handleNavigateToBack = () => router.back();
+  const handleClickRecentWord = (word: string) => () => router.replace(`/search/${word}`);
 
   return (
     <>
-      <Flex as="header" alignItems="center" columnGap="8px" m="16px 0 24px 0">
-        <Flex onClick={handleNavigateToBack}>
-          <Icon name="arrow_back_ios_new" size={24} />
-        </Flex>
-        <SearchBar initialKeyword={PARAMS_KEYWORD} />
+      <SearchHeader initialKeyword="" />
+      <Text fontSize="16px" fontWeight="700" mb="24px">
+        최근 검색어
+      </Text>
+      <Flex gap="16px" overflowX="scroll" as="ul" pb="10px">
+        {RECENT_SEARCH_WORDS.map((word) => (
+          <Box key={word} flex="0 0 auto">
+            <Button variant="gray" size="tiny" w="fit-content" onClick={handleClickRecentWord(word)}>
+              {word}
+            </Button>
+          </Box>
+        ))}
       </Flex>
-      {isEmptyWord(PARAMS_KEYWORD) ? (
-        <RecentSearchWord />
-      ) : (
-        <>
-          <ListTotal title="검색 결과" total={102} />
-          <FilterBar />
-          <HorizontalLine h="1px" />
-          <Flex flexDir="column" rowGap="24px" pt="24px">
-            {STORE_LIST.map((store) => (
-              <>
-                <StoreItem
-                  key={store.id}
-                  id={store.id}
-                  image={store.thumbnailUrl}
-                  name={store.name}
-                  introduce={store.description}
-                  checkCoupon={store.isCouponAvailable}
-                  address={store.address}
-                  minPrice={store.minimumPrice}
-                />
-                <HorizontalLine h="1px" />
-              </>
-            ))}
-          </Flex>
-        </>
-      )}
     </>
   );
 };
