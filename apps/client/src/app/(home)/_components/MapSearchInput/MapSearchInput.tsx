@@ -3,7 +3,7 @@ import { useShophubTheme } from "@shophub/theme";
 import { useRouter } from "next/navigation";
 import { Icon } from "~/components";
 
-export const RoutingBar = () => {
+export const MapSearchInput = () => {
   const router = useRouter();
   const theme = useShophubTheme();
 

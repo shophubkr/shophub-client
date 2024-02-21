@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 
 export interface KakaoMapProps extends PropsWithChildren {
-  isKakaoLoaded: {
+  kakaoLoadedData: {
     onload: boolean;
     center: {
       lat: number;

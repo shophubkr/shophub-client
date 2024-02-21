@@ -4,13 +4,13 @@ import { Container } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { CustomOverlayMap } from "react-kakao-maps-sdk";
 import { Accordion, ShopPin, StoreItem, TabBar } from "~/components";
-import { useBooleanState, useMap } from "~/hooks";
+import { useBooleanState, useKaKaoMap } from "~/hooks";
 import { VH } from "~/utils";
-import { KakaoMap, RoutingBar } from "./(home)/_components";
+import { KakaoMap, MapSearchInput } from "./(home)/_components";
 
 export default function Home() {
   const { value: isOpenAccordion, onChange } = useBooleanState();
-  const { isKakaoLoaded } = useMap();
+  const { kakaoLoadedData } = useKaKaoMap();
   const router = useRouter();
 
   const TEST_IMAGE_URL = "https://picsum.photos/id/237/96/96";
@@ -46,9 +46,9 @@ export default function Home() {
   };
 
   return (
-    <Container w="390px" h={VH(100)} m="0 auto" p="8px 0 0 0">
-      <RoutingBar />
-      <KakaoMap isKakaoLoaded={isKakaoLoaded}>
+    <Container h={VH(100)} mx="auto" pt="8px">
+      <MapSearchInput />
+      <KakaoMap kakaoLoadedData={kakaoLoadedData}>
         {storeInformationArray.map((shop) => (
           <CustomOverlayMap key={shop.id} position={shop.latLng}>
             <ShopPin name={shop.name} checkCoupon={shop.isCouponAvailable} />
