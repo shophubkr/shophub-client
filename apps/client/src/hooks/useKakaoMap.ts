@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const useMap = () => {
-  const [isKakaoLoaded, setIsKakaoLoaded] = useState({
+export const useKaKaoMap = () => {
+  const [kakaoLoadedData, setKakaoLoadedData] = useState({
     center: {
       lat: 37.500643,
       lng: 127.036377,
@@ -15,11 +15,11 @@ export const useMap = () => {
     kakaoScript.src = process.env.NEXT_PUBLIC_SDK_KAKAO_MAP as string;
     kakaoScript.async = true;
     kakaoScript.onload = () => {
-      setIsKakaoLoaded((prev) => ({ ...prev, onload: true }));
+      setKakaoLoadedData((prev) => ({ ...prev, onload: true }));
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-          setIsKakaoLoaded((prev) => ({
+          setKakaoLoadedData((prev) => ({
             ...prev,
             center: {
               lat: position.coords.latitude,
@@ -37,5 +37,5 @@ export const useMap = () => {
     };
   }, []);
 
-  return { isKakaoLoaded };
+  return { kakaoLoadedData };
 };
