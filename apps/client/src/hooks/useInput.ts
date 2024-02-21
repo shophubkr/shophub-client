@@ -5,5 +5,5 @@ export const useInput = (initialValue: string) => {
 
   const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
-  return { value, setValue, handleChangeValue };
+  return { value, handleChangeValue };
 };
