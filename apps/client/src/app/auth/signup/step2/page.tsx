@@ -4,6 +4,7 @@ import { SIGN_UP_BUYER_SCHEMA, SIGN_UP_SELLER_SCHEMA } from "@auth/_constants";
 import type { SignUpFormValues } from "@auth/_types";
 import { Button, Center, Heading } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useShophubTheme } from "@shophub/theme";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { usePostUserSignUp } from "../../_state/server";
@@ -11,6 +12,7 @@ import { AgreeCheckBox, SignUpForm } from "./_components";
 
 const SignUpSecond = () => {
   const role = useSearchParams().get("userType");
+  const theme = useShophubTheme();
 
   const { control, handleSubmit } = useForm<SignUpFormValues>({
     resolver: yupResolver(role === "USER_BUYER" ? SIGN_UP_BUYER_SCHEMA : SIGN_UP_SELLER_SCHEMA),
@@ -44,7 +46,14 @@ const SignUpSecond = () => {
       <form onSubmit={handleSubmit(handleSubmitHandler)}>
         <SignUpForm control={control} name="signUpForm" />
         <AgreeCheckBox control={control} name="signUpCheckbox" />
-        <Button w="full" h="48px" mt="48px" type="submit">
+        <Button
+          w="full"
+          h="48px"
+          mt="48px"
+          type="submit"
+          color={theme.COLORS.white}
+          bgColor={theme.COLORS.primary[100]}
+        >
           가입하기
         </Button>
       </form>
