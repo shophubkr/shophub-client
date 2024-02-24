@@ -27,17 +27,18 @@ type Story = StoryObj<typeof Coupon>;
 export const Buyer: Story = {
   args: {
     couponType: "buyer",
-    storeName: "BEEN STORE",
-    restDay: 3,
-    validity: { start: "2023-09-01", end: "2023-09-08" },
-    title: "50% 할인",
+    shopName: "BEEN STORE",
+    dday: 3,
+    startedAt: "2023-09-01",
+    expiredAt: "2023-09-08",
+    content: "50% 할인",
   },
 };
 
 export const BuyerExpired: Story = {
   args: {
     ...Buyer.args,
-    restDay: 0,
+    dday: 0,
   },
 };
 
@@ -51,6 +52,6 @@ export const Seller: Story = {
 export const SellerExpired: Story = {
   args: {
     ...Seller.args,
-    restDay: 0,
+    dday: 0,
   },
 };

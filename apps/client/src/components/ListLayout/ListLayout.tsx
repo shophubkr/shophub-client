@@ -8,7 +8,7 @@ export const ListLayout = ({ children }: PropsWithChildren) => {
   const childrenArray = Children.toArray(children);
 
   return (
-    <Flex flexDir="column" rowGap="24px" pt="24px">
+    <Flex flexDir="column" rowGap="24px">
       {childrenArray.map((child, index) => (
         <Fragment key={child.toString()}>
           {child}

@@ -11,3 +11,8 @@ export interface RestDayProps {
 export interface CouponStateProps {
   isExpired: boolean;
 }
+
+export interface ExpirationDuringProps {
+  start: string;
+  end: string;
+}

@@ -1,24 +1,19 @@
-import { Box, Button, Flex, Heading } from "@chakra-ui/react";
-import { signInSnsMediaArray } from "../../_constants/signInSns.mediaArray";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { HorizontalLine, ImageBox } from "~/components";
 
 export const SnsAccountLogin = () => {
-  const oAuthRedirect = async (type: string) => {
-    const authUrl = "http://13.209.100.56/oauth2/authorization";
-
-    window.location.href = `${authUrl}/${type}`;
-  };
-
   return (
     <Box textAlign="center">
-      <Heading as="h6" fontSize="16px">
-        간편 로그인
-      </Heading>
-      <Flex h="48px" justifyContent="space-between" columnGap="9px" mt="24px">
-        {signInSnsMediaArray.map((media) => (
-          <Button w="100%" h="100%" onClick={() => oAuthRedirect(media.type)}>
-            {media.title}
-          </Button>
-        ))}
+      <Flex alignItems="center" columnGap="6px">
+        <HorizontalLine h="1px" />
+        <Text w="full" fontSize="16px">
+          간편 로그인
+        </Text>
+        <HorizontalLine h="1px" />
+      </Flex>
+      <Flex h="48px" justifyContent="center" columnGap="20px" mt="24px">
+        <ImageBox src="/img/oauth_naver.png" alt="oAuthNaverLogo" boxSize="48px" />
+        <ImageBox src="/img/oauth_google.png" alt="oAuthGoogleLogo" boxSize="48px" />
       </Flex>
     </Box>
   );
