@@ -22,7 +22,6 @@ export const SignUpForm = ({ control }: FormProps) => {
         type="password"
         placeholder="비밀번호를 재입력해주세요"
       />
-      <FormElement control={control} name="nickname" label="닉네임 *" placeholder="닉네임을 입력해주세요" />
       {role === "USER_SELLER" && (
         <FormElement control={control} name="phoneNumber" label="연락처 *" placeholder="연락처를 입력해주세요" />
       )}
