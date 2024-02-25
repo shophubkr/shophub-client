@@ -31,7 +31,7 @@ export const Buyer: Story = {
     dday: 3,
     startedAt: "2023-09-01",
     expiredAt: "2023-09-08",
-    couponContent: "50% 할인",
+    content: "50% 할인",
   },
 };
 
