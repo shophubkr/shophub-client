@@ -11,3 +11,4 @@ export * from "./StoreItem";
 export * from "./TabBar";
 export * from "./Avatar";
 export * from "./ListLayout";
+export * from "./ProductItem";

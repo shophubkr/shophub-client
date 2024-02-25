@@ -7,16 +7,20 @@ import { useBooleanState } from "~/hooks";
 // 퍼블리싱 용 데이터입니다. api 연결 후 삭제 예정
 const couponList = [
   {
-    id: "1",
-    couponContent: "천만원 할인 쿠폰",
+    id: 1,
+    content: "천만원 할인 쿠폰",
+    detail: "디테일디테일디테일",
+    isFinished: false,
     startedAt: "2023-09-08",
     expiredAt: "2023-09-13",
     shopName: "상점 이름3",
     dday: 40,
   },
   {
-    id: "2",
-    couponContent: "천만원 할인 쿠폰",
+    id: 2,
+    content: "천만원 할인 쿠폰",
+    detail: "디테일디테일디테일",
+    isFinished: false,
     startedAt: "2023-09-08",
     expiredAt: "2023-09-13",
     shopName: "상점 이름3",
