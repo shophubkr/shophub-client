@@ -1,79 +1,66 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { Container } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+import { CustomOverlayMap } from "react-kakao-maps-sdk";
+import { Accordion, ShopPin, StoreItem, TabBar } from "~/components";
+import { useBooleanState, useKaKaoMap } from "~/hooks";
+import { VH } from "~/utils";
+import { KakaoMap, MapSearchInput } from "./(home)/_components";
 
 export default function Home() {
+  const { value: isOpenAccordion, onChange } = useBooleanState();
+  const { kakaoLoadedData } = useKaKaoMap();
+  const router = useRouter();
+
+  const TEST_IMAGE_URL = "https://picsum.photos/id/237/96/96";
+
+  // TODO : API 조회로 변경합니다. <퍼블리싱용>
+  const storeInformationArray = [
+    {
+      id: 1,
+      thumbnailUrl: TEST_IMAGE_URL,
+      name: "BEEN STORE",
+      description: "스트릿 옷가게",
+      distance: "12m",
+      address: "서울특별시 강남구 테헤란로 11111",
+      isCouponAvailable: false,
+      minimumPrice: 14000,
+      latLng: { lat: 37.5934062, lng: 127.0884679 },
+    },
+    {
+      id: 2,
+      thumbnailUrl: TEST_IMAGE_URL,
+      name: "BEEN STORE",
+      description: "스트릿 옷가게",
+      distance: "12m",
+      address: "서울특별시 강남구 테헤란로 11111",
+      isCouponAvailable: false,
+      minimumPrice: 14000,
+      latLng: { lat: 37.5934062, lng: 127.0884679 },
+    },
+  ];
+
+  const onPathRoutingHandler = (path: string) => {
+    router.push(path);
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image src="/vercel.svg" alt="Vercel Logo" className={styles.vercelLogo} width={100} height={24} priority />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image className={styles.logo} src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
-        </a>
-      </div>
-    </main>
+    <Container h={VH(100)} mx="auto" pt="8px">
+      <MapSearchInput />
+      <KakaoMap kakaoLoadedData={kakaoLoadedData}>
+        {storeInformationArray.map((shop) => (
+          <CustomOverlayMap key={shop.id} position={shop.latLng}>
+            <ShopPin name={shop.name} checkCoupon={shop.isCouponAvailable} />
+          </CustomOverlayMap>
+        ))}
+      </KakaoMap>
+      <Accordion value={isOpenAccordion} onChange={onChange}>
+        {storeInformationArray.map((shop) => (
+          <StoreItem key={shop.id} storeInformation={shop} />
+        ))}
+      </Accordion>
+      <TabBar onPathRoutingHandler={onPathRoutingHandler} />
+    </Container>
   );
 }
