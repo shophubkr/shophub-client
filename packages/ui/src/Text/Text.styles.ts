@@ -1,21 +1,7 @@
 import styled from "@emotion/styled";
 
 import { FONTS } from "@shophub/theme/src/token";
-import type { FontWeight, ShophubFontsKey } from "./Text.types";
-
-const fontWeightMap: FontWeight = {
-  light: 300,
-  regular: 400,
-  medium: 500,
-  bold: 700,
-};
-
-const getFontWeight = (weight: keyof FontWeight) => {
-  return fontWeightMap[weight];
-};
-
-const typoSize = (typo: ShophubFontsKey) => `${FONTS[typo].size}px`;
-const typoWeight = (typo: ShophubFontsKey) => `${getFontWeight(FONTS[typo].weight)}`;
+import type { ShophubFontsKey } from "./Text.types";
 
 export const createTextElement = (as: keyof JSX.IntrinsicElements, typo: ShophubFontsKey, color: string) => styled(as)<{
   typo: ShophubFontsKey;
@@ -23,7 +9,7 @@ export const createTextElement = (as: keyof JSX.IntrinsicElements, typo: Shophub
 }>`
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   line-height: 1;
-  font-size: ${typoSize(typo)};
-  font-weight: ${typoWeight(typo)};
+  font-size: ${FONTS[typo].size}px;
+  font-weight: ${FONTS[typo].weight};
   color: ${color};
 `;
