@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { COLORS, FONTS } from "@shophub/theme/src/token";
+import { FONTS } from "@shophub/theme/src/token";
 import { Text } from "./Text";
 
 const meta: Meta<typeof Text> = {
@@ -12,8 +12,7 @@ const meta: Meta<typeof Text> = {
       options: Object.keys(FONTS),
     },
     color: {
-      control: "select",
-      options: Object.keys(COLORS),
+      control: "text",
     },
     as: {
       control: "select",
